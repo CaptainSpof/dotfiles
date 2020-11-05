@@ -11,6 +11,7 @@
   modules = {
     desktop = {
       bspwm.enable = true;
+      plasma.enable = true;
       apps = {
         discord.enable = true;
         rofi.enable = true;
@@ -20,17 +21,20 @@
         firefox.enable = true;
       };
       media = {
-        documents.enable = true;
-        graphics.enable = true;
+        documents = {
+	  enable = true;
+	  pdf.enable = true;
+	};
+        graphics.enable = false;
         mpv.enable = true;
-        recording.enable = true;
+        recording.enable = false;
       };
       term = {
         default = "xst";
         st.enable = true;
       };
       vm = {
-        # virtualbox.enable = true;
+        virtualbox.enable = false;
       };
     };
     editors = {
@@ -41,7 +45,7 @@
     dev = {
       # cc.enable = true;
       # common-lisp.enable = true;
-      # rust.enable = true;
+      rust.enable = true;
       # lua.enable = true;
       # lua.love2d.enable = true;
     };
@@ -66,7 +70,7 @@
 
     };
     services = {
-      # syncthing.enable = true;
+      #syncthing.enable = true;
       ssh.enable = true;
     };
     theme.active = "alucard";
@@ -79,6 +83,9 @@
 
   networking.wireless.enable = true;
   hardware.opengl.enable = true;
+
+  # TODO Move to module ?
+  services.xserver.libinput.enable = true;
 
   # time.timeZone = "Europe/Copenhagen";
 }

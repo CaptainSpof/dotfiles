@@ -55,7 +55,13 @@ with inputs;
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.configurationLimit = 10;
-    systemd-boot.enable = mkDefault true;
+    systemd-boot.enable = mkDefault false;
+    grub = {
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
+    };
   };
 
   # Just the bear necessities...
