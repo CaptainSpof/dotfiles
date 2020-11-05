@@ -3,6 +3,7 @@
 { ... }:
 {
   imports = [
+    ../personal.nix
     ./hardware-configuration.nix
   ];
 
