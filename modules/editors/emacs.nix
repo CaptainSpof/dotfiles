@@ -22,7 +22,9 @@ in {
     user.packages = with pkgs; [
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
-      emacsGcc       # 28 + native-comp
+      # FIXME: Takes forever to build, will reactivate later
+      # emacsGcc       # 28 + native-comp
+      emacs
 
       ## Doom dependencies
       git
