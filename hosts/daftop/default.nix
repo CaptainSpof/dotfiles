@@ -22,16 +22,17 @@
       };
       media = {
         documents = {
-	  enable = true;
-	  pdf.enable = true;
-	};
+          enable = true;
+          pdf.enable = true;
+        };
         graphics.enable = false;
         mpv.enable = true;
         recording.enable = false;
       };
       term = {
-        default = "xst";
+        default = "alacritty";
         st.enable = true;
+        alacritty.enable = true;
       };
       vm = {
         virtualbox.enable = false;
