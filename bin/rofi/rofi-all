@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# TODO: This is ugly as sin, better loop over available scripts (i.e loop files in /rofi)
+ENTRIES="rofi-bluetooth\nrofi-pass\nrofi-monitors\nrofi-emoji"
+ 
+SEL=$(echo -e $ENTRIES | rofi -dmenu -i -p "Choose a rofi script")
+
+exec $SEL
