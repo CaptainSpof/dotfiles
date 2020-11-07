@@ -32,7 +32,7 @@ in {
         displayManager = {
           defaultSession = "none+bspwm";
           lightdm.enable = true;
-          lightdm.greeters.mini.enable = true;
+          lightdm.greeters.mini.enable = false;
         };
         windowManager.bspwm.enable = true;
       };

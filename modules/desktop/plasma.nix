@@ -13,6 +13,8 @@ in {
     environment.systemPackages = with pkgs; [
       libnotify
       latte-dock
+      kdeFrameworks.kconfig
+      kdeFrameworks.kconfigwidgets
     ];
 
     services = {
@@ -20,7 +22,7 @@ in {
         enable = true;
         displayManager = {
           lightdm.enable = true;
-          lightdm.greeters.mini.enable = true;
+          lightdm.greeters.mini.enable = false;
         };
         desktopManager.plasma5.enable = true;
       };

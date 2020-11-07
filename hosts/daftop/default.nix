@@ -10,7 +10,7 @@
   ## Modules
   modules = {
     desktop = {
-      bspwm.enable = true;
+      bspwm.enable = false;
       plasma.enable = true;
       apps = {
         discord.enable = true;
@@ -51,6 +51,7 @@
     };
     hardware = {
       audio.enable = true;
+      bluetooth.enable = true;
       fs = {
         enable = true;
         ssd.enable = true;
@@ -81,7 +82,8 @@
   programs.ssh.startAgent = true;
   services.openssh.startWhenNeeded = true;
 
-  networking.wireless.enable = true;
+  networking.networkmanager.enable = true;
+  # networking.wireless.enable = true;
   hardware.opengl.enable = true;
 
   # TODO Move to module ?
