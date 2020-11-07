@@ -29,7 +29,7 @@ in {
     };
     
     home.configFile = {
-      "plasma.touchpadxlibinputrc" = {
+      "touchpadxlibinputrc" = {
         source = "${configDir}/touchpadxlibinputrc";
       };
     };
