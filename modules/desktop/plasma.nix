@@ -27,5 +27,11 @@ in {
         desktopManager.plasma5.enable = true;
       };
     };
+    
+    home.configFile = {
+      "plasma" = {
+        source = "${configDir}/plasma";
+      };
+    };
   };
 }
