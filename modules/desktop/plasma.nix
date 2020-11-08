@@ -12,7 +12,10 @@ in {
 
     environment.systemPackages = with pkgs; [
       libnotify
-      latte-dock
+      # latte-dock
+      yakuake
+      # TODO: Move out of plasma
+      # kdeconnect
       kdeFrameworks.kconfig
       kdeFrameworks.kconfigwidgets
     ];
@@ -33,5 +36,10 @@ in {
         source = "${configDir}/touchpadxlibinputrc";
       };
     };
+
+    # allow port for kdeconnect
+    # networking.firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    # networking.firewall.allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
   };
+
 }

@@ -68,12 +68,10 @@
       # ranger.enable = true;
       zsh.enable = true;
     };
-    hardware = {
-
-    };
     services = {
       #syncthing.enable = true;
       ssh.enable = true;
+      kdeconnect.enable = true;
     };
     theme.active = "alucard";
   };
