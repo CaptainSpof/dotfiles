@@ -9,12 +9,12 @@ in {
    };
 
    config = mkIf cfg.enable {
-     networking.firewall.allowedTCPPorts = [ { from = 1714; to = 1764; ];
-     networking.firewall.allowedUDPPorts = [ { from = 1714; to = 1764; ];
+     networking.firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+     networking.firewall.allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
 
      environment.systemPackages = with pkgs; [
        kdeconnect
      ];
 
    };
-};
+}
