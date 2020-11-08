@@ -35,16 +35,29 @@ in {
       promptInit = "";
     };
 
+    # home.packages = with uPkgs; [
+    #   comma
+    # ];
+
     user.packages = with pkgs; [
-      zsh
-      nix-zsh-completions
       bat
+      bottom
       exa
       fasd
       fd
       fzf
-      tldr
+      jq
+      killall
+      navi
+      nix-zsh-completions
+      procs
+      ripgrep
+      skim
+      starship
+      tealdeer
+      tokei
       zoxide
+      zsh
     ];
 
     env = {

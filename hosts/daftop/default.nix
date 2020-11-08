@@ -76,7 +76,6 @@
     theme.active = "alucard";
   };
 
-
   ## Local config
   programs.ssh.startAgent = true;
   services.openssh.startWhenNeeded = true;

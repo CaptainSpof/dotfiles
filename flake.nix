@@ -23,22 +23,31 @@
       # Extras
       emacs-overlay.url  = "github:nix-community/emacs-overlay";
       nixos-hardware.url = "github:nixos/nixos-hardware";
+      # FIXME: HELP I don't know how to use it...
+      comma = {
+        url = "github:Shopify/comma";
+        flake = false;
+      };
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, comma, ... }:
     let
       inherit (lib) attrValues;
       inherit (lib.my) mapModules mapModulesRec mapHosts;
+      # FIXME: Does that make sense?
+      inherit comma;
 
       system = "x86_64-linux";
 
       mkPkgs = pkgs: extraOverlays: import pkgs {
         inherit system;
+	# FIXME: Does that make sense?
+	inherit comma;
         config.allowUnfree = true;  # forgive me Stallman senpai
         overlays = extraOverlays ++ (attrValues self.overlays);
       };
       pkgs  = mkPkgs nixpkgs [ self.overlay ];
-      uPkgs = mkPkgs nixpkgs-unstable [];
+      uPkgs = mkPkgs nixpkgs-unstable [ ];
 
       lib = nixpkgs.lib.extend
         (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
@@ -51,8 +60,7 @@
           my = self.packages."${system}";
         };
 
-      overlays =
-        mapModules ./overlays import;
+      overlays = mapModules ./overlays import;
 
       packages."${system}" =
         mapModules ./packages
