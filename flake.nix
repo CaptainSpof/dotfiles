@@ -34,15 +34,11 @@
     let
       inherit (lib) attrValues;
       inherit (lib.my) mapModules mapModulesRec mapHosts;
-      # FIXME: Does that make sense?
-      inherit comma;
 
       system = "x86_64-linux";
 
       mkPkgs = pkgs: extraOverlays: import pkgs {
         inherit system;
-	# FIXME: Does that make sense?
-	inherit comma;
         config.allowUnfree = true;  # forgive me Stallman senpai
         overlays = extraOverlays ++ (attrValues self.overlays);
       };
