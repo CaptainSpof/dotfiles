@@ -9,7 +9,15 @@ in {
   };
 
   config = mkIf cfg.enable {
-    user.packages = [ pkgs.direnv ];
+    user.packages = [ pkgs.direnv pkgs.nix-direnv ];
     modules.shell.zsh.rcInit = ''eval "$(direnv hook zsh)"'';
+    # nix options for derivations to persist garbage collection
+    nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
+    environment.pathsToLink = [
+      "/share/nix-direnv"
+    ];
   };
 }
