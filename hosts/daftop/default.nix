@@ -17,6 +17,7 @@
           discord.enable = true;
           teams.enable = true;      # can't wait to disable that memory hogging app
           teamspeak.enable = true;
+          slack.enable = true;
         };
         rofi.enable = true;
       };
@@ -69,6 +70,7 @@
       zsh.enable = true;
     };
     services = {
+      # TODO: add module syncthing
       #syncthing.enable = true;
       ssh.enable = true;
       kdeconnect.enable = true;
