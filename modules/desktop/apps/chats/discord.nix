@@ -2,9 +2,9 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.apps.discord;
+let cfg = config.modules.desktop.apps.chats.discord;
 in {
-  options.modules.desktop.apps.discord = {
+  options.modules.desktop.apps.chats.discord = {
     enable = mkBoolOpt false;
   };
 
