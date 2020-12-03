@@ -2,7 +2,7 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.apps.teamspeak;
+let cfg = config.modules.desktop.apps.chats.teamspeak;
 in {
   options.modules.desktop.apps.chats.teamspeak = {
     enable = mkBoolOpt false;

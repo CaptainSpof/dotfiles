@@ -13,7 +13,10 @@
       bspwm.enable = false;
       plasma.enable = true;
       apps = {
-        discord.enable = true;
+        chats = {
+          teamspeak.enable = true;
+          discord.enable = true;
+        };
         rofi.enable = true;
       };
       browsers = {
