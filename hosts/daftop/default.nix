@@ -14,8 +14,9 @@
       plasma.enable = true;
       apps = {
         chats = {
-          teamspeak.enable = true;
           discord.enable = true;
+          teams.enable = true;      # can't wait to disable that memory hogging app
+          teamspeak.enable = true;
         };
         rofi.enable = true;
       };
