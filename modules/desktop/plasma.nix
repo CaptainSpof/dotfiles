@@ -24,7 +24,7 @@ in {
       xserver = {
         enable = true;
         displayManager = {
-          lightdm.enable = true;
+          sddm.enable = true;
           lightdm.greeters.mini.enable = false;
         };
         desktopManager.plasma5.enable = true;
@@ -34,6 +34,7 @@ in {
     home.configFile = {
       "touchpadxlibinputrc" = {
         source = "${configDir}/touchpadxlibinputrc";
+	recursive = true;
       };
     };
 
