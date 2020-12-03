@@ -22,8 +22,9 @@ in {
     user.packages = with pkgs; [
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
-      # emacsGcc       # 28 + native-comp
-      emacs
+      # emacsGcc   # 28 + native-comp
+      emacsPgtkGcc   # 28 + pgtk + native-comp
+      # emacs
 
       ## Doom dependencies
       git
@@ -65,6 +66,12 @@ in {
     modules.shell.zsh.rcFiles = [ "${configDir}/emacs/aliases.zsh" ];
 
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
+
+    # home.file.".emacs.d" = {
+    #home.file.".emacs.d" = {
+   #   source = https://github.com/hlissner/doom-emacs;
+  #    recursive = true;
+ #   };
 
      # init.doomEmacs = mkIf cfg.doom.enable ''
      #   if [ -d $HOME/.config/emacs ]; then
