@@ -20,11 +20,12 @@ alias gurl='curl --compressed'
 alias y='xclip -selection clipboard -in'
 alias p='xclip -selection clipboard -out'
 
-alias sc=systemctl
-alias ssc='sudo systemctl'
+alias sys=systemctl
+alias sysu=systemctl --user
+alias ssys='sudo systemctl'
 
 if command -v exa >/dev/null; then
-  alias exa="exa --group-directories-first";
+  alias ls="exa --group-directories-first";
   alias l="exa -1";
   alias ll="exa -lg";
   alias la="LC_COLLATE=C exa -la";
