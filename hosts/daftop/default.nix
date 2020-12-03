@@ -31,7 +31,6 @@
       };
       term = {
         default = "alacritty";
-        st.enable = true;
         alacritty.enable = true;
       };
       vm = {
@@ -45,10 +44,7 @@
     };
     dev = {
       # cc.enable = true;
-      # common-lisp.enable = true;
       rust.enable = true;
-      # lua.enable = true;
-      # lua.love2d.enable = true;
     };
     hardware = {
       audio.enable = true;
@@ -61,7 +57,7 @@
     shell = {
       direnv.enable = true;
       git.enable = true;
-      gnupg.enable = true;
+      gnupg.enable = false;
       # weechat.enable = true;
       pass.enable = true;
       tmux.enable = true;
