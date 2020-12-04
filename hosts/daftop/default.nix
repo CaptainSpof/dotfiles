@@ -1,11 +1,7 @@
 # Shiro -- my laptop
 
-{ ... }:
-{
-  imports = [
-    ../personal.nix
-    ./hardware-configuration.nix
-  ];
+{ ... }: {
+  imports = [ ../personal.nix ./hardware-configuration.nix ];
 
   ## Modules
   modules = {
@@ -15,9 +11,10 @@
       apps = {
         chats = {
           discord.enable = true;
-          teams.enable = true;      # can't wait to disable that memory hogging app
+          teams.enable = true; # can't wait to disable that memory hogging app
           teamspeak.enable = true;
-          slack.enable = true;
+          telegram.enable = true;
+          slack.enable = true; # you too slack, you too...
         };
         rofi.enable = true;
       };
@@ -38,9 +35,7 @@
         default = "alacritty";
         alacritty.enable = true;
       };
-      vm = {
-        virtualbox.enable = false;
-      };
+      vm = { virtualbox.enable = false; };
     };
     editors = {
       default = "nvim";
