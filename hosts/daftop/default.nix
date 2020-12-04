@@ -50,6 +50,8 @@
     dev = {
       # cc.enable = true;
       rust.enable = true;
+      shell.enable = true;
+      nix.enable = true;
     };
     hardware = {
       audio.enable = true;

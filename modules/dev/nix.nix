@@ -1,9 +1,8 @@
 # modules/dev/nix.nix --- http://zsh.sourceforge.net/
 #
-# Nix script programmers are strange beasts. Writing programs in a language
-# that wasn't intended as a programming language. Alas, it is not for us mere
-# mortals to question the will of the ancient ones. If they want nix programs,
-# they get nix programs.
+# Nix, I found that when running a NixOs system,
+# we happen to come across nix quite often. I don't understand it,
+# but it's nice to format it.
 
 { config, options, lib, pkgs, my, ... }:
 
