@@ -2,9 +2,9 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.apps.skype;
+let cfg = config.modules.desktop.apps.chats.skype;
 in {
-  options.modules.desktop.apps.skype = {
+  options.modules.desktop.apps.chats.skype = {
     enable = mkEnableOption false;
   };
 
