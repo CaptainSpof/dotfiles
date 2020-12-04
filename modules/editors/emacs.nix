@@ -57,8 +57,7 @@ in {
       texlive.combined.scheme-medium
       # :lang rust
       rustfmt
-      # FIXME
-      # unstable.rust-analyzer
+      unstable.rust-analyzer
     ];
 
     env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
@@ -68,10 +67,9 @@ in {
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
 
     # home.file.".emacs.d" = {
-    #home.file.".emacs.d" = {
-   #   source = https://github.com/hlissner/doom-emacs;
-  #    recursive = true;
- #   };
+    #   source = https://github.com/hlissner/doom-emacs;
+    #   recursive = true;
+    # };
 
      # init.doomEmacs = mkIf cfg.doom.enable ''
      #   if [ -d $HOME/.config/emacs ]; then
