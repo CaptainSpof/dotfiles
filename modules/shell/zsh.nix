@@ -42,6 +42,7 @@ in {
     user.packages = with pkgs; [
       bat
       bottom
+      dua
       exa
       fasd
       fd
