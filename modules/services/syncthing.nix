@@ -9,8 +9,14 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.syncthing.enable = true;
-
-    # networking.firewall.allowedTCPPorts = [ 8080 ];
+    # services.syncthing.enable = true;
+    services = {
+      syncthing = {
+        enable = true;
+        user = "daf";
+        dataDir = "/home/daf/Documents";
+        # configDir = "/home/daf/Documents/.config/syncthing";
+      };
+    };
   };
 }
