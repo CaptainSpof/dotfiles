@@ -46,6 +46,7 @@ in {
         symbola
         noto-fonts
         noto-fonts-cjk
+        source-code-pro
       ];
     };
 
