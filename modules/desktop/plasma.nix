@@ -11,11 +11,19 @@ in {
   config = mkIf cfg.enable {
 
     environment.systemPackages = with pkgs; [
+      ark
       libnotify
       # latte-dock
       yakuake
       kdeFrameworks.kconfig
       kdeFrameworks.kconfigwidgets
+      plasma5.plasma-integration
+      plasma5.plasma-browser-integration
+      kdeplasma-addons
+      kcharselect
+      # Media player
+      # TODO: maybe move to own module ?
+      vlc
     ];
 
     services = {
@@ -32,7 +40,7 @@ in {
     home.configFile = {
       "touchpadxlibinputrc" = {
         source = "${configDir}/touchpadxlibinputrc";
-	recursive = true;
+        recursive = true;
       };
     };
   };
