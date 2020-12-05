@@ -67,8 +67,8 @@
       zsh.enable = true;
     };
     services = {
-      # TODO: add module syncthing
-      #syncthing.enable = true;
+      syncthing.enable = true;
+      docker.enable = true;
       ssh.enable = true;
       kdeconnect.enable = true;
     };
