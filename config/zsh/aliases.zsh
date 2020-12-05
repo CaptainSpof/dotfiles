@@ -24,6 +24,10 @@ alias sys=systemctl
 alias sysu=systemctl --user
 alias ssys='sudo systemctl'
 
+if command -v bat >/dev/null; then
+  alias cat="bat"
+fi
+
 if command -v exa >/dev/null; then
   alias ls="exa --group-directories-first";
   alias l="exa -1";
