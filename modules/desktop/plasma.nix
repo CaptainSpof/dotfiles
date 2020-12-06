@@ -37,11 +37,11 @@ in {
       };
     };
     
-    home.configFile = {
-      "touchpadxlibinputrc" = {
-        source = "${configDir}/touchpadxlibinputrc";
-        recursive = true;
-      };
-    };
+    # home.configFile = {
+    #   "touchpadxlibinputrc" = {
+    #     source = "${configDir}/touchpadxlibinputrc";
+    #     recursive = true;
+    #   };
+    # };
   };
 }
