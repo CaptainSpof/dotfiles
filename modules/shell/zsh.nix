@@ -52,7 +52,7 @@ in {
       navi
       nix-zsh-completions
       procs
-      ripgrep
+      (ripgrep.override {withPCRE2 = true;})
       skim
       starship
       tealdeer
