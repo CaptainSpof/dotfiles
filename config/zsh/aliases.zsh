@@ -30,6 +30,7 @@ fi
 
 if command -v exa >/dev/null; then
   alias ls="exa --group-directories-first";
+  alias sl="ls"
   alias l="exa -1";
   alias ll="exa -lg";
   alias la="LC_COLLATE=C exa -la";
