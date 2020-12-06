@@ -22,7 +22,7 @@ in {
         shell.zsh.rcFiles  = [ ./config/zsh/prompt.zsh ];
         shell.tmux.rcFiles = [ ./config/tmux.conf ];
         desktop.browsers = {
-        # FIXME: conditionally enable
+        # TODO: conditionally enable
         # firefox.userChrome = concatMapStringsSep "\n" readFile [
         #   ./config/firefox/userChrome.css
         # ];

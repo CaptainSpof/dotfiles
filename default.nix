@@ -49,7 +49,6 @@ with inputs;
   fileSystems."/".device = "/dev/disk/by-label/nixos";
 
   # Use the latest kernel
-  # FIXME: Maybe latest is a bit too bleeding edge for now (also takes forever to build)
   boot.kernelPackages = pkgs.linuxPackages_5_9;
 
   boot.loader = {
