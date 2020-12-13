@@ -37,11 +37,15 @@ in {
       };
     };
     
-    # home.configFile = {
-    #   "touchpadxlibinputrc" = {
-    #     source = "${configDir}/touchpadxlibinputrc";
-    #     recursive = true;
-    #   };
-    # };
+    home.configFile = {
+      "kglobalshortcutsrc" = {
+        source = "${configDir}/kglobalshortcutsrc";
+        recursive = true;
+      };
+      # "touchpadxlibinputrc" = {
+      #   source = "${configDir}/touchpadxlibinputrc";
+      #   recursive = true;
+      # };
+    };
   };
 }
