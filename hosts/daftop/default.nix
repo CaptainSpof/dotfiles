@@ -6,7 +6,6 @@
   ## Modules
   modules = {
     desktop = {
-      bspwm.enable = false;
       plasma.enable = true;
       apps = {
         chats = {
