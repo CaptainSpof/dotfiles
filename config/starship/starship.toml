@@ -1,0 +1,61 @@
+[aws]
+style = "bold blue"
+# displayed_items = "profile"
+format = "[$symbol$profile]($style) "
+[aws.region_aliases]
+eu-west-1 = "eu"
+
+[battery]
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 20
+style = "bold red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 35
+style = "bold yellow"
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+vicmd_symbol = "[↖](bold purple)"
+# vicmd_symbol = "[↖](bold #d27c7b)"
+
+[directory]
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+truncation_length=2
+fish_style_pwd_dir_length=3
+truncation_symbol = "…/"
+
+[env_var]
+format = "🐋 [$env_value]($style) "
+variable = "DOCKER_IMG_VERSION"
+style = "yellow bold dimmed"
+
+[kubernetes]
+format = "on [⛵ $context \\($namespace\\)](dimmed green) "
+disabled = true
+[kubernetes.context_aliases]
+"dev.local.cluster.k8s" = "dev"
+
+[java]
+disabled = true
+
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = false
+threshold = 65
+symbol = "🐏"
+separator = "/"
+style = "bold dimmed red"
+format = "$symbol [${ram_pct}( | ${swap})]($style) "
+
+[custom]
+
+[custom.tab]
+command = "tab --starship"
+when = "tab --starship"
+style = "bold blue"
+variable = "TAB"
+format = " ⇥ [$symbol$output]($style) "

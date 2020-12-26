@@ -83,6 +83,11 @@ in {
            ${concatStringsSep "\n" aliasLines}
            ${concatMapStrings (path: "source '${path}'\n") cfg.rcFiles}
            ${cfg.rcInit}
+
+           # zoxide
+           eval "$(zoxide init zsh --cmd=c --hook prompt)"
+           # starship
+           eval "$(starship init zsh)"
         '';
 
       "zsh/extra.zshenv".text = ''
@@ -90,6 +95,9 @@ in {
         ${concatMapStrings (path: "source '${path}'\n") cfg.envFiles}
         ${cfg.envInit}
       '';
+
+      "starship/starship.toml".source = "${configDir}/starship/starship.toml";
+
     };
 
     system.userActivationScripts.cleanupZgen = "rm -fv $XDG_CACHE_HOME/zsh/*";
