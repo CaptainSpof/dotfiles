@@ -96,7 +96,7 @@ in {
         ${cfg.envInit}
       '';
 
-      "starship/starship.toml".source = "${configDir}/starship/starship.toml";
+      "starship.toml".source = "${configDir}/starship/starship.toml";
 
     };
 
