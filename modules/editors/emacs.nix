@@ -56,7 +56,7 @@ in {
       # :lang javascript
       nodePackages.javascript-typescript-langserver
       # :lang latex & :lang org (latex previews)
-      texlive.combined.scheme-medium
+      texlive.combined.scheme-full
       # :lang rust
       rustfmt
       unstable.rust-analyzer

@@ -40,13 +40,13 @@ in {
     
     home.configFile = {
       "kglobalshortcutsrc" = {
-        source = "${configDir}/kglobalshortcutsrc";
+        source = "${configDir}/plasma/kglobalshortcutsrc";
         recursive = true;
       };
-      # "touchpadxlibinputrc" = {
-      #   source = "${configDir}/touchpadxlibinputrc";
-      #   recursive = true;
-      # };
+      "touchpadxlibinputrc" = {
+        source = "${configDir}/plasma/touchpadxlibinputrc";
+        recursive = true;
+      };
     };
   };
 }
