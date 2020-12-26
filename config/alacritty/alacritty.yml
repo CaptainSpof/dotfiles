@@ -93,7 +93,7 @@ font:
   # Normal (roman) font face
   normal:
     ## Previous: Fura Code Nerd Font
-    family: JetBrainsMono
+    family: JetBrains Mono
     # family: Fira Code
     style: Regular
 
@@ -101,14 +101,14 @@ font:
   bold:
     # family: Fira Code
     ## Previous: Fura Code Nerd Font
-    family: JetBrainsMono
+    family: JetBrains Mono
     # The `style` can be specified to pick a specific face.
     style: Bold
 
   # Italic font face
   italic:
     # family: Fira Code
-    family: JetBrainsMono
+    family: JetBrains Mono
     # family: Fura Code Nerd Font
     # The `style` can be specified to pick a specific face.
     style: Italic
