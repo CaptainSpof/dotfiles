@@ -24,6 +24,10 @@ alias sys=systemctl
 alias sysu=systemctl --user
 alias ssys='sudo systemctl'
 
+if command -v btm >/dev/null; then
+  alias htop="btm -b"
+fi
+
 if command -v bat >/dev/null; then
   alias cat="bat"
 fi
@@ -31,9 +35,9 @@ fi
 if command -v exa >/dev/null; then
   alias ls="exa --group-directories-first";
   alias sl="ls"
-  alias l="exa -1";
-  alias ll="exa -lg";
-  alias la="LC_COLLATE=C exa -la";
+  alias l="ls -1";
+  alias ll="ls -lg --git --icons";
+  alias la="LC_COLLATE=C ls -la";
 fi
 
 autoload -U zmv
