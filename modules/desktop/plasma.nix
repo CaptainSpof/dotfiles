@@ -57,6 +57,10 @@ in {
         source = "${configDir}/plasma/khotkeysrc";
         recursive = true;
       };
+      "autostart-scripts/touchegg.sh" = {
+        source = "${configDir}/plasma/autostart-scripts/touchegg.sh";
+        recursive = true;
+      };
     };
   };
 }
