@@ -99,7 +99,7 @@ in {
         (mkIf desktop.apps.rofi.enable {
           "rofi/theme" = { source = ./config/rofi; recursive = true; };
         })
-        (mkIf (desktop.bspwm.enable || desktop.stumpwm.enable) {
+        (mkIf (desktop.bspwm.enable || desktop.stumpwm.enable || desktop.plasma.polybar.enable) {
           "polybar" = { source = ./config/polybar; recursive = true; };
           "dunst/dunstrc".source = ./config/dunstrc;
         })
