@@ -17,6 +17,7 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
       nixfmt
+      nix-direnv
     ];
   };
 }
