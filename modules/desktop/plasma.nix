@@ -6,11 +6,18 @@ let cfg = config.modules.desktop.plasma;
 in {
   options.modules.desktop.plasma = {
     enable = mkBoolOpt false;
+    polybar.enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
 
     environment.systemPackages = with pkgs; [
+
+      (mkIf (config.modules.desktop.plasma.polybar.enable) (polybar.override {
+        pulseSupport = true;
+        nlSupport = true;
+      }))
+
       ark
       libnotify
       # latte-dock
@@ -37,7 +44,7 @@ in {
         desktopManager.plasma5.enable = true;
       };
     };
-    
+
     home.configFile = {
       "kglobalshortcutsrc" = {
         source = "${configDir}/plasma/kglobalshortcutsrc";
