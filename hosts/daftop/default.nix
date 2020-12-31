@@ -74,8 +74,13 @@
       ssh.enable = true;
       kdeconnect.enable = true;
       emacs.enable = false;
+      touchegg.enable = true;
     };
-    theme.active = "alucard";
+    # theme.active = "alucard";
+    theme = {
+      active = "alucard";
+      loginWallpaper = null;
+    };
   };
 
   ## Local config
@@ -89,6 +94,17 @@
   # TODO Move to module ?
   services.xserver.libinput.enable = true;
   services.tlp.enable = true;
+
+  # systemd.services."touchegg" = {
+  #   enable = true;
+  #   description = "touchegg, libinput and stuff. The Daemon.";
+  #   wantedBy = [ "multi-user.target" ];
+  #   serviceConfig.Type = "simple";
+  #   serviceConfig.Group = "input";
+  #   serviceConfig.Restart = "on-failure";
+  #   serviceConfig.RestartSec = 5;
+  #   serviceConfig.ExecStart = "/usr/bin/touchegg --daemon";
+  # };
 
   # time.timeZone = "Europe/Copenhagen";
 }
