@@ -28,14 +28,14 @@ in {
 
       # replaces illustrator & indesign
       (if cfg.vector.enable then [
-        inkscape
+        unstable.inkscape
       ] else []) ++
 
       # Replaces photoshop
       (if cfg.raster.enable then [
         krita
         gimp
-        gimpPlugins.resynthesizer2  # content-aware scaling in gimp
+        gimpPlugins.resynthesizer  # content-aware scaling in gimp
       ] else []) ++
 
       # Sprite sheets & animation

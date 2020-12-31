@@ -27,7 +27,6 @@ with inputs;
       "dotfiles=${dotFilesDir}"
     ];
     binaryCaches = [
-      "https://cache.nixos.org/"
       "https://nix-community.cachix.org"
     ];
     binaryCachePublicKeys = [
@@ -52,7 +51,7 @@ with inputs;
   boot.kernelPackages = pkgs.linuxPackages_5_10;
 
   boot.loader = {
-    efi.canTouchEfiVariables = true;
+    efi.canTouchEfiVariables = mkDefault true;
     systemd-boot.configurationLimit = 10;
     systemd-boot.enable = mkDefault false;
     grub = {
