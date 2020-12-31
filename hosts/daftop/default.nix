@@ -6,7 +6,10 @@
   ## Modules
   modules = {
     desktop = {
-      plasma.enable = true;
+      plasma = {
+        enable = true;
+        polybar.enable = false;
+      };
       apps = {
         chats = {
           discord.enable = true;
@@ -70,6 +73,7 @@
       docker.enable = true;
       ssh.enable = true;
       kdeconnect.enable = true;
+      emacs.enable = false;
     };
     theme.active = "alucard";
   };
@@ -84,6 +88,7 @@
 
   # TODO Move to module ?
   services.xserver.libinput.enable = true;
+  services.tlp.enable = true;
 
   # time.timeZone = "Europe/Copenhagen";
 }
