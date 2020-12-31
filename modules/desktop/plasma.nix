@@ -39,7 +39,6 @@ in {
         enable = true;
         displayManager = {
           sddm.enable = true;
-          lightdm.greeters.mini.enable = false;
         };
         desktopManager.plasma5.enable = true;
       };
@@ -52,6 +51,10 @@ in {
       };
       "touchpadxlibinputrc" = {
         source = "${configDir}/plasma/touchpadxlibinputrc";
+        recursive = true;
+      };
+      "khotkeysrc" = {
+        source = "${configDir}/plasma/khotkeysrc";
         recursive = true;
       };
     };
