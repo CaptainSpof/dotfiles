@@ -14,6 +14,12 @@ New=none,none,New Terminal
 _k_friendly_name=Alacritty
 _launch=none,none,Launch Alacritty
 
+[emacs.desktop]
+_k_friendly_name=Emacs
+_launch=Meta+Shift+E,none,Emacs
+new-private-window=,none,New Private Window
+new-window=,none,New Window
+
 [firefox.desktop]
 _k_friendly_name=Firefox
 _launch=Meta+Shift+W,none,Firefox
