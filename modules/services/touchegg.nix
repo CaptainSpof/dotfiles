@@ -14,12 +14,26 @@ in {
       enable = true;
       description = "touchegg, libinput and stuff. The Daemon.";
       wantedBy = [ "multi-user.target" ];
-      serviceConfig.Type = "simple";
-      serviceConfig.Group = "input";
-      serviceConfig.Restart = "on-failure";
-      serviceConfig.RestartSec = 5;
-      serviceConfig.ExecStart = "/usr/bin/touchegg --daemon";
+      serviceConfig = {
+        Type = "simple";
+        Group = "input";
+        Restart = "on-failure";
+        RestartSec = 5;
+        ExecStart = "/usr/bin/touchegg --daemon";
+      };
     };
 
+    systemd.user.services.touchegg = {
+      script = ''
+        /usr/bin/touchegg
+      '';
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+    };
+
+    home.configFile.touchegg = {
+      source = "${configDir}/touchegg/touchegg.conf";
+      recursive = true;
+    };
   };
 }
