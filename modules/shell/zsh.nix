@@ -35,10 +35,6 @@ in {
       promptInit = "";
     };
 
-    # home.packages = with uPkgs; [
-    #   comma
-    # ];
-
     user.packages = with pkgs; [
       bat
       bottom
@@ -57,6 +53,7 @@ in {
       starship
       tealdeer
       tokei
+      watchexec
       zoxide
       zsh
     ];

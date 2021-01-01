@@ -31,9 +31,11 @@ in {
       partOf = [ "graphical-session.target" ];
     };
 
-    home.configFile.touchegg = {
-      source = "${configDir}/touchegg/touchegg.conf";
-      recursive = true;
+    home.configFile = {
+      "touchegg/touchegg.conf" = {
+        source = "${configDir}/touchegg/touchegg.conf";
+        recursive = true;
+      };
     };
   };
 }
