@@ -7,6 +7,7 @@ in {
   options.modules.desktop.plasma = {
     enable = mkBoolOpt false;
     polybar.enable = mkBoolOpt false;
+    sxhkd.enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
@@ -18,9 +19,13 @@ in {
         nlSupport = true;
       }))
 
+      (mkIf (config.modules.desktop.plasma.sxhkd.enable)
+        sxhkd
+      )
+
       ark
       libnotify
-      # latte-dock
+      latte-dock
       yakuake
       kdeFrameworks.kconfig
       kdeFrameworks.kconfigwidgets
@@ -44,6 +49,17 @@ in {
       };
     };
 
+
+
+    systemd.user.services.sxhkd = mkIf (config.modules.desktop.plasma.sxhkd.enable) {
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+
+      serviceConfig = {
+        ExecStart = "${pkgs.sxhkd}/bin/sxhkd";
+      };
+    };
+
     home.configFile = {
       "kglobalshortcutsrc" = {
         source = "${configDir}/plasma/kglobalshortcutsrc";
@@ -53,10 +69,11 @@ in {
         source = "${configDir}/plasma/touchpadxlibinputrc";
         recursive = true;
       };
-      "khotkeysrc" = {
-        source = "${configDir}/plasma/khotkeysrc";
-        recursive = true;
-      };
+      # "khotkeysrc" = {
+      #   source = "${configDir}/plasma/khotkeysrc";
+      #   recursive = true;
+      # };
+      "sxhkd/sxhkdrc".source = mkIf (config.modules.desktop.plasma.sxhkd.enable) "${configDir}sxhkd/sxhkdrc_plasma";
     };
   };
 }

@@ -9,6 +9,7 @@
       plasma = {
         enable = true;
         polybar.enable = false;
+        sxhkd.enable = true;
       };
       apps = {
         chats = {
@@ -40,7 +41,7 @@
       vm = { virtualbox.enable = false; };
     };
     editors = {
-      default = "nvim";
+      default = "emacs";
       emacs.enable = true;
       vim.enable = true;
     };
