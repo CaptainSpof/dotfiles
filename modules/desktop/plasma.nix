@@ -69,10 +69,6 @@ in {
         source = "${configDir}/plasma/touchpadxlibinputrc";
         recursive = true;
       };
-      # "khotkeysrc" = {
-      #   source = "${configDir}/plasma/khotkeysrc";
-      #   recursive = true;
-      # };
       "sxhkd/sxhkdrc" = mkIf (config.modules.desktop.plasma.sxhkd.enable) {
         source = "${configDir}/sxhkd/sxhkdrc_plasma";
       };
