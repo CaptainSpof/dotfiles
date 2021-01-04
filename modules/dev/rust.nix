@@ -31,5 +31,12 @@ in {
       rsp = "rustup";
       ca  = "cargo";
     };
+
+    home.configFile = {
+      "cargo/config" = {
+        source = "${configDir}/cargo/config";
+        recursive = true;
+      };
+    };
   };
 }
