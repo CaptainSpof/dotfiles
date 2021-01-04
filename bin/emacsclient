@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+current_desktop=$(xdotool get_desktop)
+desktop_has_frame=$(wmctrl -lp | tr -s ' ' | cut -f2-3 -d' ' \
+    | grep "^$current_desktop" | cut -f2 -d' ' \
+    | xargs ps h -o comm --pid | grep emacs)
+
+if [[ "$DISPLAY" ]]; then
+        frame=`emacsclient -a '' -e "(member \"$DISPLAY\" (mapcar 'terminal-name (frames-on-display-list)))" 2>/dev/null`
+        [[ "$frame" == "nil" ]] || [[ -z $desktop_has_frame ]] && opts='-c' # if there is no frame open, create one
+        [[ "${@/#-nw/}" == "$@" ]] && opts="$opts -n" # don't wait unless we've asked to run in a terminal
+else
+        opts='-nw'
+fi
+
+exec emacsclient -a '' $opts "$@"
