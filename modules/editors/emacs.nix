@@ -39,6 +39,7 @@ in {
       pandoc
       python3             # for treemacs
       zstd                # for undo-fu-session/undo-tree compression
+      cmake               # for vterm
 
       ## Module dependencies
       # :checkers spell
@@ -73,17 +74,17 @@ in {
     #   recursive = true;
     # };
 
-     # init.doomEmacs = mkIf cfg.doom.enable ''
-     #   if [ -d $HOME/.config/emacs ]; then
-     #      ${optionalString cfg.doom.fromSSH ''
-     #         git clone git@github.com:hlissner/doom-emacs.git $HOME/.config/emacs
-     #         git clone git@github.com:hlissner/doom-emacs-private.git $HOME/.config/doom
-     #      ''}
-     #      ${optionalString (cfg.doom.fromSSH == false) ''
-     #         git clone https://github.com/hlissner/doom-emacs $HOME/.config/emacs
-     #         git clone https://github.com/hlissner/doom-emacs-private $HOME/.config/doom
-     #      ''}
-     #   fi
-     # '';
+    # init.doomEmacs = mkIf cfg.doom.enable ''
+    #   if [ -d $HOME/.config/emacs ]; then
+    #      ${optionalString cfg.doom.fromSSH ''
+    #         git clone git@github.com:hlissner/doom-emacs.git $HOME/.config/emacs
+    #         git clone git@github.com:hlissner/doom-emacs-private.git $HOME/.config/doom
+    #      ''}
+    #      ${optionalString (cfg.doom.fromSSH == false) ''
+    #         git clone https://github.com/hlissner/doom-emacs $HOME/.config/emacs
+    #         git clone https://github.com/hlissner/doom-emacs-private $HOME/.config/doom
+    #      ''}
+    #   fi
+    # '';
   };
 }

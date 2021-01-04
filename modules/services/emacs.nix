@@ -7,15 +7,18 @@ with lib.my;
 let cfg = config.modules.services.emacs;
 in {
   options.modules.services.emacs = {
-    enable = mkBoolOpt false;
+    enable = mkBoolOpt true;
   };
 
   config = mkIf cfg.enable {
+
     nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
-    services = {
-      emacs = {
-        enable = true;
-      };
+    systemd.user.services.emacs = {
+      wantedBy = [ "default.target" ];
+
+      script = ''
+        /etc/profiles/per-user/daf/bin/emacs --daemon
+      '';
     };
   };
 }
