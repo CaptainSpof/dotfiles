@@ -73,7 +73,9 @@ in {
       #   source = "${configDir}/plasma/khotkeysrc";
       #   recursive = true;
       # };
-      "sxhkd/sxhkdrc".source = mkIf (config.modules.desktop.plasma.sxhkd.enable) "${configDir}sxhkd/sxhkdrc_plasma";
+      "sxhkd/sxhkdrc" = mkIf (config.modules.desktop.plasma.sxhkd.enable) {
+        source = "${configDir}/sxhkd/sxhkdrc_plasma";
+      };
     };
   };
 }
