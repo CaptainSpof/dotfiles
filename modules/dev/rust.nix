@@ -29,10 +29,10 @@ in {
     environment.shellAliases = {
       rs  = "rustc";
       rsp = "rustup";
-      ca  = "cargo";
+      car  = "cargo";
     };
 
-    home.configFile = {
+    home.dataFile = {
       "cargo/config" = {
         source = "${configDir}/cargo/config";
         recursive = true;
