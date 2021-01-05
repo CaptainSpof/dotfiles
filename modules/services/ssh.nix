@@ -1,4 +1,4 @@
-{ options, config, lib, ... }:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.my;
@@ -16,6 +16,10 @@ in {
     };
 
     user.openssh.authorizedKeys.keys = [
+    ];
+
+    environment.systemPackages = with pkgs; [
+      connect
     ];
   };
 }
