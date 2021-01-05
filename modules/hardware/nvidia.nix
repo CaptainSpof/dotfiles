@@ -6,12 +6,27 @@ let cfg = config.modules.hardware.nvidia;
 in {
   options.modules.hardware.nvidia = {
     enable = mkBoolOpt false;
+    prime.enable = mkBoolOpt false;
+    prime.nvidiaBusId = mkOption {
+      type = types.str;
+      default = "PCI:1:0:0";
+    };
+    prime.intelBusId = mkOption {
+      type = types.str;
+      default = "PCI:0:2:0";
+    };
   };
 
   config = mkIf cfg.enable {
     hardware.opengl.enable = true;
 
     services.xserver.videoDrivers = [ "nvidia" ];
+
+    hardware.nvidia.prime = mkIf cfg.prime.enable {
+      offload.enable =  true;
+      nvidiaBusId = cfg.prime.nvidiaBusId;
+      intelBusId = cfg.prime.intelBusId;
+    };
 
     environment.systemPackages = with pkgs; [
       # Respect XDG conventions, damn it!

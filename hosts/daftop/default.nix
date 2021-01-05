@@ -46,27 +46,31 @@
       vim.enable = true;
     };
     dev = {
-      # cc.enable = true;
       rust.enable = true;
       shell.enable = true;
       nix.enable = true;
     };
     hardware = {
       audio.enable = true;
-      bluetooth.enable = true;
+      bluetooth = {
+        enable = true;
+        audio.enable = true;
+      };
       fs = {
         enable = true;
         ssd.enable = true;
+      };
+      nvidia = {
+        enable = true;
+        prime.enable = true;
       };
     };
     shell = {
       direnv.enable = true;
       git.enable = true;
       gnupg.enable = false;
-      # weechat.enable = true;
       pass.enable = true;
       tmux.enable = true;
-      # ranger.enable = true;
       zsh.enable = true;
     };
     services = {
@@ -74,10 +78,9 @@
       docker.enable = true;
       ssh.enable = true;
       kdeconnect.enable = true;
-      emacs.enable = false;
+      emacs.enable = true;
       touchegg.enable = true;
     };
-    # theme.active = "alucard";
     theme = {
       active = "alucard";
       loginWallpaper = null;
@@ -95,17 +98,6 @@
   # TODO Move to module ?
   services.xserver.libinput.enable = true;
   services.tlp.enable = true;
-
-  # systemd.services."touchegg" = {
-  #   enable = true;
-  #   description = "touchegg, libinput and stuff. The Daemon.";
-  #   wantedBy = [ "multi-user.target" ];
-  #   serviceConfig.Type = "simple";
-  #   serviceConfig.Group = "input";
-  #   serviceConfig.Restart = "on-failure";
-  #   serviceConfig.RestartSec = 5;
-  #   serviceConfig.ExecStart = "/usr/bin/touchegg --daemon";
-  # };
 
   # time.timeZone = "Europe/Copenhagen";
 }
