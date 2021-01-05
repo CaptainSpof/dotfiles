@@ -2,8 +2,9 @@
 
 with lib;
 with lib.my;
-let hwCfg = config.modules.hardware;
-    cfg = hwCfg.bluetooth;
+let
+  hwCfg = config.modules.hardware;
+  cfg = hwCfg.bluetooth;
 in {
   options.modules.hardware.bluetooth = {
     enable = mkBoolOpt false;
@@ -21,6 +22,11 @@ in {
         package = pkgs.pulseaudioFull;
         # Enable additional codecs
         extraModules = [ pkgs.pulseaudio-modules-bt ];
+
+        # HACK Fixes programs like Teamspeak and Teams to switch bluetooth source
+        extraConfig = ''
+          unload-module module-bluetooth-policy
+        '';
       };
 
       hardware.bluetooth.extraConfig = ''

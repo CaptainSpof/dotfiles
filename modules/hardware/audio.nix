@@ -14,7 +14,6 @@ in {
       enable = true;
       # HACK Prevents ~/.esd_auth files by disabling the esound protocol module
       #      for pulseaudio, which I likely don't need. Is there a better way?
-      # HACK Fixes programs like Teamspeak and Teams to switch bluetooth source
       configFile =
         let inherit (pkgs) runCommand pulseaudio;
             paConfigFile =
@@ -23,7 +22,6 @@ in {
                 mkdir "$out"
                 cp ${pulseaudio}/etc/pulse/default.pa "$out/default.pa"
                 sed -i -e 's|load-module module-esound-protocol-unix|# ...|' "$out/default.pa"
-                sed -i -e 's|load-module module-bluetooth-policy|unload-module module-bluetooth-policy|' "$out/default.pa"
               '';
         in mkIf config.hardware.pulseaudio.enable
           "${paConfigFile}/default.pa";
