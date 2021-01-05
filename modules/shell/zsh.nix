@@ -36,24 +36,25 @@ in {
     };
 
     user.packages = with pkgs; [
-      bat
-      bottom
+      bat                                    # cat, but pretty
+      bandwhich                              # htop, but for network
+      bottom                                 # htop, but pretty
       dua
-      exa
-      fasd
-      fd
+      exa                                    # ls, but pretty
+      fd                                     # find, but fast, also I know how to use it
       fzf
-      jq
-      killall
-      navi
+      jq                                     # make JSON readable, well more readable
+      killall                                # every last one of them (the processes, of course)
+      navi                                   # retired from helping Link to help you suck less at bash
       nix-zsh-completions
-      procs
-      (ripgrep.override {withPCRE2 = true;})
-      skim
+      procs                                  # ps, but pretty
+      (ripgrep.override {withPCRE2 = true;}) # grep, but fast
+      skim                                   # fzf, but rusty
       starship
-      tealdeer
-      tokei
+      tealdeer                               # Yeah, I need all the help; tldr but rusty
+      tokei                                  # Need to know how many line of poor written code you made?
       watchexec
+      wmctrl
       zoxide
       zsh
     ];

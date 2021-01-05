@@ -18,13 +18,9 @@ with inputs; {
   # Configure nix and nixpkgs
   environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
 
-  environment.pathsToLink = [ "/share/nix-direnv" ];
-
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
-      keep-outputs = true
-      keep-derivations = true
       experimental-features = nix-command flakes
     '';
 
