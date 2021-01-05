@@ -14,11 +14,26 @@ in {
 
     nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
     systemd.user.services.emacs = {
-      wantedBy = [ "default.target" ];
+      description = "Emacs Daemon";
+      environment.GTK_DATA_PREFIX = config.system.path;
+      environment.SSH_AUTH_SOCK = "%t/ssh-agent";
+      environment.GTK_PATH = "${config.system.path}/lib/gtk-3.0:${config.system.path}/lib/gtk-2.0";
+      environment.NIX_PROFILES = "${concatStringsSep " " (reverseList config.environment.profiles)}";
 
-      script = ''
-        /etc/profiles/per-user/daf/bin/emacs --daemon
-      '';
+      wantedBy = [ "default.target" ];
+      serviceConfig = {
+        Type = "forking";
+        ExecStart = "${pkgs.emacsPgtkGcc}/bin/emacs --daemon";
+        ExecStop = "${pkgs.emacsPgtkGcc}/bin/emacsclient --eval (kill-emacs)";
+        Restart = "always";
+      };
     };
+    # systemd.user.services.emacs = {
+    #   wantedBy = [ "default.target" ];
+
+    #   script = ''
+    #     /etc/profiles/per-user/daf/bin/emacs --daemon
+    #   '';
+    # };
   };
 }
