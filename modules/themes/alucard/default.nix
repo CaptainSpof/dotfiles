@@ -19,13 +19,13 @@ in {
           };
         };
 
-        shell.zsh.rcFiles  = [ ./config/zsh/prompt.zsh ];
+        shell.zsh.rcFiles  = mkIf cfg.prompt.enable [ ./config/zsh/prompt.zsh ];
         shell.tmux.rcFiles = [ ./config/tmux.conf ];
         desktop.browsers = {
-        # TODO: conditionally enable
-        # firefox.userChrome = concatMapStringsSep "\n" readFile [
-        #   ./config/firefox/userChrome.css
-        # ];
+          # TODO: conditionally enable
+          # firefox.userChrome = concatMapStringsSep "\n" readFile [
+          #   ./config/firefox/userChrome.css
+          # ];
           qutebrowser.userStyles = concatMapStringsSep "\n" toCSSFile [
             ./config/qutebrowser/github.scss
             ./config/qutebrowser/monospace-textareas.scss

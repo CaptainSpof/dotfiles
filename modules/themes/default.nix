@@ -20,6 +20,8 @@ in {
       '';
     };
 
+    prompt.enable = mkBoolOpt true;
+
     wallpaper = mkOpt (either path null) null;
 
     loginWallpaper = mkOpt (either path null)
