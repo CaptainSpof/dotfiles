@@ -34,9 +34,6 @@ in {
       kdeplasma-addons
       kcharselect
       filelight
-      # Media player
-      # TODO: maybe move to own module ?
-      vlc
     ];
 
     services = {

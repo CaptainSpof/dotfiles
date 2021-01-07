@@ -1,4 +1,4 @@
-# Shiro -- my laptop
+# daftop -- my laptop
 
 { ... }: {
   imports = [ ../personal.nix ./hardware-configuration.nix ];
@@ -31,7 +31,8 @@
           pdf.enable = true;
         };
         graphics.enable = false;
-        mpv.enable = true;
+        mpv.enable = false;
+        vlc.enable = true;
         recording.enable = false;
       };
       term = {
@@ -61,14 +62,15 @@
         ssd.enable = true;
       };
       nvidia = {
-        enable = true;
-        prime.enable = true;
+        enable = false;
+        prime.enable = false;
       };
+      sensors.enable = true;
     };
     shell = {
       direnv.enable = true;
       git.enable = true;
-      gnupg.enable = false;
+      gnupg.enable = true;
       pass.enable = true;
       tmux.enable = true;
       zsh.enable = true;
@@ -84,6 +86,7 @@
     theme = {
       active = "alucard";
       loginWallpaper = null;
+      prompt.enable = false;
     };
   };
 
