@@ -25,6 +25,11 @@
         default = "firefox";
         firefox.enable = true;
       };
+      gaming = {
+        emulators = {
+          ds.enable = true;
+        };
+      };
       media = {
         documents = {
           enable = true;
