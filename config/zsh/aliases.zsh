@@ -24,12 +24,16 @@ alias sys=systemctl
 alias sysu=systemctl --user
 alias ssys='sudo systemctl'
 
+if command -v bat >/dev/null; then
+  alias cat="bat"
+fi
+
 if command -v btm >/dev/null; then
   alias htop="btm -b"
 fi
 
-if command -v bat >/dev/null; then
-  alias cat="bat"
+if command -v direnv >/dev/null; then
+  alias da="direnv allow";
 fi
 
 if command -v exa >/dev/null; then

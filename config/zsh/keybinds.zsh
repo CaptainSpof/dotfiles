@@ -7,7 +7,8 @@ export KEYTIMEOUT=15
 autoload -U is-at-least
 
 ## vi-mode ###############
-bindkey -v
+# FIXME This brokes everything, for some reason.
+# bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins ' ' magic-space
 # bindkey -M viins '^I' expand-or-complete-prefix
