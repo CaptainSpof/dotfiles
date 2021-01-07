@@ -29,10 +29,11 @@ in {
         '';
       };
 
-      hardware.bluetooth.extraConfig = ''
-        [General]
-        Enable=Source,Sink,Media,Socket
-      '';
+      # FIXME deprecated it seems
+      # hardware.bluetooth.extraConfig = ''
+      #   [General]
+      #   Enable=Source,Sink,Media,Socket
+      # '';
     })
   ]);
 }
