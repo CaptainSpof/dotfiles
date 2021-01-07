@@ -14,7 +14,7 @@ in {
 
     programs.gnupg.agent.enable = true;
 
-    user.packages = [ pkgs.tomb ];
+    user.packages = [ pkgs.tomb pkgs.pinentry-qt ];
 
     # HACK Without this config file you get "No pinentry program" on 20.03.
     #      programs.gnupg.agent.pinentryFlavor doesn't appear to work, and this
@@ -22,7 +22,7 @@ in {
     home.configFile."gnupg/gpg-agent.conf" = {
       text = ''
         default-cache-ttl ${toString cfg.cacheTTL}
-        pinentry-program ${pkgs.pinentry.gtk2}/bin/pinentry
+        pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
       '';
     };
   };
