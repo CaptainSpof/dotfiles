@@ -23,6 +23,8 @@ in {
         sxhkd
       )
 
+      (mkIf config.services.syncthing.enable syncthingtray)
+
       ark
       libnotify
       latte-dock
