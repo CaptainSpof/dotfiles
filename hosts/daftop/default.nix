@@ -1,6 +1,6 @@
 # daftop -- my laptop
 
-{ ... }: {
+{ inputs, ... }: {
   imports = [ ../personal.nix ./hardware-configuration.nix ];
 
   ## Modules
@@ -73,6 +73,7 @@
       sensors.enable = true;
     };
     shell = {
+      aws.enable = true;
       direnv.enable = true;
       git.enable = true;
       gnupg.enable = true;

@@ -36,10 +36,6 @@ in {
     };
 
     user.packages = with pkgs; [
-      # TODO: move to own module
-      awscli2
-      aws-vault
-
       bat                                    # cat, but pretty
       bandwhich                              # htop, but for network
       bottom                                 # htop, but pretty
