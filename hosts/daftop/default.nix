@@ -48,7 +48,14 @@
     };
     editors = {
       default = "emacs";
-      emacs.enable = true;
+      emacs = {
+        enable = true;
+        doom = {
+          user.config = {
+            src = "git@github.com:CaptainSpof/doom-conf.git";
+          };
+        };
+      };
       vim.enable = true;
     };
     dev = {

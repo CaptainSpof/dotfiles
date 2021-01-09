@@ -12,6 +12,26 @@ in {
     enable = mkBoolOpt false;
     doom = {
       enable  = mkBoolOpt true;
+      src = mkOption {
+        type = types.str;
+        default = "https://github.com/hlissner/doom-emacs";
+      };
+      dest = mkOption {
+        type = types.str;
+        default = "$HOME/.config/emacs";
+      };
+      user = {
+        enable  = mkBoolOpt true;
+        config = {
+          src = mkOption {
+            type = types.str;
+          };
+          dest = mkOption {
+            type = types.str;
+            default = "$HOME/.config/doom";
+          };
+        };
+      };
       fromSSH = mkBoolOpt false;
     };
   };
@@ -34,8 +54,7 @@ in {
       ## Optional dependencies
       fd                  # faster projectile indexing
       imagemagick         # for image-dired
-      (mkIf (config.programs.gnupg.agent.enable)
-        pinentry_emacs)   # in-emacs gnupg prompts
+      (mkIf (config.programs.gnupg.agent.enable) pinentry_emacs)   # in-emacs gnupg prompts
       pandoc
       python3             # for treemacs
       zstd                # for undo-fu-session/undo-tree compression
@@ -69,22 +88,37 @@ in {
 
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
 
-    # home.file.".emacs.d" = {
-    #   source = https://github.com/hlissner/doom-emacs;
-    #   recursive = true;
-    # };
+    system.userActivationScripts.home-doom-setup-daf.text = mkIf cfg.doom.enable ''
+      if [ ! -d ${cfg.doom.dest} ]; then
+      ${pkgs.git}/bin/git clone ${cfg.doom.src} ${cfg.doom.dest}
+      # FIXME: need to manually run command ?
+      # doom install
+      fi
+    '';
 
-    # init.doomEmacs = mkIf cfg.doom.enable ''
-    #   if [ -d $HOME/.config/emacs ]; then
-    #      ${optionalString cfg.doom.fromSSH ''
-    #         git clone git@github.com:hlissner/doom-emacs.git $HOME/.config/emacs
-    #         git clone git@github.com:hlissner/doom-emacs-private.git $HOME/.config/doom
-    #      ''}
-    #      ${optionalString (cfg.doom.fromSSH == false) ''
-    #         git clone https://github.com/hlissner/doom-emacs $HOME/.config/emacs
-    #         git clone https://github.com/hlissner/doom-emacs-private $HOME/.config/doom
-    #      ''}
-    #   fi
-    # '';
+    # TODO: I don't know how this will work on a new system, without ssh.
+    system.userActivationScripts.home-doom-user-setup-daf.text = mkIf cfg.doom.user.enable ''
+      if [ ! -d ${cfg.doom.user.config.dest} ]; then
+      ${pkgs.git}/bin/git clone ${cfg.doom.user.config.src} ${cfg.doom.user.config.dest}
+      fi
+    '';
+
+    # home.file."emacs.test" = {
+      #   source = https://github.com/hlissner/doom-emacs;
+      #   recursive = true;
+      # };
+
+      # init.doomEmacs = mkIf cfg.doom.enable ''
+      #   if [ -d $HOME/.config/emacs ]; then
+      #      ${optionalString cfg.doom.fromSSH ''
+      #         git clone git@github.com:hlissner/doom-emacs.git $HOME/.config/emacs
+      #         git clone git@github.com:hlissner/doom-emacs-private.git $HOME/.config/doom
+      #      ''}
+      #      ${optionalString (cfg.doom.fromSSH == false) ''
+      #         git clone https://github.com/hlissner/doom-emacs $HOME/.config/emacs
+      #         git clone https://github.com/hlissner/doom-emacs-private $HOME/.config/doom
+      #      ''}
+      #   fi
+      # '';
   };
 }
