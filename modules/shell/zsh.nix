@@ -47,6 +47,7 @@ in {
       killall                                # every last one of them (the processes, of course)
       navi                                   # retired from helping Link to help you suck less at bash
       nix-zsh-completions
+      pastel
       procs                                  # ps, but pretty
       (ripgrep.override {withPCRE2 = true;}) # grep, but fast
       skim                                   # fzf, but rusty
