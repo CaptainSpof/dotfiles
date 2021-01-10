@@ -6,6 +6,7 @@ format = "[$symbol$profile]($style) "
 eu-west-1 = "eu"
 
 [battery]
+format = "[$symbol $percentage]($style) "
 
 [[battery.display]]  # "bold red" style when capacity is between 0% and 10%
 threshold = 20
