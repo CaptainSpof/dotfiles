@@ -27,6 +27,8 @@
   # Power management
   environment.systemPackages = [ pkgs.acpi ];
   powerManagement.powertop.enable = true;
+  services.tlp.enable = true;
+  services.thermald.enable = true;
   # Monitor backlight control
   programs.light.enable = true;
   user.extraGroups = [ "video" ];
