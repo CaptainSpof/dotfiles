@@ -48,9 +48,9 @@ in {
         fonts = with pkgs; [
           fira-code
           fira-code-symbols
-          jetbrains-mono
           siji
           font-awesome-ttf
+          (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         ];
         fontconfig.defaultFonts = {
           sansSerif = ["Fira Sans"];
