@@ -25,17 +25,18 @@ in {
 
       (mkIf config.services.syncthing.enable syncthingtray)
 
-      ark
-      libnotify
-      latte-dock
-      yakuake
+      ark                                  # archiver
+      filelight                            # disk analysis
+      kcharselect
       kdeFrameworks.kconfig
       kdeFrameworks.kconfigwidgets
-      plasma5.plasma-integration
-      plasma5.plasma-browser-integration
       kdeplasma-addons
-      kcharselect
-      filelight
+      latte-dock
+      libnotify
+      okular                               # pdf viewer
+      plasma5.plasma-browser-integration
+      plasma5.plasma-integration
+      yakuake                              # drop down terminal
     ];
 
     services = {
