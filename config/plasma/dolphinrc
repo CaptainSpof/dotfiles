@@ -1,0 +1,111 @@
+Height 1080=1054
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAwAAAAAAAAERAAAECvwCAAAAAvsAAAAUAHAAbABhAGMAZQBzAEQAbwBjAGsBAAAALgAABAoAAABcAP////sAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAK0AAABagAAAAIA////AAAAAQAAALIAAAQK/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAQAAAC4AAAQKAAABEwD///8AAAADAAAHRAAAAPn8AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAA8AAAHRAAAAAIA////AAAFtQAABAoAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+Width 1920=1920
+eDP-1 Window-Maximized 1080x1920=true
+eDP-1 XPosition=0
+eDP-1 YPosition=0
+
+[CompactMode]
+FontWeight=50
+
+[Desktop Entry]
+DefaultProfile=Profile 2.profile
+
+[DetailsMode]
+FontWeight=50
+
+[DownloadDialog Settings]
+Height 1080=454
+Width 1920=700
+eDP-1 Height 1080=446
+eDP-1 Width 1920=700
+
+[Favorite Profiles]
+Favorites=
+
+[General]
+AutoExpandFolders=true
+Version=200
+ViewPropsTimestamp=2019,12,13,9,26,32
+
+[IconsMode]
+FontWeight=50
+PreviewSize=80
+
+[KFileDialog Settings]
+Recent Files[$e]=logo.php.png,file:$HOME/Pictures/logo.php.png
+Recent URLs[$e]=file:$HOME/Pictures/
+detailViewIconSize=0
+
+[KPropertiesDialog]
+HDMI-1 eDP-1 Height 1080=544
+HDMI-1 eDP-1 Width 2560=485
+Height 1080=521
+Height 1440=474
+Width 1920=485
+Width 2560=401
+eDP-1 Height 1080=544
+eDP-1 Width 1920=485
+
+[MainWindow]
+DP-1 eDP-1 Height 1080=961
+DP-1 eDP-1 Width 1920=925
+DP-1 eDP-1 Window-Maximized 1440x2560=true
+DP-1 eDP-1 XPosition=378
+DP-1 eDP-1 YPosition=1484
+HDMI-1 eDP-1 Height 1080=968
+HDMI-1 eDP-1 Width 1920=1920
+HDMI-1 eDP-1 Width 2560=1247
+HDMI-1 eDP-1 XPosition=1947
+HDMI-1 eDP-1 YPosition=42
+Height 1080=1080
+Height 1440=1440
+Height 2560=1772
+Height 960=960
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAwAAAAAAAAEuAAAECvwCAAAAAvsAAAAUAHAAbABhAGMAZQBzAEQAbwBjAGsBAAAALgAABAoAAABcAP////sAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAKvAAABAQAAAAIA////AAAAAQAAALwAAAQK/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAQAAAC4AAAQKAAABEwD///8AAAADAAAHSAAAAPn8AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAAAAAHSAAAAAIA////AAAFjgAABAoAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+Width 1440=976
+Width 1707=1707
+Width 1920=1920
+Width 2560=2560
+Window-Maximized 1080x1920=true
+eDP-1 HDMI-1 Height 1080=1080
+eDP-1 HDMI-1 Width 1920=1920
+eDP-1 HDMI-1 XPosition=1
+eDP-1 HDMI-1 YPosition=0
+eDP-1 Height 1080=337
+eDP-1 Width 1920=927
+eDP-1 Window-Maximized 1080x1920=true
+eDP-1 XPosition=0
+eDP-1 YPosition=0
+
+[MainWindow][Toolbar mainToolBar]
+ToolButtonStyle=IconOnly
+
+[Open-with settings]
+CompletionMode=1
+History=ink,kri
+
+[PlacesPanel]
+IconSize=22
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,djvuthumbnail,ebookthumbnail,marble_thumbnail_shp,exrthumbnail,directorythumbnail,fontthumbnail,marble_thumbnail_geojson,pothumbnail,marble_thumbnail_gpx,imagethumbnail,jpegthumbnail,marble_thumbnail_kmz,marble_thumbnail_kml,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,marble_thumbnail_osm,gsthumbnail,designerthumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs
+
+[SettingsDialog]
+Height 1080=522
+Width 1920=582
+eDP-1 Height 1080=513
+eDP-1 Width 1920=619
+
+[Toolbar mainToolBar]
+ToolButtonStyle=IconOnly
+
+[VersionControl]
+enabledPlugins=Git
+
+[ViewPropertiesDialog]
+Height 1080=320
+Width 1920=369

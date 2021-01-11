@@ -76,6 +76,9 @@ in {
       "arkrc" = {
         source = "${configDir}/plasma/arkrc";
       };
+      "dolphinrc" = {
+        source = "${configDir}/plasma/dolphinrc";
+      };
     };
   };
 }
