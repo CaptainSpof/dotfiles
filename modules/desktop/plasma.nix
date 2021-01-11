@@ -34,6 +34,7 @@ in {
       latte-dock
       libnotify
       okular                               # pdf viewer
+      libsForQt5.plasma-browser-integration
       plasma5.plasma-browser-integration
       plasma5.plasma-integration
       yakuake                              # drop down terminal
@@ -71,6 +72,9 @@ in {
       };
       "sxhkd/sxhkdrc" = mkIf (config.modules.desktop.plasma.sxhkd.enable) {
         source = "${configDir}/sxhkd/sxhkdrc_plasma";
+      };
+      "arkrc" = {
+        source = "${configDir}/plasma/arkrc";
       };
     };
   };
