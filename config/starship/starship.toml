@@ -33,6 +33,12 @@ format = "🐋 [$env_value]($style) "
 variable = "DOCKER_IMG_VERSION"
 style = "yellow bold dimmed"
 
+[nix_shell]
+symbol = "❄"
+impure_msg = "[❄](bold red)"
+pure_msg = "[❄](bold blue)"
+format = 'with [$state]($style) '
+
 [kubernetes]
 format = "on [⛵ $context \\($namespace\\)](dimmed green) "
 disabled = true
