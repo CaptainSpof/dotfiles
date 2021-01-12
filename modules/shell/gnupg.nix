@@ -22,7 +22,7 @@ in {
     home.configFile."gnupg/gpg-agent.conf" = {
       text = ''
         default-cache-ttl ${toString cfg.cacheTTL}
-        pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
+        (mfIf (config.modules.desktop.plasma.enable) pinentry-program ${pkgs.pinentry-qt}/bin/pinentry)
       '';
     };
   };

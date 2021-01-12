@@ -18,6 +18,7 @@ in {
     user.packages = with pkgs; [
       nixfmt
       nix-direnv
+      nix-tree
     ];
   };
 }

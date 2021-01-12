@@ -19,7 +19,7 @@
           telegram.enable = true;
           slack.enable = true; # you too slack, you too...
         };
-        office.libreoffice.enable = true;
+        office.libreoffice.enable = false;
         rofi.enable = true;
       };
       browsers = {
