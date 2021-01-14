@@ -19,10 +19,11 @@ in {
     # HACK Without this config file you get "No pinentry program" on 20.03.
     #      programs.gnupg.agent.pinentryFlavor doesn't appear to work, and this
     #      is cleaner than overriding the systemd unit.
+    # TODO if / else to activate pinentry-qt or regular pinentry
     home.configFile."gnupg/gpg-agent.conf" = {
       text = ''
         default-cache-ttl ${toString cfg.cacheTTL}
-        (mfIf (config.modules.desktop.plasma.enable) pinentry-program ${pkgs.pinentry-qt}/bin/pinentry)
+        pinentry-program ${pkgs.pinentry-qt}/bin/pinentry
       '';
     };
   };
