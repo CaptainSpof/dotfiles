@@ -19,6 +19,7 @@ in {
       nixfmt
       nix-direnv
       nix-tree
+      hydra-check
     ];
   };
 }
