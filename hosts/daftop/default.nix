@@ -15,7 +15,7 @@
         chats = {
           discord.enable = true;
           teams.enable = true; # can't wait to disable that memory hogging app
-          teamspeak.enable = true;
+          teamspeak.enable = false;
           telegram.enable = true;
           slack.enable = true; # you too slack, you too...
         };
@@ -61,6 +61,7 @@
     };
     dev = {
       rust.enable = true;
+      lua.enable = true;
       shell.enable = true;
       nix.enable = true;
     };
