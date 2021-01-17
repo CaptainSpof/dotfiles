@@ -367,7 +367,7 @@ show latte global settings=none,Meta+W,Show Latte Global Settings
 show latte view=,Meta+`,Show Latte Dock/Panel
 show view settings=,Meta+A,Cycle Through Dock/Panel Settings Windows
 show-barcode=none,none,Show Barcode...
-show-on-mouse-pos=Meta+Ctrl+Alt+Shift+V\tMeta+V,none,Open Klipper at Mouse Position
+show-on-mouse-pos=Meta+Ctrl+Alt+Shift+V,Meta+V,none,Open Klipper at Mouse Position
 
 [mediacontrol]
 _k_friendly_name=Media Controller
@@ -437,7 +437,7 @@ previous activity=,Meta+Shift+Tab,Walk through activities (Reverse)
 repeat_action=Ctrl+Alt+R,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
 show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=,none,Show Barcode...
-show-on-mouse-pos=none,none,Open Klipper at Mouse Position
+show-on-mouse-pos=Meta+V,none,Open Klipper at Mouse Position
 stop current activity=none,Meta+S,Stop Current Activity
 switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity

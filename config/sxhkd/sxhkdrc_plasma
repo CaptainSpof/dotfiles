@@ -28,7 +28,7 @@ super + b
 	$DOTFILES/bin/rofi/rofi-bluetooth
 
 super + p
-	$DOTFILES/bin/rofi/passmenu
+	$DOTFILES/bin/rofi/rofi-pass --last-used
 
 # super + slash
 # 	$DOTFILES/bin/rofi/filemenu -x

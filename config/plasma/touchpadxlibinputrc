@@ -2,3 +2,4 @@
 clickMethodAreas=false
 clickMethodClickfinger=false
 naturalScroll=true
+disableWhileTyping=true

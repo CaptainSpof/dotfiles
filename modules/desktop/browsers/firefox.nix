@@ -26,25 +26,27 @@ in {
 
   config = mkIf cfg.enable (mkMerge [{
     user.packages = with pkgs; [
-      firefox-beta-bin
+      firefox
       (makeDesktopItem {
         name = "firefox-private";
         desktopName = "Firefox (Private)";
         genericName = "Open a private Firefox window";
         icon = "firefox";
-        exec = "${firefox-beta-bin}/bin/firefox --private-window";
+        exec = "${firefox}/bin/firefox --private-window";
         categories = "Network";
       })
     ];
+
+    nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;
 
     # Prevent auto-creation of ~/Desktop. The trailing slash is necessary; see
     # https://bugzilla.mozilla.org/show_bug.cgi?id=1082717
     env.XDG_DESKTOP_DIR = "$HOME/";
 
     modules.desktop.browsers.firefox.settings = {
-      "devtools.theme" = "dark";
+      "devtools.theme" = "light";
       # Enable userContent.css and userChrome.css for our theme modules
-      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      # "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       # Stop creating ~/Downloads!
       "browser.download.dir" = "${homeDir}/dl";
       # Don't use the built-in password manager; a nixos user is more likely
@@ -130,6 +132,15 @@ in {
     # Use a stable profile name so we can target it in themes
     home.file = let cfgPath = ".mozilla/firefox";
     in {
+
+      # Fix plasma integration
+      ".mozilla/native-messaging-hosts".source = pkgs.symlinkJoin {
+          name = "native-messaging-hosts";
+          paths = [
+              "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts"
+          ];
+      };
+
       "${cfgPath}/profiles.ini".text = ''
         [Profile0]
         Name=default
