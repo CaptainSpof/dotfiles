@@ -25,7 +25,7 @@ in {
 
     systemd.user.services.touchegg = {
       script = ''
-        /usr/bin/touchegg
+        touchegg
       '';
       wantedBy = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
