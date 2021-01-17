@@ -11,9 +11,9 @@ in {
     {
       modules = {
         theme = {
-          wallpaper = mkDefault ./config/wallpaper.png;
+          # wallpaper = mkDefault ./config/wallpaper.png;
           gtk = {
-            theme = "Qogir";
+            theme = "Qogir-light";
             iconTheme = "Qogir";
             cursorTheme = "Breeze";
           };

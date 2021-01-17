@@ -81,26 +81,26 @@ in {
       };
     }
 
-    (mkIf (cfg.wallpaper != null)
-      (let wCfg = config.services.xserver.desktopManager.wallpaper;
-           command = ''
-             if [ -e "$XDG_DATA_HOME/wallpaper" ]; then
-               ${pkgs.feh}/bin/feh --bg-${wCfg.mode} \
-                 ${optionalString wCfg.combineScreens "--no-xinerama"} \
-                 --no-fehbg \
-                 $XDG_DATA_HOME/wallpaper
-             fi
-          '';
-       in {
-         # Set the wallpaper ourselves so we don't need .background-image and/or
-         # .fehbg polluting $HOME
-         services.xserver.displayManager.sessionCommands = command;
-         modules.theme.onReload.wallpaper = command;
+    # (mkIf (cfg.wallpaper != null)
+    #   (let wCfg = config.services.xserver.desktopManager.wallpaper;
+    #        command = ''
+    #          if [ -e "$XDG_DATA_HOME/wallpaper" ]; then
+    #            ${pkgs.feh}/bin/feh --bg-${wCfg.mode} \
+    #              ${optionalString wCfg.combineScreens "--no-xinerama"} \
+    #              --no-fehbg \
+    #              $XDG_DATA_HOME/wallpaper
+    #          fi
+    #       '';
+    #    in {
+    #      # Set the wallpaper ourselves so we don't need .background-image and/or
+    #      # .fehbg polluting $HOME
+    #      services.xserver.displayManager.sessionCommands = command;
+    #      modules.theme.onReload.wallpaper = command;
 
-         home.dataFile = mkIf (cfg.wallpaper != null) {
-           "wallpaper".source = cfg.wallpaper;
-         };
-       }))
+    #      home.dataFile = mkIf (cfg.wallpaper != null) {
+    #        "wallpaper".source = cfg.wallpaper;
+    #      };
+    #    }))
 
     (mkIf (cfg.loginWallpaper != null) {
       services.xserver.displayManager.lightdm.background = cfg.loginWallpaper;

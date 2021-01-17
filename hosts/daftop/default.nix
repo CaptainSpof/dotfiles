@@ -99,8 +99,7 @@
       touchegg.enable = true;
     };
     theme = {
-      active = "alucard";
-      loginWallpaper = null;
+      active = "qogir-light";
       prompt.enable = false;
     };
   };
