@@ -13,14 +13,12 @@ let cfg = config.modules.dev.lua;
 in {
   options.modules.dev.lua = {
     enable = mkBoolOpt false;
-    love2D.enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
       lua
       luaPackages.moonscript
-      (mkIf cfg.love2D.enable love2d)
     ];
   };
 }
