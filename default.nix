@@ -27,17 +27,22 @@ with inputs; {
     nixPath = [
       "nixpkgs=${nixpkgs}"
       "nixpkgs-unstable=${nixpkgs-unstable}"
+      "nixpkgs-locked=${nixpkgs-locked}"
+      "comma=${comma}"
       "nixpkgs-overlays=${dotFilesDir}/overlays"
       "home-manager=${home-manager}"
       "dotfiles=${dotFilesDir}"
     ];
-    binaryCaches = [ "https://nix-community.cachix.org" ];
+    binaryCaches = [ "https://cache.nixos.org" "https://nix-community.cachix.org" "https://nixpkgs.cachix.org" ];
     binaryCachePublicKeys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nixpkgs.cachix.org-1:q91R6hxbwFvDqTSDKwDAV4T5PxqXGxswD8vhONFMeOE="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
     registry = {
       nixos.flake = nixpkgs;
       nixpkgs.flake = nixpkgs-unstable;
+      nixpkgs-locked.flake = nixpkgs-locked;
     };
     useSandbox = true;
   };
@@ -56,6 +61,7 @@ with inputs; {
     efi.canTouchEfiVariables = mkDefault true;
     systemd-boot.configurationLimit = 10;
     systemd-boot.enable = mkDefault false;
+    timeout = 3;
     grub = {
       enable = true;
       devices = [ "nodev" ];
@@ -66,6 +72,7 @@ with inputs; {
 
   # Just the bear necessities...
   environment.systemPackages = with pkgs; [
+    cachix
     cached-nix-shell
     coreutils
     git

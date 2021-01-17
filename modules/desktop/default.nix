@@ -44,14 +44,15 @@ in {
         ubuntu_font_family
         dejavu_fonts
         symbola
-        noto-fonts
-        noto-fonts-cjk
+        # TODO My battle to find where noto-emoji come from continue...
+        locked.noto-fonts
+        locked.noto-fonts-cjk
         source-code-pro
       ];
     };
 
     ## Apps/Services
-    services.xserver.displayManager.lightdm.greeters.mini.user = config.user.name;
+    # services.xserver.displayManager.lightdm.greeters.mini.user = config.user.name;
 
     services.picom = {
       backend = "glx";

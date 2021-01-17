@@ -16,6 +16,7 @@
       # Two inputs so I can track them separately at different rates.
       nixpkgs.url          = "nixpkgs/master";
       nixpkgs-unstable.url = "nixpkgs/master";
+      nixpkgs-locked.url   = "nixpkgs/master";
 
       home-manager.url   = "github:rycee/home-manager/master";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +31,7 @@
       };
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, comma, ... }:
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, nixpkgs-locked, home-manager, comma, ... }:
     let
       inherit (lib) attrValues;
       inherit (lib.my) mapModules mapModulesRec mapHosts;
@@ -44,6 +45,8 @@
       };
       pkgs  = mkPkgs nixpkgs [ self.overlay ];
       uPkgs = mkPkgs nixpkgs-unstable [ ];
+      lPkgs = mkPkgs nixpkgs-locked [ ];
+      commaPkgs = mkPkgs comma [ ];
 
       lib = nixpkgs.lib.extend
         (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
@@ -53,6 +56,8 @@
       overlay =
         final: prev: {
           unstable = uPkgs;
+          locked = lPkgs;
+          comma = commaPkgs;
           my = self.packages."${system}";
         };
 
