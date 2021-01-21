@@ -91,6 +91,7 @@
       zsh.enable = true;
     };
     services = {
+      email.enable = true;
       syncthing.enable = true;
       docker.enable = true;
       ssh.enable = true;
