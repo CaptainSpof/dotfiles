@@ -28,15 +28,15 @@ in {
       ark                                    # archiver
       filelight                              # disk analysis
       kcharselect
-      kdeFrameworks.kconfig
-      kdeFrameworks.kconfigwidgets
+      # kdeFrameworks.kconfig
+      # kdeFrameworks.kconfigwidgets
       kdeplasma-addons
       latte-dock
       libnotify
       okular                                 # pdf viewer
       partition-manager                      # gparted, buy Qt
-      plasma5.plasma-browser-integration
-      plasma5.plasma-integration
+      plasma-browser-integration
+      plasma-integration
       yakuake                                # drop down terminal
     ];
 
