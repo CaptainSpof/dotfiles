@@ -19,6 +19,7 @@ in {
       hardware.pulseaudio.support32Bit = config.hardware.pulseaudio.enable;
 
       user.packages = with pkgs; [
+        lutris
         # Get steam to keep its garbage out of $HOME
         (writeScriptBin "steam" ''
           #!${stdenv.shell}
