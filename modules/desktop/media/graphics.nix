@@ -17,6 +17,7 @@ in {
     raster.enable  = mkBoolOpt true;
     vector.enable  = mkBoolOpt true;
     sprites.enable = mkBoolOpt true;
+    xournalpp.enable = mkBoolOpt true;
   };
 
   config = mkIf cfg.enable {
@@ -41,6 +42,11 @@ in {
       # Sprite sheets & animation
       (if cfg.sprites.enable then [
         aseprite-unfree
+      ] else []) ++
+
+      # Writes stuff
+      (if cfg.xournalpp.enable then [
+        xournalpp
       ] else []);
 
     home.configFile = mkIf cfg.raster.enable {
