@@ -19,7 +19,7 @@
           telegram.enable = true;
           slack.enable = true; # you too slack, you too...
         };
-        office.libreoffice.enable = false;
+        office.libreoffice.enable = true;
         rofi.enable = true;
       };
       browsers = {
@@ -27,6 +27,7 @@
         firefox.enable = true;
       };
       gaming = {
+        steam.enable = true;
         emulators = {
           ds.enable = true;
         };
@@ -34,9 +35,10 @@
       media = {
         documents = {
           enable = true;
-          pdf.enable = true;
+          pdf.enable = false;
+          ebook.enable = true;
         };
-        graphics.enable = false;
+        graphics.enable = true;
         mpv.enable = false;
         vlc.enable = true;
         recording.enable = false;
@@ -76,8 +78,8 @@
         ssd.enable = true;
       };
       nvidia = {
-        enable = false;
-        prime.enable = false;
+        enable = true;
+        prime.enable = true;
       };
       sensors.enable = true;
     };
@@ -114,7 +116,16 @@
   hardware.opengl.enable = true;
 
   # TODO Move to module ?
-  services.xserver.libinput.enable = true;
+  # services.xserver.libinput.enable = true;
+  services.xserver.libinput = {
+      enable = true;
+      mouse = {
+        accelProfile = "flat";
+      };
+      touchpad = {
+        naturalScrolling = true;
+      };
+    };
   services.tlp.enable = true;
 
   # time.timeZone = "Europe/Copenhagen";
