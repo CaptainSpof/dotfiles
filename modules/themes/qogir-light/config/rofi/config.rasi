@@ -1,137 +1,133 @@
-/* -*- mode: css; -*- */
-configuration {
-  icon-theme:       "Paper";
-  cycle:            true;
-  disable-history:  false;
-  monitor:          "-4";
-
-  /* Vim-esque C-j/C-k as up/down in rofi */
-  kb-accept-entry: "Return,Control+m,KP_Enter";
-  kb-row-down: "Down,Control+n,Control+j";
-  kb-remove-to-eol: "";
-  kb-row-up: "Up,Control+p,Control+k";
-}
+/*
+ * breeze-light.rasi
+ * rofi theme inspired by plasma breeze
+ * MonsieurBedard
+ */
 
 * {
-  accent:   #bd93f9;
-  bg:       #1E2029FA;
-  bg-light: #1c1c1c;
-  bg-focus: #282a36;
-  bg-dark:  #181a23;
-  fg:       #bbc2cf;
-  fg-list:  #bbc2cf;
-  on:       #8BD49C;
-  off:      #cc6666;
+    /* Base */
+    default-background: rgba(246, 246, 247, 100%); // <- change this for transparency
+    default-foreground: rgba(35, 38, 39, 100%);
+    default-border: rgba(188, 190, 191, 100%);
+    alternative-background: rgb(252, 252, 252, 100%);
+    invisible: rgba(0, 0, 0, 0%);
 
-  magenta: #bd93f9;
-  blue:    #61bfff;
+    /* Colors */
+    hard-blue: rgba(61, 174, 233, 100%);
+    light-blue: rgba(196, 224, 255, 100%);
 
-  text-font:      "Fira Sans 15";
-  text-mono-font: "Fira Code 13";
-  /* icon-font:      "Hurmit Nerd Font Mono 26"; */
-  icon-font:      "FontAwesome 20";
+    hard-red: rgba(191, 3, 3, 100%);
+    light-red: rgba(245, 227, 227, 100%);
 
-  background-color: transparent;
-  text-color: @fg-list;
-  font: @text-font;
-  border-color: @bg-dark;
-}
+    hard-green: rgba(0, 110, 40, 100%);
+    light-green: rgba(177, 247, 200, 1);
 
-
-/**** Layout ****/
-window {
-  width:    1000px;
-  y-offset: -50px;
-  anchor:   north;
-  location: center;
-  border: 1px;
-  border-radius: 6px 6px 0 0;
-  children: [ inputbar, listview ];
-
+    /* Universal */
+    background-color: @invisible;
+    border-color: @default-border;
+    font: "Noto Sans 10";
+    text-color: @default-foreground;
 }
 
-listview {
-  lines: 12;
-  fixed-height: false;
-  /* reverse: true; */
-  columns: 2;
-  scrollbar: true;
-  spacing: 1px;
-  /* Remove strange gap between listview and inputbar */
-  margin: -2px 0 0;
+#window {
+    background-color: @default-background;
+    border: 1;
+    border-radius: 3;
+    border-color: @default-border;
+    padding: 7;
 }
 
-/*
-  TODO Not supported in stable branch of rofi
-  @media only (max-height: 1080px) {
-    window {
-      y-offset: -30%;
-    }
-    listview {
-      lines: 14;
-    }
-  }
-*/
-
-scrollbar {
-  handle-width: 1px;
-}
-inputbar {
-  children: [ textbox-icon, prompt, entry ];
-  border: 0 0 0;
-}
-textbox-icon, prompt {
-  padding: 11px;
-  expand: false;
-  border: 0 1px 0 0;
-  margin: 0 -2px 0 0;
-}
-textbox-icon {
-  padding: 7px 4px 0;
-}
-entry, element {
-  padding: 10px 13px;
-}
-textbox {
-  padding: 24px;
-  margin: 20px;
+#mainbox {
+    border:  0;
+    padding: 0;
 }
 
-
-/**** Looks ****/
-scrollbar {
-  background-color: @bg-dark;
-  handle-color: @accent;
-  border-color: @bg-dark;
-}
-listview, inputbar {
-  background-color: @bg-dark;
-}
-textbox-icon, prompt, entry {
-  text-color: @accent;
-}
-prompt, entry {
-  background-color: @bg-focus;
-}
-textbox-icon, prompt {
-  background-color: #2f313d;
-}
-prompt {
-  background-color: @bg-focus;
-}
-textbox-icon {
-  font: @icon-font;
-}
-entry {
-  font: @text-font-mono;
-  text-color: @fg;
+#message {
+    border: 1;
+    border-radius: 3;
+    padding: 5;
+    background-color: @alternative-background;
 }
 
-element {
-  background-color: @bg;
-  text-color: @fg;
+#textbox {
+    background-color: @entry-background;
 }
-element selected {
-  background-color: @bg-dark;
-  text-color: @accent;
+
+#listview {
+    fixed-height: 0;
+    spacing: 2;
+    scrollbar: false;
+    padding: 2 0 0;
+}
+
+#element {
+    padding: 5;
+    border: 1;
+    border-radius: 3;
+    border-color: @invisible;
+}
+
+#element.normal.normal {
+    background-color: @invisible;
+}
+
+#element.normal.urgent {
+    background-color: @light-red;
+}
+
+#element.normal.active {
+    background-color: @light-green;
+}
+
+#element.selected.normal {
+    background-color: @light-blue;
+    border-color:     @hard-blue;
+}
+
+#element.selected.urgent {
+    background-color: @light-red;
+    border-color:     @hard-red;
+}
+
+#element.selected.active {
+    background-color: @light-green;
+    border-color:     @hard-green;
+}
+
+#mode-switcher {
+    spacing: 0;
+}
+
+#button {
+    border: 0 0 3 0;
+    border-color: @invisible;
+    padding: 3;
+}
+
+#button.selected {
+    border-color: @hard-blue;
+}
+
+#inputbar {
+    spacing: 0;
+    padding: 1;
+}
+
+#case-indicator {
+    spacing: 0;
+    padding: 3px;
+    background-color: @alternative-background;
+    border: 1 1 1 0;
+    border-radius: 0 2 2 0;
+}
+
+#entry {
+    background-color: @alternative-background;
+    padding: 3px;
+    border: 1 0 1 1;
+    border-radius: 2 0 0 2;
+}
+
+#prompt {
+    padding: 3 7 3 0;
 }
