@@ -7,12 +7,12 @@ in {
   options.modules.services.email = { enable = mkBoolOpt false; };
 
   config = mkIf cfg.enable {
-    users.users.git = {
-      useDefaultShell = true;
-      home = "/var/lib/email";
-      group = "email";
-    };
 
+    environment.systemPackages = with pkgs; [
+      isync
+    ];
+
+    # TODO: need to copy mbsyncrc
     systemd.user = {
       services.mbsync = {
         description = "Mailbox syncronization";

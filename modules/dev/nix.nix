@@ -1,8 +1,8 @@
 # modules/dev/nix.nix --- http://zsh.sourceforge.net/
 #
 # Nix, I found that when running a NixOs system,
-# we happen to come across nix quite often. I don't understand it,
-# but it's nice to format it.
+# we happen to come across nix quite often.
+# I don't understand it, but it's nice to format it.
 
 { config, options, lib, pkgs, my, ... }:
 

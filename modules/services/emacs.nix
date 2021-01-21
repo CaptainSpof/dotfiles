@@ -28,12 +28,5 @@ in {
         Restart = "always";
       };
     };
-    # systemd.user.services.emacs = {
-    #   wantedBy = [ "default.target" ];
-
-    #   script = ''
-    #     /etc/profiles/per-user/daf/bin/emacs --daemon
-    #   '';
-    # };
   };
 }
