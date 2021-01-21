@@ -13,7 +13,7 @@ in {
         theme = {
           # wallpaper = mkDefault ./config/wallpaper.png;
           gtk = {
-            theme = "Qogir-light";
+            theme = "Breeze";
             iconTheme = "Qogir";
             cursorTheme = "Breeze";
           };
@@ -103,9 +103,9 @@ in {
           "polybar" = { source = ./config/polybar; recursive = true; };
           "dunst/dunstrc".source = ./config/dunstrc;
         })
-        (mkIf desktop.media.graphics.vector.enable {
-          "inkscape/templates/default.svg".source = ./config/inkscape/default-template.svg;
-        })
+        # (mkIf desktop.media.graphics.vector.enable {
+        #   "inkscape/templates/default.svg".source = ./config/inkscape/default-template.svg;
+        # })
       ];
     })
   ]);
