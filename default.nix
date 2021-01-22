@@ -67,6 +67,7 @@ with inputs; {
       devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
+      splashImage = "${configDir}/grub/background.png";
     };
   };
 
