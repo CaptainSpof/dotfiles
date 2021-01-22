@@ -19,25 +19,23 @@ in {
         nlSupport = true;
       }))
 
-      (mkIf (config.modules.desktop.plasma.sxhkd.enable)
-        sxhkd
-      )
+      (mkIf (config.modules.desktop.plasma.sxhkd.enable) sxhkd)
 
       (mkIf config.services.syncthing.enable syncthingtray)
 
-      ark                                    # archiver
-      filelight                              # disk analysis
-      kcharselect
-      # kdeFrameworks.kconfig
-      # kdeFrameworks.kconfigwidgets
-      kdeplasma-addons
-      latte-dock
-      libnotify
-      okular                                 # pdf viewer
-      partition-manager                      # gparted, buy Qt
-      plasma-browser-integration
-      plasma-integration
-      yakuake                                # drop down terminal
+      ark                        # archiver
+      filelight                  # disk analysis
+      gwenview                   # image viewer
+      kate                       # text editor, mainly if the pleb need to edit text on my machine
+      kcharselect                # a tool to select weird characters, like: ⁂※🜂🜎❋❀
+      kdeplasma-addons           # the f🦖ck if I know
+      latte-dock                 # a dock
+      libnotify                  # just a random dep to send notification
+      okular                     # pdf viewer
+      partition-manager          # gparted, buy Qt
+      plasma-browser-integration # integration with krunner and other stuff
+      plasma-integration         # integrate stuff, I guess...
+      yakuake                    # drop down terminal
     ];
 
     services = {
@@ -49,8 +47,6 @@ in {
         desktopManager.plasma5.enable = true;
       };
     };
-
-
 
     systemd.user.services.sxhkd = mkIf (config.modules.desktop.plasma.sxhkd.enable) {
       wantedBy = [ "graphical-session.target" ];
