@@ -7,34 +7,43 @@ in {
   options.modules.services.email = { enable = mkBoolOpt false; };
 
   config = mkIf cfg.enable {
-
-    environment.systemPackages = with pkgs; [
+    user.packages = with pkgs; [
       isync
+      mu
     ];
 
     # TODO: need to copy mbsyncrc
     systemd.user = {
+
       services.mbsync = {
-        description = "Mailbox syncronization";
+        description = "Mailbox synchronization";
         serviceConfig = {
           Type = "oneshot";
           ExecStart = "${pkgs.isync}/bin/mbsync -aq";
+          ExecStartPost = "${pkgs.mu}/bin/mu server";
         };
-        path = with pkgs; [ gawk gnupg pass ];
+        path = with pkgs; [ gawk gnupg pass mu ];
 
         after = [ "network-online.target" "gpg-agent.service" ];
         wantedBy = [ "default.target" ];
       };
 
       timers.mbsync = {
-        description = "Mailbox syncronization";
+        description = "Mailbox synchronization";
 
         timerConfig = {
-          OnCalendar = "*:0/2";
+          OnCalendar = "*:0/5";
           Persistent = "true";
         };
 
         wantedBy = [ "timers.target" ];
+      };
+    };
+
+    home.file = {
+      ".mbsyncrc" = {
+        source = "${configDir}/email/mbsyncrc";
+        recursive = true;
       };
     };
   };
