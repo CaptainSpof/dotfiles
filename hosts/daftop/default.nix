@@ -27,7 +27,7 @@
         firefox.enable = true;
       };
       gaming = {
-        steam.enable = true;
+        steam.enable = false;
         emulators = {
           ds.enable = true;
         };
@@ -47,7 +47,12 @@
         default = "alacritty";
         alacritty.enable = true;
       };
-      vm = { virtualbox.enable = false; };
+      vm = {
+        qemu = {
+          enable = true;
+        };
+        virt-manager.enable = true;
+      };
     };
     editors = {
       default = "emacs";
@@ -78,8 +83,8 @@
         ssd.enable = true;
       };
       nvidia = {
-        enable = true;
-        prime.enable = true;
+        enable = false;
+        prime.enable = false;
       };
       sensors.enable = true;
     };
@@ -93,12 +98,12 @@
       zsh.enable = true;
     };
     services = {
-      email.enable = true;
-      syncthing.enable = true;
       docker.enable = true;
-      ssh.enable = true;
-      kdeconnect.enable = true;
       emacs.enable = true;
+      email.enable = true;
+      kdeconnect.enable = true;
+      ssh.enable = true;
+      syncthing.enable = true;
       touchegg.enable = true;
     };
     theme = {
