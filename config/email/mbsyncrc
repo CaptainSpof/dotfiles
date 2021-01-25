@@ -1,7 +1,7 @@
 IMAPAccount gmail
 Host imap.gmail.com
 User captain.spof@gmail.com
-PassCmd "pass email/captainspof"
+PassCmd "kwallet-query -r captainspof kdewallet -f Email"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
