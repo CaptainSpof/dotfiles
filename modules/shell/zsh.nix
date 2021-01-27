@@ -39,22 +39,22 @@ in {
       bat                                    # cat, but pretty
       bandwhich                              # htop, but for network
       bottom                                 # htop, but pretty
-      dua
+      dua                                    # du, but pretty
       exa                                    # ls, but pretty
       fd                                     # find, but fast, also I know how to use it
-      fzf
+      fzf                                    # fuzzy finder, the original (probably not, who care)
       jq                                     # make JSON readable, well more readable
       killall                                # every last one of them (the processes, of course)
       navi                                   # retired from helping Link to help you suck less at bash
-      nix-zsh-completions
-      pastel
+      nix-zsh-completions                    # nix zsh completions, literally
+      pastel                                 # a color picker in a terminal ? Genius.
       procs                                  # ps, but pretty
       (ripgrep.override {withPCRE2 = true;}) # grep, but fast
       skim                                   # fzf, but rusty
-      starship
-      tealdeer                               # Yeah, I need all the help; tldr but rusty
-      tokei                                  # Need to know how many line of poor written code you made?
-      watchexec
+      starship                               # a prompt theme, but I can explain why it's a mess
+      tealdeer                               # yeah, I need all the help; tldr but rusty
+      tokei                                  # need to know how many lines of poorly written code you typed ?
+      watchexec                              # watch, then exec; run commands when a file changes
       wmctrl
       zoxide
       zsh

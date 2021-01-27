@@ -38,7 +38,10 @@
           pdf.enable = false;
           ebook.enable = true;
         };
-        graphics.enable = true;
+        graphics = {
+          enable = true;
+          sprites.enable = false;
+        };
         mpv.enable = false;
         vlc.enable = true;
         recording.enable = false;
@@ -99,7 +102,7 @@
     };
     services = {
       docker.enable = true;
-      emacs.enable = true;
+      emacs.enable = false;
       email.enable = true;
       kdeconnect.enable = true;
       ssh.enable = true;
@@ -120,18 +123,37 @@
   # networking.wireless.enable = true;
   hardware.opengl.enable = true;
 
+  # Offload builds
+#   nix.distributedBuilds = false;
+#   nix.buildMachines = [
+#     {
+#       hostName = "builder";
+#       systems = [ "x86_64-linux" "aarch64-linux" ];
+#       maxJobs = 4;
+#       speedFactor = 2;
+#       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+#     }
+#   ];
+
+#   programs.ssh.extraConfig = ''
+# Host builder
+#   HostName 192.168.0.24
+#   Port 22
+#   User daf
+#   IdentitiesOnly yes
+#   IdentityFile /root/.ssh/root@daftop-builder.pem
+#   '';
+
   # TODO Move to module ?
   # services.xserver.libinput.enable = true;
   services.xserver.libinput = {
-      enable = true;
-      mouse = {
-        accelProfile = "flat";
-      };
-      touchpad = {
-        naturalScrolling = true;
-      };
+    enable = true;
+    mouse = {
+      accelProfile = "flat";
     };
+    touchpad = {
+      naturalScrolling = true;
+    };
+  };
   services.tlp.enable = true;
-
-  # time.timeZone = "Europe/Copenhagen";
 }

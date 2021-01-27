@@ -24,6 +24,7 @@ in {
     };
 
     systemd.user.services.touchegg = {
+      description = "touchegg, libinput and stuff. The Client.";
       script = ''
         touchegg
       '';
