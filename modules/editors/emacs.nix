@@ -80,6 +80,14 @@ in {
       # :lang rust
       rustfmt
       unstable.rust-analyzer
+
+      (makeDesktopItem {
+        name = "emacs client";
+        desktopName = "Emacs Client";
+        icon = "emacs";
+        exec = "${pkgs.emacsPgtkGcc}/bin/emacsclient -create-frame --alternate-editor=\"\" --no-wait %F";
+        categories = "Development";
+      })
     ];
 
     env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
