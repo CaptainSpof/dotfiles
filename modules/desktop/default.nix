@@ -44,7 +44,7 @@ in {
         ubuntu_font_family
         dejavu_fonts
         symbola
-        # TODO My battle to find where noto-emoji come from continue...
+        # TODO My battle to find where noto-emoji comes from continue...
         locked.noto-fonts
         locked.noto-fonts-cjk
         source-code-pro
