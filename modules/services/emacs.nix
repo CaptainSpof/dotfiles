@@ -23,9 +23,9 @@ in {
       wantedBy = [ "default.target" ];
       serviceConfig = {
         Type = "forking";
-        ExecStart = "${pkgs.emacsPgtkGcc}/bin/emacs --daemon";
-        ExecStop = "${pkgs.emacsPgtkGcc}/bin/emacsclient --eval (kill-emacs)";
-        Restart = "always";
+        ExecStart = "/${pkgs.emacsPgtkGcc}/bin/emacs --daemon && ${pkgs.emacsPgtkGcc}/bin/emacsclient -c --eval (delete-frame)";
+        ExecStop= "${pkgs.emacsPgtkGcc}/bin/emacsclient --no-wait --eval (progn (setq kill-emacs-hook nil) (kill emacs))";
+        Restart = "on-failure";
       };
     };
   };

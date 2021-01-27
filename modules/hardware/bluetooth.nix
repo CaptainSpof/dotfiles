@@ -23,7 +23,7 @@ in {
         # Enable additional codecs
         extraModules = [ pkgs.pulseaudio-modules-bt ];
 
-        # HACK Fixes programs like Teamspeak and Teams to switch bluetooth source
+        # HACK Fixes programs like Teamspeak and Teams that automatically switch bluetooth sources
         extraConfig = ''
           unload-module module-bluetooth-policy
         '';
