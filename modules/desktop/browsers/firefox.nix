@@ -26,13 +26,13 @@ in {
 
   config = mkIf cfg.enable (mkMerge [{
     user.packages = with pkgs; [
-      firefox
+      firefox-beta-bin
       (makeDesktopItem {
         name = "firefox-private";
         desktopName = "Firefox (Private)";
         genericName = "Open a private Firefox window";
         icon = "firefox";
-        exec = "${firefox}/bin/firefox --private-window";
+        exec = "${firefox-beta-bin}/bin/firefox --private-window";
         categories = "Network";
       })
     ];
