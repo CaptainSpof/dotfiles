@@ -13,13 +13,15 @@
   inputs = 
     {
       # Core dependencies.
-      # Two inputs so I can track them separately at different rates.
-      nixpkgs.url          = "nixpkgs/master";
+      # Two inputs so I can track them independently
+      nixpkgs.url = "nixpkgs/master";
       nixpkgs-unstable.url = "nixpkgs/master";
       nixpkgs-locked.url   = "nixpkgs/master";
 
       home-manager.url   = "github:rycee/home-manager/master";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
+      agenix.url = "github:ryantm/agenix";
+      agenix.inputs.nixpkgs.follows = "nixpkgs";
 
       # Extras
       emacs-overlay.url  = "github:nix-community/emacs-overlay";
@@ -31,9 +33,8 @@
       };
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, nixpkgs-locked, home-manager, comma, ... }:
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, nixpkgs-locked, ... }:
     let
-      inherit (lib) attrValues;
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 
       system = "x86_64-linux";
@@ -41,12 +42,11 @@
       mkPkgs = pkgs: extraOverlays: import pkgs {
         inherit system;
         config.allowUnfree = true;  # forgive me Stallman senpai
-        overlays = extraOverlays ++ (attrValues self.overlays);
+        overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };
       pkgs  = mkPkgs nixpkgs [ self.overlay ];
-      uPkgs = mkPkgs nixpkgs-unstable [ ];
-      lPkgs = mkPkgs nixpkgs-locked [ ];
-      commaPkgs = mkPkgs comma [ ];
+      pkgs' = mkPkgs nixpkgs-unstable [];
+      pkgs'' = mkPkgs nixpkgs-locked [];
 
       lib = nixpkgs.lib.extend
         (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
@@ -55,26 +55,40 @@
 
       overlay =
         final: prev: {
-          unstable = uPkgs;
-          locked = lPkgs;
-          comma = commaPkgs;
+          unstable = pkgs';
+          locked = pkgs'';
           my = self.packages."${system}";
         };
 
       overlays = mapModules ./overlays import;
 
       packages."${system}" =
-        mapModules ./packages
-          (p: pkgs.callPackage p {});
+        mapModules ./packages (p: pkgs.callPackage p {});
 
       nixosModules =
-        { dotfiles = import ./.; }
-        // mapModulesRec ./modules import;
+        { dotfiles = import ./.; } // mapModulesRec ./modules import;
 
       nixosConfigurations =
-        mapHosts ./hosts { inherit system; };
+        mapHosts ./hosts {};
 
       devShell."${system}" =
         import ./shell.nix { inherit pkgs; };
+
+      templates = {
+        full = {
+          path = ./.;
+          description = "A grossly incandescent nixos config";
+        };
+        minimal = {
+          path = ./templates/minimal;
+          description = "A grossly incandescent and minimal nixos config";
+        };
+      };
+      defaultTemplate = self.templates.minimal;
+
+      defaultApp."${system}" = {
+        type = "app";
+        program = ./bin/hey;
+      };
     };
 }

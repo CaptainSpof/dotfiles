@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ config, options, pkgs, lib, ... }:
 
 with lib;
 with lib.my;
@@ -9,14 +9,12 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services = {
-      syncthing = {
-        enable = true;
-        user = config.user.name;
-        # TODO: maybe there's a better way to get the configDir path
-        dataDir = "${homeDir}/Documents";
-        configDir = "${homeDir}/.config/syncthing";
-      };
+    services.syncthing = rec {
+      enable = true;
+      openDefaultPorts = true;
+      user = config.user.name;
+      configDir = "/home/${user}/.config/syncthing";
+      dataDir = "/home/${user}/Documents";
     };
   };
 }

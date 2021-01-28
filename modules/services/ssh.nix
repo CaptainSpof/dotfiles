@@ -15,8 +15,11 @@ in {
       passwordAuthentication = false;
     };
 
-    user.openssh.authorizedKeys.keys = [
-    ];
+    # TODO: add own keys
+    user.openssh.authorizedKeys.keys =
+      if config.user.name == "daf"
+      then [ ]
+      else [];
 
     environment.systemPackages = with pkgs; [
       connect

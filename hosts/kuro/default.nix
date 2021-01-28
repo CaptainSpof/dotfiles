@@ -15,7 +15,8 @@
         # godot.enable = true;
       };
       browsers = {
-        default = "firefox";
+        default = "brave";
+        brave.enable = true;
         firefox.enable = true;
       };
       gaming = {
@@ -56,10 +57,10 @@
       sensors.enable = true;
     };
     shell = {
+      bitwarden.enable = true;
       direnv.enable = true;
       git.enable    = true;
       gnupg.enable  = true;
-      pass.enable   = true;
       tmux.enable   = true;
       zsh.enable    = true;
     };

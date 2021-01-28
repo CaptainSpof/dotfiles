@@ -17,6 +17,9 @@ with lib;
   boot.loader.systemd-boot.editor = false;
 
   # Change me later!
-  user.initialPassword = "nix";
-  users.users.root.initialPassword = "nix";
+  user.initialPassword = "nixos";
+  users.users.root.initialPassword = "nixos";
+
+  # So we don't have to do this later...
+  security.acme.acceptTerms = true;
 }
