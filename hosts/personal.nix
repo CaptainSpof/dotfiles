@@ -4,8 +4,10 @@ with lib;
 {
  networking.hosts =
    let hostConfig = {
-         "192.168.0.24"  = [ "dafbox" ];
-         "192.168.0.49"  = [ "daftop" ];
+         "192.168.0.29"  = [ "dafphone" ];
+         "192.168.0.30"  = [ "daftop" ];
+         "192.168.0.31"  = [ "dafbox" ];
+         "192.168.0.33"  = [ "dafpi" ];
        };
        hosts = flatten (attrValues hostConfig);
        hostName = config.networking.hostName;
@@ -27,23 +29,33 @@ with lib;
   ##
   # modules.shell.bitwarden.config.server = "p.v0.io";
 
-  # FIXME: setup own id
   services.syncthing.declarative = {
     devices = {
-      daftop.id   = "";
-      dafbox.id   = "";
-      dafphone.id = "";
-      dafpi.id    = "";
+      daftop.id   = "KQZGBVD-2EPBFMT-MPLIPPX-3BX5YZJ-TMKBFRF-ILXVVBR-RRJ35VN-T3ZYLQE";
+      dafbox.id   = "HTXTYKF-VQEGMZJ-RLZJHJT-HYXITD3-B5P3NOH-A2QXJEG-SPY6ILU-WXZJ2AU";
+      dafphone.id = "G3MQBMD-VN542WA-6V5EEGT-FBJXK5K-NREP2CU-WA4LFMV-NW3SIED-CRNNWQ2";
+      dafpi.id    = "6LSQT5W-CDVRC2U-OYU77MY-XQGUN7H-NWRMZPY-CJ6ETAZ-4XSHR2E-5ADGGQI";
     };
-    # folders =
-    #   let mkShare = name: devices: type: path: rec {
-    #         inherit devices type path;
-    #         watch = false;
-    #         rescanInterval = 3600 * 4;
-    #         enabled = lib.elem config.networking.hostname devices;
-    #       };
-    #   in {
-    #     projects = mkShare "projects" [ "kuro" "shiro" ] "sendrecieve" "${config.user.home}/projects";
-    #   };
+    # FIXME: Generic setup needed
+    folders = {
+      "${config.user.home}/Sync/Org" = {
+        id = "rk2oz-zgpcr";
+        devices = [ "dafbox" "dafpi" "dafphone" ];
+      };
+      "${config.user.home}/Sync/Share" = {
+        id = "4cbs9-we2re";
+        devices = [ "dafbox" "dafpi" "dafphone" ];
+      };
+    };
+      # let mkShare = name: devices: type: path: rec {
+      #       inherit devices type path;
+      #       watch = false;
+      #       rescanInterval = 3600 * 4;
+      #       enabled = lib.elem config.networking.hostName devices;
+      #     };
+      # in {
+      #   # projects = mkShare "projects" [ "kuro" "shiro" ] "sendrecieve" "${config.user.home}/projects";
+      #   projects = mkShare "Sync" [ "dafpi" "dafphone" "daftop" ] "sendreceive" "${config.user.home}/Sync";
+      # };
   };
 }

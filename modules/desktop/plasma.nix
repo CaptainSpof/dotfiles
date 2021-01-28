@@ -21,7 +21,7 @@ in {
 
       # FIXME: Do I really need that? I mean, nix being lazy and such, I don't need to explicitly add it here... I think.
       (mkIf (config.modules.desktop.plasma.sxhkd.enable) sxhkd)
-      # FIXME: Same here.
+
       (mkIf config.services.syncthing.enable syncthingtray)
 
       ark                        # archiver
@@ -31,7 +31,7 @@ in {
       kate                       # text editor, mainly if the pleb need to edit text on my machine
       kcharselect                # a tool to select weird characters, like: ⁂※🜂🜎❋❀
       kdeplasma-addons           # the f🦖ck if I know
-      kid3                       # edit tags
+      kid3                       # edit metadata
       kinfocenter                # the f🦖ck if I know
       latte-dock                 # a pretty dock
       libnotify                  # just a random dep to send notification

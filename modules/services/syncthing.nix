@@ -14,7 +14,7 @@ in {
       openDefaultPorts = true;
       user = config.user.name;
       configDir = "/home/${user}/.config/syncthing";
-      dataDir = "/home/${user}/Documents";
+      dataDir = "/home/${user}/.local/share/syncthing";
     };
   };
 }

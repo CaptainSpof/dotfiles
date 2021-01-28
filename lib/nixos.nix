@@ -11,9 +11,10 @@ in {
       modules = [
         {
           nixpkgs.pkgs = pkgs;
-          # networking.hostName = mkDefault (removeSuffix ".nix" (baseNameOf path));
+          networking.hostName = mkDefault (removeSuffix ".nix" (baseNameOf path));
           # FIXME: Trying to fix something that I don't understand...
-          networking.hostName = mkDefault "daftop";
+          # networking.hostname = "daftop";
+          # networking.hostName = mkDefault "daftop";
         }
         (filterAttrs (n: v: !elem n [ "system" ]) attrs)
         ../.   # /default.nix
