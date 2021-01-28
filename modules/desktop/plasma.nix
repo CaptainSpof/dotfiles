@@ -25,18 +25,21 @@ in {
       (mkIf config.services.syncthing.enable syncthingtray)
 
       ark                        # archiver
+      elisa                      # music player
       filelight                  # disk analysis
       gwenview                   # image viewer
       kate                       # text editor, mainly if the pleb need to edit text on my machine
       kcharselect                # a tool to select weird characters, like: ⁂※🜂🜎❋❀
       kdeplasma-addons           # the f🦖ck if I know
-      kinfocenter
-      latte-dock                 # a dock
+      kid3                       # edit tags
+      kinfocenter                # the f🦖ck if I know
+      latte-dock                 # a pretty dock
       libnotify                  # just a random dep to send notification
       okular                     # pdf viewer
       partition-manager          # gparted, buy Qt
       plasma-browser-integration # integration with krunner and other stuff
       plasma-integration         # integrate stuff, I guess...
+      qbittorrent                # 🌊⛵
       yakuake                    # drop down terminal
     ];
 

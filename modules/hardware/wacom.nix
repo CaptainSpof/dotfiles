@@ -10,6 +10,12 @@ in
   };
 
   config = mkIf cfg.enable {
+
+    environment.systemPackages = with pkgs; mkIf (config.modules.desktop.plasma.enable) [
+      wacomtablet
+      libwacom
+    ];
+
     # For my intuos4 pro. Doesn't work for cintiqs.
     services.xserver.wacom.enable = true;
     # TODO Move this to udev
