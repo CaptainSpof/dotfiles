@@ -12,6 +12,8 @@ with lib.my;
   # Common config for all nixos machines; and to ensure the flake operates
   # soundly
   environment.variables.DOTFILES = dotFilesDir;
+  # REVIEW: Is this the correct way to set this ?
+  environment.variables.FLAKE = dotFilesDir;
 
   # Configure nix and nixpkgs
   environment.variables.NIXPKGS_ALLOW_UNFREE = "1";

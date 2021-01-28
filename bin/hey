@@ -72,7 +72,7 @@ function main {
     # Move to $DOTFILES to prevent polluting the system with result links
     pushd $FLAKE >/dev/null
     # REVIEW Use --impure instead when it's in a stable release of nix
-    _do ${SUDO:+sudo} nixos-rebuild -v \
+    _do ${SUDO:+sudo} nixos-rebuild \
       --flake "${FLAKE}#${HOSTNAME:-$HOST}" \
       --option pure-eval no \
       ${@:-build}
