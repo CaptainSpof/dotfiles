@@ -40,6 +40,7 @@ in {
       plasma-browser-integration # integration with krunner and other stuff
       plasma-integration         # integrate stuff, I guess...
       qbittorrent                # 🌊⛵
+      sddm-kcm
       yakuake                    # drop down terminal
     ];
 

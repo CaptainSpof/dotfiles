@@ -90,6 +90,7 @@
         prime.enable = false;
       };
       sensors.enable = true;
+      wacom.enable = true;
     };
     shell = {
       aws.enable = true;
@@ -124,28 +125,27 @@
   hardware.opengl.enable = true;
 
   # Offload builds
-#   nix.distributedBuilds = false;
-#   nix.buildMachines = [
-#     {
-#       hostName = "builder";
-#       systems = [ "x86_64-linux" "aarch64-linux" ];
-#       maxJobs = 4;
-#       speedFactor = 2;
-#       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-#     }
-#   ];
+  #   nix.distributedBuilds = false;
+  #   nix.buildMachines = [
+  #     {
+  #       hostName = "builder";
+  #       systems = [ "x86_64-linux" "aarch64-linux" ];
+  #       maxJobs = 4;
+  #       speedFactor = 2;
+  #       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+  #     }
+  #   ];
 
-#   programs.ssh.extraConfig = ''
-# Host builder
-#   HostName 192.168.0.24
-#   Port 22
-#   User daf
-#   IdentitiesOnly yes
-#   IdentityFile /root/.ssh/root@daftop-builder.pem
-#   '';
+  #   programs.ssh.extraConfig = ''
+  # Host builder
+  #   HostName 192.168.0.24
+  #   Port 22
+  #   User daf
+  #   IdentitiesOnly yes
+  #   IdentityFile /root/.ssh/root@daftop-builder.pem
+  #   '';
 
   # TODO Move to module ?
-  # services.xserver.libinput.enable = true;
   services.xserver.libinput = {
     enable = true;
     mouse = {
@@ -153,7 +153,7 @@
     };
     touchpad = {
       naturalScrolling = true;
+      disableWhileTyping = true;
     };
   };
-  services.tlp.enable = true;
 }

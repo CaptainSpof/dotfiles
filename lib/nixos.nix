@@ -12,9 +12,6 @@ in {
         {
           nixpkgs.pkgs = pkgs;
           networking.hostName = mkDefault (removeSuffix ".nix" (baseNameOf path));
-          # FIXME: Trying to fix something that I don't understand...
-          # networking.hostname = "daftop";
-          # networking.hostName = mkDefault "daftop";
         }
         (filterAttrs (n: v: !elem n [ "system" ]) attrs)
         ../.   # /default.nix

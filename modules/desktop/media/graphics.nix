@@ -22,6 +22,7 @@ in {
 
   config = mkIf cfg.enable {
     user.packages = with pkgs;
+
       (if cfg.tools.enable then [
         font-manager   # so many damned fonts...
         imagemagick    # for image manipulation from the shell
@@ -29,7 +30,7 @@ in {
 
       # replaces illustrator & indesign
       (if cfg.vector.enable then [
-        unstable.inkscape
+        inkscape
       ] else []) ++
 
       # Replaces photoshop
