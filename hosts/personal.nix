@@ -4,10 +4,11 @@ with lib;
 {
  networking.hosts =
    let hostConfig = {
-         "192.168.0.29"  = [ "dafphone" ];
-         "192.168.0.30"  = [ "daftop" ];
-         "192.168.0.31"  = [ "dafbox" ];
-         "192.168.0.33"  = [ "dafpi" ];
+         "192.168.0.29" = [ "dafphone" ];
+         "192.168.0.30" = [ "daftop" ];
+         "192.168.0.31" = [ "dafbox" ];
+         "192.168.0.33" = [ "dafpi" ];
+         "127.0.0.1"    = [ "sync.daf" "adguard.daf" ];
        };
        hosts = flatten (attrValues hostConfig);
        hostName = config.networking.hostName;
@@ -17,14 +18,10 @@ with lib;
   time.timeZone = mkDefault "Europe/Paris";
   i18n.defaultLocale = mkDefault "en_US.UTF-8";
   # For redshift, mainly
-  # FIXME: Find latitude longitude for Nanterre
-  location = (if config.time.timeZone == "Europe/Nanterre" then {
+  location = {
     latitude = 48.85;
     longitude = 2.29;
-  } else if config.time.timeZone == "Europe/Paris" then {
-    latitude = 48.85;
-    longitude = 2.29;
-  } else {});
+  };
 
   ##
   # modules.shell.bitwarden.config.server = "p.v0.io";
@@ -44,6 +41,14 @@ with lib;
       };
       "${config.user.home}/Sync/Share" = {
         id = "4cbs9-we2re";
+        devices = [ "dafbox" "dafpi" "dafphone" ];
+      };
+      "${config.user.home}/Sync/Music/LOTR" = {
+        id = "vrzhl-7sair";
+        devices = [ "dafbox" ];
+      };
+      "${config.user.home}/Sync/Books" = {
+        id = "5abdj-f46gf";
         devices = [ "dafbox" "dafpi" "dafphone" ];
       };
     };

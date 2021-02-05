@@ -24,16 +24,16 @@ in {
       # Uses a DNS rewrite in AdGuard
       virtualHosts = {
         "daftop" = {
-          locations."/adguard".proxyPass = "http://localhost:1337";
+          # locations."/adguard".proxyPass = "http://localhost:1337";
           locations."/sync".proxyPass = "http://localhost:8384";
         };
-        "adguard.daf" = {
-          locations."/".proxyPass = "http://localhost:1337";
+      #   "adguard.daf" = {
+      #     locations."/".proxyPass = "http://localhost:1337";
 
-          extraConfig = ''
-        proxy_set_header        Host localhost;
-      '';
-        };
+      #     extraConfig = ''
+      #   proxy_set_header        Host localhost;
+      # '';
+      #   };
         "sync.daf" = {
           locations."/".proxyPass = "http://localhost:8384";
 
