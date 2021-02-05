@@ -1,3 +1,7 @@
+# Plasma. I used to be an adventurer and play arround with tilling window manager...
+# But then I realize that plasma was nice enough for me.
+#
+# FIXME: I experienced weird flickering with opengl vsync, so just deactive it, I guess.
 { options, config, lib, pkgs, ... }:
 
 with lib;

@@ -36,8 +36,8 @@ in {
       # Replaces photoshop
       (if cfg.raster.enable then [
         locked.krita
-        gimp
-        gimpPlugins.resynthesizer  # content-aware scaling in gimp
+        # gimp
+        # gimpPlugins.resynthesizer  # content-aware scaling in gimp
       ] else []) ++
 
       # Sprite sheets & animation
