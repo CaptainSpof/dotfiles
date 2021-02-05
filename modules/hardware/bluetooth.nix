@@ -28,12 +28,9 @@ in {
           unload-module module-bluetooth-policy
         '';
       };
-
-      # FIXME deprecated it seems
-      # hardware.bluetooth.extraConfig = ''
-      #   [General]
-      #   Enable=Source,Sink,Media,Socket
-      # '';
+      hardware.bluetooth.config = {
+        General = { Enable = "Source,Sink,Media,Socket"; };
+      };
     })
   ]);
 }
