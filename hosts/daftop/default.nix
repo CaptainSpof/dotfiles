@@ -106,6 +106,7 @@
       emacs.enable = false;
       email.enable = true;
       kdeconnect.enable = true;
+      nginx.enable = true;
       ssh.enable = true;
       syncthing.enable = true;
       touchegg.enable = true;

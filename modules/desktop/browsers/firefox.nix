@@ -28,19 +28,11 @@ in {
     user.packages = with pkgs; [
       firefox-bin
       (makeDesktopItem {
-        name = "firefox";
-        desktopName = "Firefox";
-        genericName = "Open a Firefox window";
-        icon = "firefox";
-        exec = "${firefox-bin}/bin/firefox";
-        categories = "Network";
-      })
-      (makeDesktopItem {
         name = "firefox-private";
         desktopName = "Firefox (Private)";
         genericName = "Open a private Firefox window";
         icon = "firefox";
-        exec = "${firefox-beta-bin}/bin/firefox --private-window";
+        exec = "${firefox-bin}/bin/firefox --private-window";
         categories = "Network";
       })
     ];
