@@ -18,6 +18,7 @@
         default = "brave";
         brave.enable = true;
         firefox.enable = true;
+        qutebrowser.enable = true;
       };
       gaming = {
         steam.enable = true;
@@ -44,17 +45,6 @@
       default = "nvim";
       emacs.enable = true;
       vim.enable = true;
-    };
-    hardware = {
-      audio.enable = true;
-      ergodox.enable = true;
-      fs = {
-        enable = true;
-        zfs.enable = true;
-        ssd.enable = true;
-      };
-      nvidia.enable = true;
-      sensors.enable = true;
     };
     shell = {
       bitwarden.enable = true;
