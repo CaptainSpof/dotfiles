@@ -1,0 +1,38 @@
+#+TITLE: dafbox
+#+DATE:  February 6, 2021
+
+* Overview
+
+* Specs TODO
+| CPU   | AMD Ryzen 7 1700                   |
+| MOBO  | Asus Prime B350-Plus               |
+| COOL  | BeQuiet! BK021                     |
+| GPU   |                                    |
+| RAM   | Corsair Vengeance LPX 16GB         |
+| HDD   | [[https://www.newegg.ca/samsung-970-evo-plus-500gb/p/N82E16820147742?Description=samsung%20970%20evo%20plus&cm_re=samsung_970%20evo%20plus-_-20-147-742-_-Product][Samsung 970 EVO Plus 500GB NVMe M2]] |
+| HDD   |                                    |
+| KBD   | Redox-Wireless                     |
+| MOUSE | Logitech something                 |
+
+* Installation
+** Set up root file system
+#+BEGIN_SRC sh
+# EVO Plus 500gb
+parted /dev/nvme0n1 -- mklabel gpt
+parted /dev/nvme0n1 -- mkpart ESP fat32 1MiB 512MiB
+parted /dev/nvme0n1 -- mkpart primary 512MiB 300GiB
+parted /dev/nvme0n1 -- mkpart primary 300GiB 100%
+parted /dev/nvme0n1 -- set 1 boot on
+mkfs.fat -F32 -n BOOT /dev/nvme0n1p1
+mkfs.ext4 -L nixos /dev/nvme0n1p2
+mkfs.ext4 -L home /dev/nvme0n1p3
+#+END_SRC
+
+** Mount drives
+#+BEGIN_SRC sh
+mount /dev/nvme0n1p2 /mnt
+
+mkdir -p /mnt/{home,boot,usr}
+mount /dev/nvme0n1p1 /mnt/boot
+mount /dev/nvme0n1p3 /mnt/home
+#+END_SRC
