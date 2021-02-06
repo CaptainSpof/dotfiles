@@ -56,7 +56,7 @@ with lib.my;
       devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
-      splashImage = "${configDir}/grub/background.png";
+      #splashImage = "${configDir}/grub/background.png";
     };
   };
 
