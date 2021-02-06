@@ -36,6 +36,8 @@ in {
     };
 
     onReload = mkOpt (attrsOf lines) {};
+
+    browsersTheme.enable = mkBoolOpt true;
   };
 
   config = mkIf (cfg.active != null) (mkMerge [

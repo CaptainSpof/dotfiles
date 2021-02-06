@@ -114,6 +114,7 @@
     theme = {
       active = "qogir-light";
       prompt.enable = false;
+      browsersTheme.enable = false;
     };
   };
 

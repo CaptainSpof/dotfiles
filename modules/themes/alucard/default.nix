@@ -21,11 +21,11 @@ in {
 
         shell.zsh.rcFiles  = mkIf cfg.prompt.enable [ ./config/zsh/prompt.zsh ];
         shell.tmux.rcFiles = [ ./config/tmux.conf ];
-        desktop.browsers = {
+        desktop.browsers = mkIf cfg.browsersTheme.enable {
           # TODO: conditionally enable
-          # firefox.userChrome = concatMapStringsSep "\n" readFile [
-          #   ./config/firefox/userChrome.css
-          # ];
+          firefox.userChrome = concatMapStringsSep "\n" readFile [
+            ./config/firefox/userChrome.css
+          ];
           qutebrowser.userStyles = concatMapStringsSep "\n" readFile
             (map toCSSFile [
               ./config/qutebrowser/userstyles/monospace-textareas.scss
