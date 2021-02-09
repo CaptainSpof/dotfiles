@@ -6,6 +6,9 @@ super + Return
 super + shift + e
 	$EDITOR
 
+super + e
+	doom everywhere
+
 super + shift + w
 	$BROWSER
 

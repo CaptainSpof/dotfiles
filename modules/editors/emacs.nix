@@ -80,6 +80,7 @@ in {
       # :lang rust
       rustfmt
       unstable.rust-analyzer
+      xorg.xwininfo
 
       (makeDesktopItem {
         name = "emacs client";

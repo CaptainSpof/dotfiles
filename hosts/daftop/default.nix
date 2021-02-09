@@ -118,6 +118,20 @@
     };
   };
 
+  # TODO: Move to own module.
+  systemd.services = {
+    tune-usb-autosuspend = {
+      description = "Disable USB autosuspend";
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = { Type = "oneshot"; };
+      unitConfig.RequiresMountsFor = "/sys";
+      script = ''
+        echo -1 > /sys/module/usbcore/parameters/autosuspend
+      '';
+    };
+  };
+
+
   ## Local config
   programs.ssh.startAgent = true;
   services.openssh.startWhenNeeded = true;

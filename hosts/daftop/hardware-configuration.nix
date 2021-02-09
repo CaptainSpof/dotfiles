@@ -27,7 +27,13 @@
   # Power management
   environment.systemPackages = [ pkgs.acpi ];
   powerManagement.powertop.enable = true;
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      USB_AUTOSUSPEND=0;
+    };
+  };
+
   services.thermald.enable = true;
   # Monitor backlight control
   programs.light.enable = true;
