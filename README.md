@@ -33,10 +33,21 @@
 3. Do your partitions and mount your root to `/mnt` ([for example](hosts/kuro/README.org))
 4. Install these dotfiles:
 5. `nix-shell -p git nixFlakes`
-6. `git clone https://github.com/hlissner/dotfiles /mnt/etc/nixos`
+6. `git clone https://github.com/CaptainSpof/dotfiles-1 /mnt/etc/nixos`
 7. Install NixOS: `nixos-install --root /mnt --flake /mnt/etc/nixos#XYZ`, where
    `XYZ` is [the host you want to install](hosts/).  Use `#generic` for a
    simple, universal config, or create a sub-directory in `hosts/` for your device. See [host/kuro] for an example.
+
+Alternatively if you're getting:
+`access to path /mnt/nix/store/[...] is forbidden in restricted mode.`
+
+install with:
+``` sh
+nix-shell -p nixUnstable
+nix build /mnt/etc/nixos#nixosConfigurations.<HOSTNAME>.config.system.build.toplevel --experimental-features "flakes nix-command" --store "/mnt" --impure
+# then install the build system...
+nixos-install --root /mnt --system ./result
+```
 8. Reboot!
 9. Change your `root` and `$USER` passwords!
 

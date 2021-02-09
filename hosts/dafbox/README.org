@@ -20,8 +20,8 @@
 # EVO Plus 500gb
 parted /dev/nvme0n1 -- mklabel gpt
 parted /dev/nvme0n1 -- mkpart ESP fat32 1MiB 512MiB
-parted /dev/nvme0n1 -- mkpart primary 512MiB 300GiB
-parted /dev/nvme0n1 -- mkpart primary 300GiB 100%
+parted /dev/nvme0n1 -- mkpart primary 512MiB 200GiB
+parted /dev/nvme0n1 -- mkpart primary 200GiB 100%
 parted /dev/nvme0n1 -- set 1 boot on
 mkfs.fat -F32 -n BOOT /dev/nvme0n1p1
 mkfs.ext4 -L nixos /dev/nvme0n1p2
