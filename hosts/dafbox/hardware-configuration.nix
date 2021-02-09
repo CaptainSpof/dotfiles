@@ -9,7 +9,7 @@
   boot = {
     initrd.availableKernelModules =
       [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-    initrd.kernelModules = [ "dm-snapshot" ];
+    initrd.kernelModules = [ "dm-snapshot" "amdgpu"];
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
     # HACK Disables fixes for spectre, meltdown, L1TF and a number of CPU
@@ -33,7 +33,7 @@
   programs.light.enable = true;
   user.extraGroups = [ "video" ];
 
-  # services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
