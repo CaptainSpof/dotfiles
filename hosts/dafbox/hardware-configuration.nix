@@ -8,7 +8,7 @@
 
   boot = {
     initrd.availableKernelModules =
-      [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+      [ "xhci_pci" "nvme" "usb_storage" "rtsx_pci_sdmmc" ];
     initrd.kernelModules = [ "dm-snapshot" "amdgpu"];
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
@@ -22,12 +22,9 @@
   # CPU
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
-  hardware.cpu.intel.updateMicrocode = true;
 
   # Power management
   environment.systemPackages = [ pkgs.acpi ];
-  powerManagement.powertop.enable = true;
-  services.tlp.enable = true;
   services.thermald.enable = true;
   # Monitor backlight control
   programs.light.enable = true;
