@@ -1,6 +1,6 @@
 self: super:
 {
-  touchegg = super.touchegg.overrideAttrs (old: {
+  touchegg = super.touchegg.overrideAttrs (old: rec {
     version = "2.0.7";
 
     src = super.fetchzip {
