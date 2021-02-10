@@ -4,10 +4,6 @@
 # FIXME: I experienced weird flickering with opengl vsync, so just deactive it, I guess.
 { options, config, lib, pkgs, ... }:
 
-
-
-
-
 with lib;
 with lib.my;
 let plop = self: super:

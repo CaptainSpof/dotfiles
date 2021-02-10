@@ -9,7 +9,7 @@
   boot = {
     initrd.availableKernelModules =
       [ "xhci_pci" "nvme" "usb_storage" "rtsx_pci_sdmmc" ];
-    initrd.kernelModules = [ "dm-snapshot" "amdgpu"];
+    initrd.kernelModules = [ "amdgpu"];
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
     # HACK Disables fixes for spectre, meltdown, L1TF and a number of CPU
@@ -19,8 +19,23 @@
     kernelParams = [ "mitigations=off" ];
   };
 
+  # Modules
+  modules.hardware = {
+    audio.enable = true;
+    bluetooth = {
+      enable = true;
+      audio.enable = true;
+    };
+    fs = {
+      enable = true;
+      ssd.enable = true;
+    };
+    sensors.enable = true;
+    wacom.enable = true;
+  };
+
   # CPU
-  nix.maxJobs = lib.mkDefault 8;
+  nix.maxJobs = lib.mkDefault 16;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
   # Power management
