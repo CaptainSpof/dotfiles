@@ -75,23 +75,6 @@
       shell.enable = true;
       nix.enable = true;
     };
-    hardware = {
-      audio.enable = true;
-      bluetooth = {
-        enable = true;
-        audio.enable = true;
-      };
-      fs = {
-        enable = true;
-        ssd.enable = true;
-      };
-      nvidia = {
-        enable = false;
-        prime.enable = false;
-      };
-      sensors.enable = true;
-      wacom.enable = true;
-    };
     shell = {
       aws.enable = true;
       direnv.enable = true;
@@ -137,7 +120,6 @@
   services.openssh.startWhenNeeded = true;
 
   networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;
   hardware.opengl.enable = true;
 
   # Offload builds

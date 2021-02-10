@@ -71,19 +71,6 @@
       shell.enable = true;
       nix.enable = true;
     };
-    hardware = {
-      audio.enable = true;
-      bluetooth = {
-        enable = true;
-        audio.enable = true;
-      };
-      fs = {
-        enable = true;
-        ssd.enable = true;
-      };
-      sensors.enable = true;
-      wacom.enable = true;
-    };
     shell = {
       aws.enable = false;
       direnv.enable = true;

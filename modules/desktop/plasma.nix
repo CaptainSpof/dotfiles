@@ -6,7 +6,28 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.plasma;
+let plop = self: super:
+      {
+        krohnkite = super.krohnkite.overrideAttrs (old: {
+          version = "0.8";
+          src = super.fetchFromGitHub {
+            owner = "esjeon";
+            repo = "krohnkite";
+            # rev = "2a47753fa2a37a9035116df4a7c2d73044373d82";
+            rev = "v${version}";
+            sha256 = "sha256-ZKh+wg+ciVqglirjxDQUXkFO37hVHkn5vok/CZYf+ZM=";
+          };
+          installPhase = ''
+            runHook preInstall
+            plasmapkg2 --type kwinscript --install ${src}/res/ --packageroot $out/share/kwin/scripts
+            install -Dm644 ${src}/res/metadata.desktop $out/share/kservices5/krohnkite.desktop
+            # install -Dm644 ${src}/res/metadata.desktop /home/daf/.local/share/kservices5/krohnkite.desktop
+            runHook postInstall
+          '';
+        });
+      };
+    cfg = config.modules.desktop.plasma;
+
 in {
   options.modules.desktop.plasma = {
     enable = mkBoolOpt false;
@@ -14,7 +35,10 @@ in {
     sxhkd.enable = mkBoolOpt false;
   };
 
+
   config = mkIf cfg.enable {
+
+    # nixpkgs.overlays = [ plop ];
 
     environment.systemPackages = with pkgs; [
 
@@ -46,6 +70,8 @@ in {
       qbittorrent                # 🌊⛵
       sddm-kcm
       yakuake                    # drop down terminal
+
+      krohnkite
     ];
 
     services = {

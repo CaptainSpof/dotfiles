@@ -8,8 +8,8 @@
 
   boot = {
     initrd.availableKernelModules =
-      [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-    initrd.kernelModules = [ "dm-snapshot" "amdgpu"];
+      [ "xhci_pci" "nvme" "usb_storage" "rtsx_pci_sdmmc" ];
+    initrd.kernelModules = [ "amdgpu"];
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
     # HACK Disables fixes for spectre, meltdown, L1TF and a number of CPU
@@ -19,15 +19,27 @@
     kernelParams = [ "mitigations=off" ];
   };
 
+  # Modules
+  modules.hardware = {
+    audio.enable = true;
+    bluetooth = {
+      enable = true;
+      audio.enable = true;
+    };
+    fs = {
+      enable = true;
+      ssd.enable = true;
+    };
+    sensors.enable = true;
+    wacom.enable = true;
+  };
+
   # CPU
-  nix.maxJobs = lib.mkDefault 8;
+  nix.maxJobs = lib.mkDefault 16;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
-  hardware.cpu.intel.updateMicrocode = true;
 
   # Power management
   environment.systemPackages = [ pkgs.acpi ];
-  powerManagement.powertop.enable = true;
-  services.tlp.enable = true;
   services.thermald.enable = true;
   # Monitor backlight control
   programs.light.enable = true;

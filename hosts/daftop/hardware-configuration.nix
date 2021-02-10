@@ -19,6 +19,25 @@
     kernelParams = [ "mitigations=off" ];
   };
 
+  # Modules
+  modules.hardware = {
+    audio.enable = true;
+    bluetooth = {
+      enable = true;
+      audio.enable = true;
+    };
+    fs = {
+      enable = true;
+      ssd.enable = true;
+    };
+    nvidia = {
+      enable = false;
+      prime.enable = false;
+    };
+    sensors.enable = true;
+    wacom.enable = true;
+  };
+
   # CPU
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
