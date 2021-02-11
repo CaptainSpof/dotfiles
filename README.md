@@ -3,26 +3,44 @@
 
 **Hey,** you. You're finally awake. You were trying to configure your OS declaratively, right? Walked right into that NixOS ambush, same as us, and those dotfiles over there.
 
-<img src="/../screenshots/alucard/fakebusy.png" width="100%" />
+**Hey,** you. Did you get lost in your fork journey? It's alright, I've been there. Just note that I'm gently going with the nix waves, learning along (it's a pretty boring metaphore to say: I don't really know what I am doing. So beware.)
 
+
+For now, I've tried to replicate my previous Arch installation. It's based on plasma. 
+
+I've added a custom derivation for touchégg (touchpad gestures). Hopefully I haven't messed it up too much.
+
+I've added an overlay "locked", I am an update freak, can't wait long before `hey up` my configuration. So the locked overlay, is basically a jail for the binary not hitting the cache.
+
+I've added a bunch of apps and modules that I used and some that I wish I didn't. Configuration for said apps is really scarce (damn you plasma, you're qt and all, but your configuration setup is a mess...) 
+
+I've failed to add to the custom packages the derivation I made for the qt theme "Lightly" (it works on my machine, I know, insult and injury yadiyada for a nixos config)
+
+Same goes for krohnkite (a tilling window manager plugins for plasma), I had to install it manually.
+
+Next in line is to continue to make sense out of nix, learn some nixops stuff (didn't quite figure out how to remotely build a configuration, maybe nixops will help).
+I'd like to setup a few raspberry pi with nix and maybe nix containers.
+
+<img src="/../screenshots/alucard/fakebusy.png" width="100%" />
 <p align="center">
 <span><img src="/../screenshots/alucard/desktop.png" height="178" /></span>
 <span><img src="/../screenshots/alucard/rofi.png" height="178" /></span>
 <span><img src="/../screenshots/alucard/tiling.png" height="178" /></span>
 </p>
+⬆ not mine, I use a white theme, as such I fear the Internet brigade will hunt me down if I post my own.
 
 ------
 
 | | |
 |-|-|
 | **Shell:** | zsh + zgen |
-| **DM:** | lightdm + lightdm-mini-greeter |
-| **WM:** | bspwm + polybar |
+| **DM:** | sddm |
+| **DE/WM:** | plasma + krohnkite |
 | **Editor:** | [Doom Emacs][doom-emacs] (and occasionally [vim]) |
-| **Terminal:** | st |
-| **Launcher:** | rofi |
+| **Terminal:** | alacritty |
+| **Launcher:** | rofi + krunner |
 | **Browser:** | firefox |
-| **GTK Theme:** | [Ant Dracula](https://github.com/EliverLara/Ant-Dracula) |
+| **GTK Theme:** | Lightly (Not available in this repo, due to too few brain cells) |
 
 -----
 
