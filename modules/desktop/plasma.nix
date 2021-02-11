@@ -56,7 +56,7 @@ in {
       ark                        # archiver
       elisa                      # music player
       filelight                  # disk analysis
-      gwenview                   # image viewer
+      qview                      # image viewer, but prettier
       kate                       # text editor, mainly if the pleb need to edit text on my machine
       kcharselect                # a tool to select weird characters, like: ⁂※🜂🜎❋❀
       kdeplasma-addons           # the f🦖ck if I know
