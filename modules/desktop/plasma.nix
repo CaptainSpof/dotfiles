@@ -71,6 +71,7 @@ in {
       qbittorrent                # 🌊⛵
       sddm-kcm                   # add a useless entry in systemsettings, but it felt empty without it
       yakuake                    # quake style drop down terminal
+      my.lightly-qt5
       # my.lightly-qt5
     ];
 
