@@ -35,7 +35,15 @@ in {
 
       # Replaces photoshop
       (if cfg.raster.enable then [
-        locked.krita
+        krita
+        (makeDesktopItem {
+          name = "krita-doodle";
+          desktopName = "Krita Doodle";
+          genericName = "Quick canvas to draw horrible ideas";
+          icon = "krita";
+          exec = "${krita}/bin/krita --nosplash --new-image RGBA,U16,2500,1200";
+          categories = "Graphics";
+        })
         # gimp
         # gimpPlugins.resynthesizer  # content-aware scaling in gimp
       ] else []) ++

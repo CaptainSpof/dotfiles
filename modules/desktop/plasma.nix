@@ -52,6 +52,7 @@ in {
 
       (mkIf config.services.syncthing.enable syncthingtray)
 
+      # I don't really need that, most of those apps comes by default with plasma / kde. But it helps me remember what they are.
       ark                        # archiver
       elisa                      # music player
       filelight                  # disk analysis
@@ -68,10 +69,9 @@ in {
       plasma-browser-integration # integration with krunner and other stuff
       plasma-integration         # integrate stuff, I guess...
       qbittorrent                # 🌊⛵
-      sddm-kcm
-      yakuake                    # drop down terminal
-
-      krohnkite
+      sddm-kcm                   # add a useless entry in systemsettings, but it felt empty without it
+      yakuake                    # quake style drop down terminal
+      # my.lightly-qt5
     ];
 
     services = {

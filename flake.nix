@@ -1,8 +1,11 @@
 # flake.nix --- the heart of my dotfiles
 #
-# Author:  Henrik Lissner <henrik@lissner.net>
+# Original Author:  Henrik Lissner <henrik@lissner.net>
 # URL:     https://github.com/hlissner/dotfiles
 # License: MIT
+#
+# Fork Author: CaptainSpof
+# Fork URL:     https://github.com/CaptainSpof/dotfiles
 #
 # Welcome to ground zero. Where the whole flake gets set up and all its modules
 # are loaded.
