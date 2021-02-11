@@ -11,10 +11,10 @@ stdenv.mkDerivation rec {
   pname = "Lightly";
   version = "0.4";
   nativeBuildInputs = [ extra-cmake-modules ];
-  propagatedBuildInputs = [
-    libsForQt5.frameworkintegration libsForQt5.kcmutils libsForQt5.kdecoration
-    libsForQt5.kwayland
-    libsForQt5.qtx11extras
+  propagatedBuildInputs = with libsForQt5; [
+    frameworkintegration kcmutils kdecoration
+    kwayland
+    qtx11extras
   ];
 
   src = fetchFromGitHub {
