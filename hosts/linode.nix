@@ -38,9 +38,9 @@
 #
 # 7. Install dotfiles:
 #      nix-env -iA nixos.git nixos.nixFlakes
-#      mkdir -p /mnt/home/hlissner/.config
-#      cd /mnt/home/hlissner/.config
-#      git clone https://github.com/hlissner/dotfiles
+#      mkdir -p /mnt/home/daf/.config
+#      cd /mnt/home/daf/.config
+#      git clone https://github.com/daf/dotfiles
 #      nixos-install --root /mnt --flake .#linode --impure
 #        OR (on older versions of nixos)
 #      nixos-install --root /mnt --flake .#linode --option pure-eval false

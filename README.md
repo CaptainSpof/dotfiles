@@ -48,13 +48,13 @@ I'd like to setup a few raspberry pi with nix and maybe nix containers.
 
 1. Yoink the latest stable build of [NixOS 20.09][nixos].
 2. Boot into the installer.
-3. Do your partitions and mount your root to `/mnt` ([for example](hosts/kuro/README.org))
+3. Do your partitions and mount your root to `/mnt` ([for example](hosts/dafbox/README.org))
 4. Install these dotfiles:
 5. `nix-shell -p git nixFlakes`
 6. `git clone https://github.com/CaptainSpof/dotfiles /mnt/etc/nixos`
 7. Install NixOS: `nixos-install --root /mnt --flake /mnt/etc/nixos#XYZ`, where
    `XYZ` is [the host you want to install](hosts/).  Use `#generic` for a
-   simple, universal config, or create a sub-directory in `hosts/` for your device. See [host/kuro] for an example.
+   simple, universal config, or create a sub-directory in `hosts/` for your device. See [host/dafbox] for an example.
 
 Alternatively if you're getting:
 `access to path /mnt/nix/store/[...] is forbidden in restricted mode.`
@@ -94,7 +94,7 @@ And I say, `bin/hey`. [What's going on?](http://hemansings.com/)
 
   1. Set `USER` the first time you run `nixos-install`: `USER=myusername
      nixos-install --root /mnt --flake /path/to/dotfiles#XYZ`
-  2. Or change `"hlissner"` in modules/options.nix.
+  2. Or change `"daf"` in modules/options.nix.
   
 + **Why did you write bin/hey?**
 
@@ -129,4 +129,4 @@ And I say, `bin/hey`. [What's going on?](http://hemansings.com/)
 [doom-emacs]: https://github.com/hlissner/doom-emacs
 [vim]: https://github.com/hlissner/.vim
 [nixos]: https://releases.nixos.org/?prefix=nixos/20.09-small/
-[host/kuro]: https://github.com/hlissner/dotfiles/tree/master/hosts/kuro
+[host/dafbox]: https://github.com/CaptainSpof/dotfiles/tree/master/hosts/dafbox
