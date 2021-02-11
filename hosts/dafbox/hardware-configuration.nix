@@ -8,7 +8,7 @@
 
   boot = {
     initrd.availableKernelModules =
-      [ "xhci_pci" "nvme" "usb_storage" "rtsx_pci_sdmmc" ];
+      [ "xhci_pci" "nvme" "usb_storage" ];
     initrd.kernelModules = [ "amdgpu"];
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
