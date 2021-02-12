@@ -102,14 +102,13 @@
   };
 
   # Caps lock is now Ctrl
-  services.xserver.xkbOptions = "ctrl:swapcaps";
+  # services.xserver.xkbOptions = "ctrl:swapcaps,ctrl:ctrl";
 
   ## Local config
   programs.ssh.startAgent = true;
   services.openssh.startWhenNeeded = true;
 
   networking.networkmanager.enable = true;
-  hardware.opengl.enable = true;
 
   # Offload builds
   #   nix.distributedBuilds = false;

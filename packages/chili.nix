@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   pname = "chili";
-  version = "0.1.5";
+  version = "0.5.5";
 
   src = fetchFromGitHub {
     owner = "MarianArlt";
@@ -14,6 +14,10 @@ stdenv.mkDerivation rec {
   buildInputs = with libsForQt5; [ qtbase qtquickcontrols qtgraphicaleffects ];
 
   installPhase = ''
+    # sed -i 's/ScreenWidth=1440/ScreenWidth=1920/' theme.conf
+    # sed -i 's/ScreenHeight=900/ScreenHeight=1080/' theme.conf
+    # echo 'PasswordFieldCharacter=🦖' >> theme.conf
+
     mkdir -p $out/share/sddm/themes/chili
     mv * $out/share/sddm/themes/chili/
   '';

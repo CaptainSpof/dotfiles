@@ -394,13 +394,13 @@ RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,Capture Rectangula
 _k_friendly_name=Spectacle
 _launch=Print,Print,Launch Spectacle
 
-[org.kde.yakuake.desktop]
-_k_friendly_name=Yakuake
-_launch=none,none,Yakuake
+# [org.kde.yakuake.desktop]
+# _k_friendly_name=Yakuake
+# _launch=Meta+Ctrl+Alt+Shift+Y\tMeta+Y,none,Yakuake
 
-[org.kde.yakuake.desktop]
+[yakuake]
 _k_friendly_name=Yakuake
-toggle-window-state=Meta+Ctrl+Alt+Shift+Y,Meta+Y,Yakuake
+toggle-window-state=Meta+Y,none,Yakuake
 
 [org_kde_powerdevil]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Decrease Keyboard Brightness
@@ -450,3 +450,7 @@ toggle do not disturb=Ctrl+Alt+Shift+N,none,Toggle do not disturb
 [systemsettings.desktop]
 _k_friendly_name=System Settings
 _launch=Tools,Tools,System Settings
+
+# [yakuake]
+# _k_friendly_name=Yakuake
+# toggle-window-state=none,F12,Open/Retract Yakuake
