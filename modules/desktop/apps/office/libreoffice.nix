@@ -13,7 +13,7 @@ in {
       (if config.modules.desktop.plasma.enable then [
         stable.libreoffice-qt
       ] else [
-        stable.libreoffice
+        stable.libreoffice-fresh
       ]);
   };
 }

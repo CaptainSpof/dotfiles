@@ -43,6 +43,7 @@ in {
       exa                                    # ls, but pretty
       fd                                     # find, but fast, also I know how to use it
       fzf                                    # fuzzy finder, the original (probably not, who care)
+      ht-rust                                # httpie, but rusty
       jq                                     # make JSON readable, well more readable
       killall                                # every last one of them (the processes, of course)
       navi                                   # retired from helping Link to help you suck less at bash
