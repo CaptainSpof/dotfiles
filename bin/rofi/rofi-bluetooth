@@ -321,7 +321,7 @@ show_menu() {
 # rofi_command="rofi -dmenu -no-fixed-num-lines -yoffset -100 -i -p"
 # I don't want no stinking offset
 # But I need stinking hack for blur :(
-rofi_command="rofi -dmenu -no-fixed-num-lines -i -theme theme/config.rasi -p"
+rofi_command="rofi -dmenu -no-fixed-num-lines -i -theme theme/breeze.rasi -p"
 
 case "$1" in
     --status)

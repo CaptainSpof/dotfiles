@@ -1,4 +1,4 @@
-# modules/themes/lightly/default.nix --- a regal qogir-inspired theme
+# modules/themes/lightly/default.nix --- a breeze fork theme
 
 { options, config, lib, pkgs, ... }:
 
@@ -21,11 +21,10 @@ in {
 
         shell.zsh.rcFiles  = mkIf cfg.prompt.enable [ ./config/zsh/prompt.zsh ];
         shell.tmux.rcFiles = [ ./config/tmux.conf ];
-        desktop.browsers = {
-          # TODO: conditionally enable
-          # firefox.userChrome = concatMapStringsSep "\n" readFile [
-          #   ./config/firefox/userChrome.css
-          # ];
+        desktop.browsers = mkIf cfg.browsersTheme.enable {
+          firefox.userChrome = concatMapStringsSep "\n" readFile [
+            ./config/firefox/userChrome.css
+          ];
           qutebrowser.userStyles = concatMapStringsSep "\n" toCSSFile [
             ./config/qutebrowser/github.scss
             ./config/qutebrowser/monospace-textareas.scss
@@ -42,7 +41,7 @@ in {
     (mkIf config.services.xserver.enable {
       user.packages = with pkgs; [
         my.lightly-qt5
-        qogir-theme
+        # qogir-theme
         qogir-icon-theme
       ];
       fonts = {
