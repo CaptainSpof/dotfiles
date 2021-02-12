@@ -78,14 +78,6 @@ in {
         };
       };
 
-      # Login screen theme
-      # services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
-      #   text-color = "#ff79c6"
-      #   password-background-color = "#1E2029"
-      #   window-color = "#181a23"
-      #   border-color = "#181a23"
-      # '';
-
       # Other dotfiles
       home.configFile = with config.modules; mkMerge [
         {
