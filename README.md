@@ -8,15 +8,13 @@
 
 For now, I've tried to replicate my previous Arch installation. It's based on plasma. 
 
-I've added a custom derivation for touchégg (touchpad gestures). Hopefully I haven't messed it up too much.
+I've added an [overlay](overlays/touchegg.nix) for [touchégg](https://github.com/JoseExposito/touchegg) (touchpad gestures). Hopefully I haven't messed it up too much.
 
-I've added an overlay "locked", I am an update freak, can't wait long before `hey up` my configuration. So the locked overlay, is basically a jail for the binary not hitting the cache.
+I've added a [derivation](packages/lightly-qt5.nix) for the qt theme "[Lightly](https://github.com/Luwx/Lightly)".
 
 I've added a bunch of apps and modules that I used and some that I wish I didn't. Configuration for said apps is really scarce (damn you plasma, you're qt and all, but your configuration setup is a mess...) 
 
-I've failed to add to the custom packages the derivation I made for the qt theme "Lightly" (it works on my machine, I know, insult and injury yadiyada for a nixos config)
-
-Same goes for krohnkite (a tilling window manager plugins for plasma), I had to install it manually.
+I've failed to add an overlay for [krohnkite](https://github.com/esjeon/krohnkite) (a tilling window manager plugins for plasma), I had to install it manually. (it works on my machine, I know, insult and injury yadiyada for a nixos config)
 
 Next in line is to continue to make sense out of nix, learn some nixops stuff (didn't quite figure out how to remotely build a configuration, maybe nixops will help).
 I'd like to setup a few raspberry pi with nix and maybe nix containers.
@@ -35,12 +33,13 @@ I'd like to setup a few raspberry pi with nix and maybe nix containers.
 |-|-|
 | **Shell:** | zsh + zgen |
 | **DM:** | sddm |
-| **DE/WM:** | plasma + krohnkite |
+| **DE/WM:** | plasma + [krohnkite](https://github.com/esjeon/krohnkite) |
 | **Editor:** | [Doom Emacs][doom-emacs] (and occasionally [vim]) |
 | **Terminal:** | alacritty |
 | **Launcher:** | rofi + krunner |
 | **Browser:** | firefox |
-| **GTK Theme:** | Lightly (Not available in this repo, due to too few brain cells) |
+| **GTK Theme:** | Breeze |
+| **Qt Theme:** | [Lightly](https://github.com/Luwx/Lightly) |
 
 -----
 
