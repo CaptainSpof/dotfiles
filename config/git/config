@@ -5,7 +5,9 @@
 	gpgsign = false
 [core]
 	whitespace = trailing-space
-    pager = delta
+	pager = delta
+[init]
+	defaultBranch = main
 [github]
 	user = CaptainSpof
 [rebase]

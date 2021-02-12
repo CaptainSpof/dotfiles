@@ -16,12 +16,10 @@
   inputs = 
     {
       # Core dependencies.
-      # Two inputs so I can track them independently
-      nixpkgs.url = "nixpkgs/master";
-      nixpkgs-unstable.url = "nixpkgs/master";
-      nixpkgs-locked.url   = "nixpkgs/master";
-
-      home-manager.url   = "github:rycee/home-manager/master";
+      nixpkgs.url = "nixpkgs/nixos-unstable";     # primary nixpkgs
+      nixpkgs-unstable.url = "nixpkgs/master";    # for packages on the edge
+      nixpkgs-stable.url = "nixpkgs/nixos-20.09"; # for stable packages
+      home-manager.url = "github:rycee/home-manager/master";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
       agenix.url = "github:ryantm/agenix";
       agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +34,7 @@
       };
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, nixpkgs-locked, ... }:
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, ... }:
     let
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 
@@ -48,8 +46,8 @@
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };
       pkgs  = mkPkgs nixpkgs [ self.overlay ];
-      pkgs' = mkPkgs nixpkgs-unstable [];
-      pkgs'' = mkPkgs nixpkgs-locked [];
+      pkgsUnstable = mkPkgs nixpkgs-unstable [];
+      pkgsStable   = mkPkgs nixpkgs-stable [];
 
       lib = nixpkgs.lib.extend
         (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
@@ -58,8 +56,8 @@
 
       overlay =
         final: prev: {
-          unstable = pkgs';
-          locked = pkgs'';
+          unstable = pkgsUnstable;
+          stable = pkgsStable;
           my = self.packages."${system}";
         };
 
