@@ -56,7 +56,10 @@ in {
       xserver = {
         enable = true;
         displayManager = {
-          sddm.enable = true;
+          sddm = {
+            enable = true;
+            theme = "${pkgs.my.chili}/share/sddm/themes/chili";
+          };
         };
         desktopManager.plasma5.enable = true;
       };
