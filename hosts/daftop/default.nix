@@ -101,19 +101,8 @@
     };
   };
 
-  # TODO: Move to own module.
-  systemd.services = {
-    tune-usb-autosuspend = {
-      description = "Disable USB autosuspend";
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig = { Type = "oneshot"; };
-      unitConfig.RequiresMountsFor = "/sys";
-      script = ''
-        echo -1 > /sys/module/usbcore/parameters/autosuspend
-      '';
-    };
-  };
-
+  # Caps lock is now Ctrl
+  services.xserver.xkbOptions = "ctrl:swapcaps";
 
   ## Local config
   programs.ssh.startAgent = true;
@@ -142,16 +131,4 @@
   #   IdentitiesOnly yes
   #   IdentityFile /root/.ssh/root@daftop-builder.pem
   #   '';
-
-  # TODO Move to module ?
-  services.xserver.libinput = {
-    enable = true;
-    mouse = {
-      accelProfile = "flat";
-    };
-    touchpad = {
-      naturalScrolling = true;
-      disableWhileTyping = true;
-    };
-  };
 }

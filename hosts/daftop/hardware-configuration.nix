@@ -35,6 +35,7 @@
       prime.enable = false;
     };
     sensors.enable = true;
+    touchpad.enable = true;
     wacom.enable = true;
   };
 
@@ -49,17 +50,32 @@
   services.tlp = {
     enable = true;
     settings = {
-      USB_AUTOSUSPEND=0;
+      USB_AUTOSUSPEND=-1;
     };
   };
-
   services.thermald.enable = true;
+  # TODO: Move to own module.
+  # systemd.services = {
+  #   tune-usb-autosuspend = {
+  #     description = "Disable USB autosuspend";
+  #     wantedBy = [ "multi-user.target" ];
+  #     serviceConfig = { Type = "oneshot"; };
+  #     unitConfig.RequiresMountsFor = "/sys";
+  #     script = ''
+  #       echo -1 > /sys/module/usbcore/parameters/autosuspend
+  #     '';
+  #   };
+  # };
+
+  # Video
+  hardware.opengl.enable = true;
+  services.xserver.videoDrivers = [ "intel" ];
+
   # Monitor backlight control
   programs.light.enable = true;
   user.extraGroups = [ "video" ];
 
-  services.xserver.videoDrivers = [ "intel" ];
-
+  # File Systems
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
