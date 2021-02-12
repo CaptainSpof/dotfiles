@@ -71,7 +71,12 @@ in {
       };
     };
 
+    # I hate this. Plasma configuration's files are all over the place. And they act weird.
+    # touchpadxlibinputrc is a wild beast. I manage it mostly with xserver.libinput attributes.
     home.configFile = {
+      "autostart/yakuake.desktop" = {
+        source = "${configDir}/plasma/autostart/yakuake.desktop";
+      };
       "autostart-scripts/ssh-add.sh" = {
         source = "${configDir}/plasma/autostart-scripts/ssh-add.sh";
       };
