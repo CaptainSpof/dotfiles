@@ -1,3 +1,4 @@
+# FIXME: make it work...
 { stdenv, fetchFromGitHub, libsForQt5, lib }:
 
 stdenv.mkDerivation rec {
@@ -23,6 +24,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out/share/kservices5
     kpackagetool5 --type KWin/Script --install ${src}
     # mkdir -p $out/share/kservices5
+    # REVIEW: I probably need to sed metadata.desktop to point to nix/store
     ln -s ${src}/metadata.desktop $out/share/kservices5/Parachute.desktop
 
     # runHook postInstall
