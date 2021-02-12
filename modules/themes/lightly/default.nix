@@ -1,4 +1,4 @@
-# modules/themes/qogir-light/default.nix --- a regal qogir-inspired theme
+# modules/themes/lightly/default.nix --- a regal qogir-inspired theme
 
 { options, config, lib, pkgs, ... }:
 
@@ -6,7 +6,7 @@ with lib;
 with lib.my;
 let cfg = config.modules.theme;
 in {
-  config = mkIf (cfg.active == "qogir-light") (mkMerge [
+  config = mkIf (cfg.active == "lightly") (mkMerge [
     # Desktop-agnostic configuration
     {
       modules = {
@@ -41,6 +41,7 @@ in {
     # Desktop (X11) theming
     (mkIf config.services.xserver.enable {
       user.packages = with pkgs; [
+        my.lightly-qt5
         qogir-theme
         qogir-icon-theme
       ];
@@ -59,7 +60,7 @@ in {
       };
 
       # Compositor
-      services.picom = {
+      services.picom = mkIf (!config.modules.desktop.plasma.enable) {
         fade = true;
         fadeDelta = 1;
         fadeSteps = [ 0.01 0.012 ];
@@ -103,9 +104,9 @@ in {
           "polybar" = { source = ./config/polybar; recursive = true; };
           "dunst/dunstrc".source = ./config/dunstrc;
         })
-        # (mkIf desktop.media.graphics.vector.enable {
-        #   "inkscape/templates/default.svg".source = ./config/inkscape/default-template.svg;
-        # })
+        (mkIf desktop.media.graphics.vector.enable {
+          "inkscape/templates/default.svg".source = ./config/inkscape/default-template.svg;
+        })
       ];
     })
   ]);

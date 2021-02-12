@@ -95,7 +95,7 @@
       touchegg.enable = true;
     };
     theme = {
-      active = "qogir-light";
+      active = "lightly";
       prompt.enable = false;
       browsersTheme.enable = false;
     };

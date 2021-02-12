@@ -11,9 +11,9 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs;
       (if config.modules.desktop.plasma.enable then [
-        locked.libreoffice-qt
+        stable.libreoffice-qt
       ] else [
-        locked.libreoffice
+        stable.libreoffice
       ]);
   };
 }
