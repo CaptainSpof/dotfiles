@@ -72,6 +72,11 @@ in {
       };
     };
 
+    services.avahi.enable = true;
+    # REVIEW: That's a whole lotta port here.
+    networking.firewall.allowedUDPPortRanges = [ { from = 32768; to = 60999; } ];
+    networking.firewall.allowedTCPPortRanges = [ { from = 8008; to = 8010; } ];
+
     systemd.user.services.sxhkd = mkIf (config.modules.desktop.plasma.sxhkd.enable) {
       wantedBy = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
