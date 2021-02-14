@@ -18,7 +18,7 @@ in {
     # TODO: add own keys
     user.openssh.authorizedKeys.keys =
       if config.user.name == "daf"
-      then [ ]
+      then [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOkMUUwRW95/DuanXq8qh3Jfjo5RIkKUvx3NPGc6P8A0 daf@dafbox" ]
       else [];
 
     environment.systemPackages = with pkgs; [
