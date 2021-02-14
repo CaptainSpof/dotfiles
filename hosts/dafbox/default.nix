@@ -40,8 +40,11 @@
           enable = true;
           sprites.enable = false;
         };
-        vlc.enable = true;
-        recording.enable = false;
+        videos = {
+          mpv.enable = false;
+          vlc.enable = true;
+          recording.enable = false;
+        };
       };
       term = {
         default = "alacritty";

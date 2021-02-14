@@ -104,6 +104,10 @@ in {
       "arkrc" = {
         source = "${configDir}/plasma/arkrc";
       };
+      # REVIEW: should it stay here, or go in keyboard module ?
+      "kxkbrc" = {
+        source = "${configDir}/plasma/kxkbrc";
+      };
     };
   };
 }
