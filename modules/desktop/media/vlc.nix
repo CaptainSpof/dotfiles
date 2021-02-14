@@ -10,7 +10,10 @@ in {
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
+      castnow
       vlc
+      # TODO: Move to own module
+      youtubeDL
     ];
   };
 }
