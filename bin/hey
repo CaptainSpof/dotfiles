@@ -188,6 +188,7 @@ function main {
       if _do ssh -t "$target" "sudo mkdir -p /root/.ssh && sudo cp -f ~/.ssh/authorized_keys /root/.ssh/authorized_keys"; then
         trap '_do ssh -t "root@$target" "rm -f /root/.ssh/authorized_keys"' EXIT
         echo "Building $target ($cmd)"
+        echo "with cmd: $cmd from host: $(hostname) for host: $target"
         HOSTNAME="${HOSTNAME:-$target}" _rebuild \
           --build-host localhost \
           --target-host "root@$target" \
