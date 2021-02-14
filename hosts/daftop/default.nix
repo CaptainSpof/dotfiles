@@ -87,6 +87,7 @@
       zsh.enable = true;
     };
     services = {
+      chromecast.enable = true;
       docker.enable = true;
       emacs.enable = false;
       email.enable = true;
@@ -111,25 +112,4 @@
   services.openssh.startWhenNeeded = true;
 
   networking.networkmanager.enable = true;
-
-  # Offload builds
-  #   nix.distributedBuilds = false;
-  #   nix.buildMachines = [
-  #     {
-  #       hostName = "builder";
-  #       systems = [ "x86_64-linux" "aarch64-linux" ];
-  #       maxJobs = 4;
-  #       speedFactor = 2;
-  #       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-  #     }
-  #   ];
-
-  #   programs.ssh.extraConfig = ''
-  # Host builder
-  #   HostName 192.168.0.24
-  #   Port 22
-  #   User daf
-  #   IdentitiesOnly yes
-  #   IdentityFile /root/.ssh/root@daftop-builder.pem
-  #   '';
 }

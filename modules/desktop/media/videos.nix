@@ -24,7 +24,7 @@ in {
           celluloid)  # nice GTK GUI for mpv
       ] else []) ++
       [
-        (mkIf cfg.castnow.enable castnow)
+        (mkIf (cfg.castnow.enable || config.modules.services.chromecast.enable)  castnow)
         (mkIf cfg.kdenlive.enable kdenlive)
         (mkIf cfg.recording.enable obs-studio)
         (mkIf cfg.vlc.enable vlc)
