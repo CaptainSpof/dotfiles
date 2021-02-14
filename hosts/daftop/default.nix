@@ -42,9 +42,11 @@
           enable = true;
           sprites.enable = false;
         };
-        mpv.enable = false;
-        vlc.enable = true;
-        recording.enable = false;
+        video = {
+          mpv.enable = false;
+          vlc.enable = true;
+          recording.enable = false;
+        };
       };
       term = {
         default = "alacritty";
