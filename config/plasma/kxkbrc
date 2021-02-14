@@ -1,0 +1,12 @@
+[Layout]
+DisplayNames=,
+LayoutList=fr(us),us
+LayoutLoopCount=-1
+Model=pc86
+ResetOldOptions=false
+ShowFlag=false
+ShowLabel=true
+ShowLayoutIndicator=true
+ShowSingle=false
+SwitchMode=Global
+Use=true
