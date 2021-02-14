@@ -2,9 +2,9 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.media.video;
+let cfg = config.modules.desktop.media.videos;
 in {
-  options.modules.desktop.media.video = {
+  options.modules.desktop.media.videos = {
     enable               = mkBoolOpt true;
     castnow.enable       = mkBoolOpt false;
     kdenlive.enable      = mkBoolOpt false;

@@ -42,7 +42,7 @@
           enable = true;
           sprites.enable = false;
         };
-        video = {
+        videos = {
           mpv.enable = false;
           vlc.enable = true;
           recording.enable = false;
