@@ -108,6 +108,9 @@ in {
       "kxkbrc" = {
         source = "${configDir}/plasma/kxkbrc";
       };
+      "plasma-org.kde.plasma.desktop-appletsrc" = {
+        source = "${configDir}/plasma/plasma-org.kde.plasma.desktop-appletsrc";
+      };
     };
   };
 }
