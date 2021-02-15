@@ -7,7 +7,7 @@
 | CPU   | AMD Ryzen 7 1700                   |
 | MOBO  | Asus Prime B350-Plus               |
 | COOL  | BeQuiet! BK021                     |
-| GPU   |                                    |
+| GPU   | AMD Vega 56                        |
 | RAM   | Corsair Vengeance LPX 16GB         |
 | HDD   | [[https://www.newegg.ca/samsung-970-evo-plus-500gb/p/N82E16820147742?Description=samsung%20970%20evo%20plus&cm_re=samsung_970%20evo%20plus-_-20-147-742-_-Product][Samsung 970 EVO Plus 500GB NVMe M2]] |
 | HDD   |                                    |

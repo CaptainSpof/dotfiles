@@ -113,6 +113,7 @@ in {
         source = "${configDir}/plasma/kwinrc";
       };
       # TODO: install additional widgets
+      # TODO: handle secrets
       "plasma-org.kde.plasma.desktop-appletsrc" = {
         source = "${configDir}/plasma/plasma-org.kde.plasma.desktop-appletsrc";
       };

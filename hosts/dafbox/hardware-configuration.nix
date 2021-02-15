@@ -38,9 +38,12 @@
   # CPU
   nix.maxJobs = lib.mkDefault 16;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  hardware.cpu.amd.updateMicrocode = true;
 
+  # Video
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  # File system
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
