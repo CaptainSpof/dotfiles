@@ -39,13 +39,6 @@
   nix.maxJobs = lib.mkDefault 16;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
-  # Power management
-  environment.systemPackages = [ pkgs.acpi ];
-  services.thermald.enable = true;
-  # Monitor backlight control
-  programs.light.enable = true;
-  user.extraGroups = [ "video" ];
-
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   fileSystems."/" = {
