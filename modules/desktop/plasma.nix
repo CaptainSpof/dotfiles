@@ -45,6 +45,7 @@ in {
       partition-manager          # gparted, buy Qt
       plasma-browser-integration # integration with krunner and other stuff
       plasma-integration         # integrate stuff, I guess...
+      plasma-pa                  # REVIEW: needed for pipewire ?
       qbittorrent                # 🌊⛵
       sddm-kcm                   # add a useless entry in systemsettings, but it felt empty without it
       yakuake                    # quake style drop down terminal

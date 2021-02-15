@@ -10,6 +10,19 @@ in {
 
   config = mkIf cfg.enable {
     sound.enable = true;
+
+    # Not strictly required but pipewire will use rtkit if it is present
+    # FIXME: Can't seems to make bluetooth audio work
+    # security.rtkit.enable = true;
+    # services.pipewire = {
+    #   enable = true;
+    #   # Compatibility shims, adjust according to your needs
+    #   alsa.enable = true;
+    #   alsa.support32Bit = true;
+    #   pulse.enable = true;
+    #   jack.enable = true;
+    # };
+
     hardware.pulseaudio = {
       enable = true;
       # HACK Prevents ~/.esd_auth files by disabling the esound protocol module
