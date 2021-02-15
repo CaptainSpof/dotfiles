@@ -164,7 +164,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][2][Applets][65][Configuration][General]
-launchers=file:///etc/profiles/per-user/daf/share/applications/Alacritty.desktop,file:///etc/profiles/per-user/daf/share/applications/emacs.desktop,applications:firefox-private-2.desktop
+launchers=file:///etc/profiles/per-user/daf/share/applications/Alacritty.desktop,file:///etc/profiles/per-user/daf/share/applications/emacs.desktop,applications:firefox.desktop
 maxStripes=1
 
 [Containments][2][Applets][66]
