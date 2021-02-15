@@ -30,6 +30,7 @@
       enable = true;
       ssd.enable = true;
     };
+    keyboard.enable = true;
     sensors.enable = true;
     wacom.enable = true;
   };

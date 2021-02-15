@@ -9,9 +9,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.xserver.layout = "fr";
-    services.xserver.xkbVariant = "us";
-    # TODO: find a way to replace caps lock with ctrl (not swapping). Also, single press should be esc.
-    # services.xserver.xkbOptions = "compose:ralt";
+    services.xserver = {
+      layout = "us";
+      xkbVariant = "alt-intl";
+      # TODO: find a way to replace caps lock with ctrl (not swapping). Also, single press should be esc.
+      xkbOptions = "caps:escape";
+    };
   };
 }
