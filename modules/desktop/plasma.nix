@@ -108,6 +108,10 @@ in {
       "kxkbrc" = {
         source = "${configDir}/plasma/kxkbrc";
       };
+      "kwinrc" = {
+        source = "${configDir}/plasma/kwinrc";
+      };
+      # TODO: install additional widgets
       "plasma-org.kde.plasma.desktop-appletsrc" = {
         source = "${configDir}/plasma/plasma-org.kde.plasma.desktop-appletsrc";
       };
