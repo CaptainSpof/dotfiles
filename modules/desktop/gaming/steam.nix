@@ -20,6 +20,7 @@ in {
 
       user.packages = with pkgs; [
         lutris
+        vulkan-tools
         # Get steam to keep its garbage out of $HOME
         (writeScriptBin "steam" ''
           #!${stdenv.shell}
