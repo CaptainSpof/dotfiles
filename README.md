@@ -1,5 +1,5 @@
 [![Made with Doom Emacs](https://img.shields.io/badge/Made_with-Doom_Emacs-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white)](https://github.com/hlissner/doom-emacs)
-[![NixOS 20.09](https://img.shields.io/badge/NixOS-v20.09-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
+[![NixOS 21.03](https://img.shields.io/badge/NixOS-v21.03-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
 
 **Hey,** you. You're finally awake. You were trying to configure your OS declaratively, right? Walked right into that NixOS ambush, same as us, and those dotfiles over there.
 
@@ -45,7 +45,7 @@ I'd like to setup a few raspberry pi with nix and maybe nix containers.
 
 ## Quick start
 
-1. Yoink the latest stable build of [NixOS 20.09][nixos].
+1. Yoink the latest build of [NixOS 21.03][nixos].
 2. Boot into the installer.
 3. Do your partitions and mount your root to `/mnt` ([for example](hosts/dafbox/README.org))
 4. Install these dotfiles:
@@ -72,15 +72,15 @@ nixos-install --root /mnt --system ./result
 
 And I say, `bin/hey`. [What's going on?](http://hemansings.com/)
 
-| Command           | Description                                                     |
-|-------------------|-----------------------------------------------------------------|
-| `hey rebuild`     | Rebuild this flake (shortcut: `hey re`)                         |
-| `hey upgrade`     | Update flake lockfile and switch to it (shortcut: `hey up`)     |
-| `hey rollback`    | Roll back to previous system generation                         |
-| `hey gc`          | Runs `nix-collect-garbage -d`. Use sudo to clean system profile |
-| `hey push REMOTE` | Deploy these dotfiles to REMOTE (over ssh)                      |
-| `hey check`       | Run tests and checks for this flake                             |
-| `hey show`        | Show flake outputs of this repo                                 |
+| Command                    | Description                                                                |
+|----------------------------|----------------------------------------------------------------------------|
+| `hey check`                | Run tests and checks for this flake                                        |
+| `hey gc`                   | Runs `nix-collect-garbage -d`. Use `--all` to clean up system profile too. |
+| `hey rebuild`              | Rebuild this flake (shortcut: `hey re`)                                    |
+| `hey rollback`             | Roll back to previous system generation                                    |
+| `hey show`                 | Show flake outputs of this repo                                            |
+| `hey ssh REMOTE [COMMAND]` | Run a `bin/hey` command on REMOTE over ssh                                 |
+| `hey upgrade`              | Update flake lockfile and switch to it (shortcut: `hey up`)                |
 
 ## Frequently asked questions
 
@@ -127,5 +127,5 @@ And I say, `bin/hey`. [What's going on?](http://hemansings.com/)
 
 [doom-emacs]: https://github.com/hlissner/doom-emacs
 [vim]: https://github.com/hlissner/.vim
-[nixos]: https://releases.nixos.org/?prefix=nixos/20.09-small/
+[nixos]: https://releases.nixos.org/?prefix=nixos/unstable/
 [host/dafbox]: https://github.com/CaptainSpof/dotfiles/tree/master/hosts/dafbox

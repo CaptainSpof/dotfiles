@@ -46,8 +46,8 @@ in {
         dejavu_fonts
         symbola
         # TODO My battle to find where noto-emoji comes from continue...
-        stable.noto-fonts
-        stable.noto-fonts-cjk
+        noto-fonts
+        noto-fonts-cjk
         source-code-pro
       ];
     };
