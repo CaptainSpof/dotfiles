@@ -20,8 +20,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Luwx";
     repo = pname;
-    rev = "fecf30cc445f3a95a4f0196fa66443026072d366";
-    sha256 = "sha256-Zy4XdhsZpujvPUr98gGHoI5a6H6srHGsKfKdHhYZgEE=";
+    rev = "ddd97565a5935fb85009aac9f9ef10c00687e50c";
+    sha256 = "sha256-2QiCpPu3BsIFAj3pZsHw/nBZTSBtmXc+3GRDudqeZAU=";
   };
 
   outputs = [ "bin" "dev" "out" ];
