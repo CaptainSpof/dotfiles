@@ -1,6 +1,6 @@
 [Layout]
-DisplayNames=,,bé
-LayoutList=fr(us),us,fr(bepo_afnor)
+DisplayNames=,bé
+LayoutList=fr(us),fr(bepo_afnor)
 LayoutLoopCount=-1
 Model=pc86
 ResetOldOptions=false
