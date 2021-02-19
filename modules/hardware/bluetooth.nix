@@ -15,6 +15,11 @@ in {
     {
       hardware.bluetooth.enable = true;
       hardware.bluetooth.hsphfpd.enable = true;
+
+      systemd.services.bluetooth.serviceConfig.ExecStart = [
+        ""
+        "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
+      ];
     }
 
 
@@ -32,7 +37,7 @@ in {
           unload-module module-bluetooth-policy
         '';
       };
-      hardware.bluetooth.config = {
+      hardware.bluetooth.settings = {
         General = { Enable = "Source,Sink,Media,Socket"; };
       };
     })
