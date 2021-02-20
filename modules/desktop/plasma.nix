@@ -17,7 +17,7 @@ in {
 
   config = mkIf cfg.enable {
 
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs.unstable; [
 
       (mkIf (config.modules.desktop.plasma.polybar.enable) (polybar.override {
         pulseSupport = true;

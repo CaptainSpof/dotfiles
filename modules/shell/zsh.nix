@@ -35,7 +35,7 @@ in {
       promptInit = "";
     };
 
-    user.packages = with pkgs; [
+    user.packages = with pkgs.unstable; [
       bat                                    # cat, but pretty
       bandwhich                              # htop, but for network
       bottom                                 # htop, but pretty

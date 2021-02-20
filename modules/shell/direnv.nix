@@ -7,7 +7,7 @@ in {
   options.modules.shell.direnv = { enable = mkBoolOpt false; };
 
   config = mkIf cfg.enable {
-    user.packages = with pkgs; [ direnv nix-direnv ];
+    user.packages = with pkgs.unstable; [ direnv nix-direnv ];
     modules.shell.zsh.rcInit = ''eval "$(direnv hook zsh)"'';
 
     # nix options for derivations to persist garbage collection
