@@ -42,7 +42,7 @@ in {
       latte-dock                 # a pretty dock
       libnotify                  # just a random dep to send notification
       okular                     # pdf viewer
-      partition-manager          # gparted, buy Qt
+      # partition-manager          # gparted, but Qt
       plasma-browser-integration # integration with krunner and other stuff
       plasma-integration         # integrate stuff, I guess...
       plasma-pa                  # REVIEW: needed for pipewire ?

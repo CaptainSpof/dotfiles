@@ -5,7 +5,7 @@
   libsForQt5,
 }:
 
-stdenv.mkDerivation rec {
+libsForQt5.mkDerivation rec {
   name = "lightly-qt5";
   sname = "lightly";
   pname = "Lightly";
