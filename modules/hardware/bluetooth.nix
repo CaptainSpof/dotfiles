@@ -14,12 +14,6 @@ in {
   config = mkIf cfg.enable (mkMerge [
     {
       hardware.bluetooth.enable = true;
-      hardware.bluetooth.hsphfpd.enable = true;
-
-      systemd.services.bluetooth.serviceConfig.ExecStart = [
-        ""
-        "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
-      ];
     }
 
 
