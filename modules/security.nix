@@ -4,7 +4,6 @@ with lib;
 {
   ## System security tweaks
   boot.tmpOnTmpfs = true;
-  security.hideProcessInformation = true;
   security.protectKernelImage = true;
 
   security.pam.services.kwallet = mkIf (config.modules.desktop.plasma.enable) {
