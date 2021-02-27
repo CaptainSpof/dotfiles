@@ -24,7 +24,7 @@ with lib;
     longitude = 2.29;
   };
 
-  ##
+  # So the bitwarden CLI knows where to find my server.
   # modules.shell.bitwarden.config.server = "p.v0.io";
 
   services.syncthing.declarative = {

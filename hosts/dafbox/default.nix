@@ -1,7 +1,7 @@
 # dafbox -- my desktop
 
 { inputs, ... }: {
-  imports = [ ../personal.nix ./hardware-configuration.nix ];
+  imports = [ ../home.nix ./hardware-configuration.nix ];
 
   ## Modules
   modules = {

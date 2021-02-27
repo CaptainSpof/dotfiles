@@ -33,10 +33,10 @@ with lib.my;
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
       registry = registryInputs // { dotfiles.flake = inputs.self; };
-      useSandbox = true;
+      autoOptimiseStore = true;
     };
   system.configurationRevision = with inputs; mkIf (self ? rev) self.rev;
-  system.stateVersion = "21.03";
+  system.stateVersion = "21.05";
 
   ## Some reasonable, global defaults
   # This is here to appease 'nix flake check' for generic hosts with no
@@ -44,19 +44,20 @@ with lib.my;
   fileSystems."/".device = mkDefault "/dev/disk/by-label/nixos";
 
   # Use the latest kernel
-  boot.kernelPackages = mkDefault pkgs.linuxPackages_5_10;
-
-  boot.loader = {
-    efi.canTouchEfiVariables = mkDefault true;
-    systemd-boot.configurationLimit = 10;
-    systemd-boot.enable = mkDefault false;
-    timeout = 3;
-    grub = {
-      enable = true;
-      devices = [ "nodev" ];
-      efiSupport = true;
-      useOSProber = true;
-      splashImage = "${configDir}/grub/background.png";
+  boot = {
+    kernelPackages = mkDefault pkgs.linuxPackages_5_10;
+    loader = {
+      efi.canTouchEfiVariables = mkDefault true;
+      systemd-boot.configurationLimit = 10;
+      systemd-boot.enable = mkDefault true;
+      timeout = 3;
+      grub = {
+        enable = true;
+        devices = [ "nodev" ];
+        efiSupport = true;
+        useOSProber = true;
+        splashImage = "${configDir}/grub/background.png";
+      };
     };
   };
 
