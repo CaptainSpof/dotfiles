@@ -6,9 +6,12 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   boot = {
     initrd.availableKernelModules =
-      [ "xhci_pci" "nvme" "usb_storage" ];
+      [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
     initrd.kernelModules = [ "amdgpu"];
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
@@ -42,6 +45,9 @@
 
   # Video
   services.xserver.videoDrivers = [ "amdgpu" ];
+  hardware.enableRedistributableFirmware = true;
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
 
   # File system
   fileSystems."/" = {

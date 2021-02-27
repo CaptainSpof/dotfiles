@@ -18,7 +18,7 @@ in {
       hardware.opengl.driSupport32Bit  = true;
       hardware.pulseaudio.support32Bit = config.hardware.pulseaudio.enable;
 
-      user.packages = with pkgs; [
+      user.packages = with pkgs.unstable; [
         lutris
         vulkan-tools
         # Get steam to keep its garbage out of $HOME
