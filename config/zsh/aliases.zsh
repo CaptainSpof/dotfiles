@@ -71,8 +71,6 @@ if command -v exa >/dev/null; then
   alias la="LC_COLLATE=C ls -la";
 fi
 
-alias hey="FLAKE=$HOME/.config/dotfiles/ hey"
-
 autoload -U zmv
 
 take() {
