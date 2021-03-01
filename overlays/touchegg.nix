@@ -1,11 +1,11 @@
 self: super:
 {
   touchegg = super.touchegg.overrideAttrs (old: rec {
-    version = "2.0.7";
+    version = "2.0.8";
 
     src = super.fetchzip {
       url = "https://github.com/JoseExposito/touchegg/archive/${version}.zip";
-      sha256 = "sha256-1r4GqJMVraG98d49M9K5gEjZkbFTd7ys38SZSoGOq00=";
+      sha256 = "sha256-iUWEC5ogPw6h6GWLGcD2Wx+HSFr6gb+85JJ6hBbFtqk=";
     };
 
     buildInputs = with super; [ cmake pkg-config libudev libinput pugixml cairo xorg.libXtst xorg.xrandr xorg.libXrandr xorg.libXi gtk3 ];

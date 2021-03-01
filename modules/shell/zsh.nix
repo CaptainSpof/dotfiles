@@ -35,30 +35,30 @@ in {
       promptInit = "";
     };
 
-    user.packages = with pkgs.unstable; [
+    user.packages = with pkgs; [
       bat                                    # cat, but pretty
-      bandwhich                              # htop, but for network
-      bottom                                 # htop, but pretty
-      dua                                    # du, but pretty
-      exa                                    # ls, but pretty
-      fd                                     # find, but fast, also I know how to use it
-      fzf                                    # fuzzy finder, the original (probably not, who care)
-      ht-rust                                # httpie, but rusty
-      jq                                     # make JSON readable, well more readable
-      killall                                # every last one of them (the processes, of course)
-      navi                                   # retired from helping Link to help you suck less at bash
-      nix-zsh-completions                    # nix zsh completions, literally
-      pastel                                 # a color picker in a terminal ? Genius.
-      procs                                  # ps, but pretty
-      (ripgrep.override {withPCRE2 = true;}) # grep, but fast
-      skim                                   # fzf, but rusty
-      starship                               # a prompt theme, but I can explain why it's a mess
-      tealdeer                               # yeah, I need all the help; tldr but rusty
-      tokei                                  # need to know how many lines of poorly written code you typed ?
-      watchexec                              # watch, then exec; run commands when a file changes
-      wmctrl
-      zoxide
-      zsh
+      unstable.bandwhich                              # htop, but for network
+      unstable.bottom                                 # htop, but pretty
+      unstable.dua                                    # du, but pretty
+      unstable.exa                                    # ls, but pretty
+      unstable.fd                                     # find, but fast, also I know how to use it
+      unstable.fzf                                    # fuzzy finder, the original (probably not, who care)
+      unstable.ht-rust                                # httpie, but rusty
+      unstable.jq                                     # make JSON readable, well more readable
+      unstable.killall                                # every last one of them (the processes, of course)
+      unstable.navi                                   # retired from helping Link to help you suck less at bash
+      unstable.nix-zsh-completions                    # nix zsh completions, literally
+      unstable.pastel                                 # a color picker in a terminal ? Genius.
+      unstable.procs                                  # ps, but pretty
+      unstable.ripgrep                                # grep, but fast
+      unstable.skim                                   # fzf, but rusty
+      unstable.starship                               # a prompt theme, but I can explain why it's a mess
+      unstable.tealdeer                               # yeah, I need all the help; tldr but rusty
+      unstable.tokei                                  # need to know how many lines of poorly written code you typed ?
+      unstable.watchexec                              # watch, then exec; run commands when a file changes
+      unstable.wmctrl
+      unstable.zoxide
+      unstable.zsh
     ];
 
     env = {
