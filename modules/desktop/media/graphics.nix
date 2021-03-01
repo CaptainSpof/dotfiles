@@ -17,7 +17,7 @@ in {
     raster.enable  = mkBoolOpt true;
     vector.enable  = mkBoolOpt true;
     sprites.enable = mkBoolOpt true;
-    xournalpp.enable = mkBoolOpt true;
+    models.enable  = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
@@ -53,9 +53,9 @@ in {
         aseprite-unfree
       ] else []) ++
 
-      # Writes stuff
-      (if cfg.xournalpp.enable then [
-        xournalpp
+      # 3D modelling
+      (if cfg.models.enable then [
+        blender
       ] else []);
 
     home.configFile = mkIf cfg.raster.enable {
