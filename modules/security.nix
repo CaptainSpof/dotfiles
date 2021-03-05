@@ -20,7 +20,7 @@ with lib;
     where = "/tmp";
     type = "tmpfs";
     # Added noexec (for added security) and reduce size from 50% to 25%
-    options = "mode=1777,strictatime,rw,nosuid,nodev,noexec,size=25%";
+    options = "mode=1777,strictatime,rw,nosuid,nodev,size=25%";
   }];
   # If not using tmpfs, which is naturally purged on reboot, we must clean it
   # /tmp ourselves. /tmp should be volatile storage!
