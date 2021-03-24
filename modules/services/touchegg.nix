@@ -3,6 +3,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.services.touchegg;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.services.touchegg = {
     enable = mkBoolOpt false;

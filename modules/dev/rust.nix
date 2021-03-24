@@ -12,6 +12,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.dev.rust;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.dev.rust = {
     enable = mkBoolOpt false;

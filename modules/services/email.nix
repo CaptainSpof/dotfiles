@@ -3,6 +3,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.services.email;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.services.email = { enable = mkBoolOpt false; };
 
