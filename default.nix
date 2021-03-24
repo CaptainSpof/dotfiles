@@ -72,5 +72,6 @@ with lib.my;
     wget
     gnumake
     unzip
+    unrar
   ];
 }
