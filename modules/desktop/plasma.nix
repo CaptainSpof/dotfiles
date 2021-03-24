@@ -46,6 +46,7 @@ in {
       plasma-browser-integration # integration with krunner and other stuff
       plasma-integration         # integrate stuff, I guess...
       plasma-pa                  # REVIEW: needed for pipewire ?
+      plasma-systemmonitor        # the new ksysguard
       qbittorrent                # 🌊⛵
       sddm-kcm                   # add a useless entry in systemsettings, but it felt empty without it
       yakuake                    # quake style drop down terminal

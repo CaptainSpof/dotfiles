@@ -12,6 +12,7 @@ self: super:
 
     nativeBuildInputs = [ ];
 
+    # TODO: touchegg client still needs /usr/share/touchegg to run
     preConfigure = ''
             sed -e "s@/usr@$out/@g" -i $(find . -name CMakeLists.txt) $(find . -name touchegg.service)
             sed -e "s@/lib/systemd/system@$out/&/@g" -i $(find . -name CMakeLists.txt)

@@ -36,6 +36,7 @@
     keyboard.enable = true;
     sensors.enable = true;
     wacom.enable = true;
+    touchpad.enable = true;
   };
 
   # CPU
