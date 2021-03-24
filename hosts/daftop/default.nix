@@ -30,6 +30,7 @@
         steam.enable = false;
         emulators = {
           ds.enable = true;
+          gba.enable = true;
         };
       };
       media = {
@@ -76,6 +77,7 @@
       lua.enable = true;
       shell.enable = true;
       nix.enable = true;
+      node.enable = true;
     };
     shell = {
       aws.enable = true;

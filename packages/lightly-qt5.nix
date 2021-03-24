@@ -20,8 +20,8 @@ libsForQt5.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "Luwx";
     repo = pname;
-    rev = "0fdb791e38d32851ffc8442ae5eb2bccc72b39b6";
-    sha256 = "sha256-k1fEZbhzluNlAmj5s/O9X20aCVQxlWQm/Iw/euX7cmI=";
+    rev = "be20234dfb56e936735d215e15e96c6ec0f36e7a";
+    sha256 = "sha256-PoQiBOJA1nvCHjD/j4S02Ka8BdNTWFxzErf4QRTViIg=";
   };
 
   outputs = [ "bin" "dev" "out" ];

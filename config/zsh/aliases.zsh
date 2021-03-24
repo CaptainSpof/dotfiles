@@ -15,6 +15,8 @@ alias wget='wget -c'
 alias path='echo -e ${PATH//:/\\n}'
 alias ports='netstat -tulanp'
 
+alias ssh='TERM=xterm-256color ssh'
+
 alias mk=make
 alias gurl='curl --compressed'
 

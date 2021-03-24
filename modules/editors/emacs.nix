@@ -43,8 +43,18 @@ in {
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
       # emacsGcc   # 28 + native-comp
-      emacsPgtkGcc   # 28 + pgtk + native-comp
+      # emacsPgtkGcc   # 28 + pgtk + native-comp
       # emacs
+
+      ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages (epkgs: [
+        epkgs.vterm
+      ]))
+
+      # (emacsWithPackagesFromUsePackage {
+      #   extraEmacsPackages = epkgs: [
+      #     epkgs.emacs-libvterm
+      #   ];
+      # })
 
       ## Doom dependencies
       git
