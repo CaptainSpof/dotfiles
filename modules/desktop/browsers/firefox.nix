@@ -25,7 +25,7 @@ in {
   };
 
   config = mkIf cfg.enable (mkMerge [{
-    user.packages = with pkgs; [
+    user.packages = with pkgs.unstable; [
       firefox-bin
       (makeDesktopItem {
         name = "firefox-private";

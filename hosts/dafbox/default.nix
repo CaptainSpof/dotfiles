@@ -91,6 +91,7 @@
       nginx.enable = true;
       ssh.enable = true;
       syncthing.enable = true;
+      touchegg.enable = true;
     };
     theme = {
       active = "lightly";
