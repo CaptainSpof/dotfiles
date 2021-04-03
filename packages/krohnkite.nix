@@ -1,13 +1,12 @@
 { lib
-, mkDerivation
+, libsForQt5
 , fetchFromGitHub
 , extra-cmake-modules
-, kwindowsystem
-, plasma-framework
-, qtx11extras
+, nodePackages
+, p7zip
 }:
 
-mkDerivation rec {
+libsForQt5.mkDerivation rec {
   pname = "krohnkite";
   version = "0.8";
 
@@ -19,22 +18,21 @@ mkDerivation rec {
   };
 
   buildInputs = [
-    kwindowsystem plasma-framework qtx11extras
+    libsForQt5.kwindowsystem libsForQt5.plasma-framework libsForQt5.qtx11extras
+    nodePackages.typescript
+    p7zip
   ];
 
-  nativeBuildInputs = [
-    extra-cmake-modules
-  ];
+  # nativeBuildInputs = [
+  #   extra-cmake-modules
+  # ];
 
-  cmakeFlags = [
-    "-Wno-dev"
-  ];
+  # cmakeFlags = [
+  #   "-Wno-dev"
+  # ];
 
   meta = with lib; {
-    description = "Manage virtual desktops dynamically in a convenient way";
-    homepage = "https://github.com/wsdfhjxc/virtual-desktop-bar";
     license = licenses.gpl3Only;
     platforms = platforms.linux;
-    maintainers = with maintainers; [ peterhoeg ];
   };
 }
