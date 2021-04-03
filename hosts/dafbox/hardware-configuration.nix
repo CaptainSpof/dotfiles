@@ -40,7 +40,7 @@
   };
 
   # CPU
-  nix.maxJobs = lib.mkDefault 16;
+  nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   hardware.cpu.amd.updateMicrocode = true;
 
