@@ -8,7 +8,8 @@ autoload -U is-at-least
 
 ## vi-mode ###############
 # FIXME This brokes everything, for some reason.
-# bindkey -v
+bindkey -v
+bindkey '^R' fzf-history-widget
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins ' ' magic-space
 # bindkey -M viins '^I' expand-or-complete-prefix

@@ -67,7 +67,7 @@ in {
       imagemagick         # for image-dired
       (mkIf (config.programs.gnupg.agent.enable) pinentry_emacs)   # in-emacs gnupg prompts
       pandoc
-      python3             # for treemacs
+      # python3             # for treemacs
       zstd                # for undo-fu-session/undo-tree compression
       cmake               # for vterm
 

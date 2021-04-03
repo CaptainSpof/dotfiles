@@ -66,3 +66,8 @@ when = "tab --starship"
 style = "bold blue"
 variable = "TAB"
 format = " ⇥ [$symbol$output]($style) "
+
+[custom.env]
+command = "echo $env"  # shows output of command
+files = [".envrc"]
+format = " working in [$output]($style) "

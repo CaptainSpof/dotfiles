@@ -41,16 +41,21 @@
 
   # CPU
   nix.maxJobs = lib.mkDefault 8;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   hardware.cpu.intel.updateMicrocode = true;
 
   # Power management
   environment.systemPackages = [ pkgs.acpi ];
+  # powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   powerManagement.powertop.enable = true;
   services.tlp = {
     enable = true;
     settings = {
       USB_AUTOSUSPEND=-1;
+    };
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_HWP_ON_AC = "performance";
     };
   };
   services.thermald.enable = true;

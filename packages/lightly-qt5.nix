@@ -1,5 +1,4 @@
 {
-  stdenv,
   fetchFromGitHub,
   extra-cmake-modules,
   libsForQt5,

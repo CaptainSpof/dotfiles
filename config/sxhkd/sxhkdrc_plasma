@@ -3,13 +3,13 @@
 super + Return
 	$TERMINAL
 
-super + shift + e
+super + shift + p
 	$EDITOR
 
-super + e
+super + p
 	doom everywhere
 
-super + shift + w
+super + shift + é
 	$BROWSER
 
 # ctrl + super + Return
@@ -27,10 +27,10 @@ super + shift + grave
 # super + Tab
 # 	$DOTFILES/bin/rofi/windowmenu
 
-super + b
+super + k
 	$DOTFILES/bin/rofi/rofi-bluetooth
 
-super + p
+super + j
 	$DOTFILES/bin/rofi/rofi-pass --last-used
 
 # super + slash

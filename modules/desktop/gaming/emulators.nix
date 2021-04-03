@@ -20,6 +20,7 @@ in {
              cfg.gb.enable  ||
              cfg.snes.enable)
         higan)
+      # unstable.yuzu
     ];
   };
 }

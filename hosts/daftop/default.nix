@@ -78,6 +78,7 @@
       shell.enable = true;
       nix.enable = true;
       node.enable = true;
+      python.enable = true;
     };
     shell = {
       aws.enable = true;
@@ -91,6 +92,7 @@
     services = {
       chromecast.enable = true;
       docker.enable = true;
+      espanso.enable = true;
       emacs.enable = false;
       email.enable = true;
       kdeconnect.enable = true;

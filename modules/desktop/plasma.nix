@@ -27,7 +27,7 @@ in {
       # FIXME: Do I really need that? I mean, nix being lazy and such, I don't need to explicitly add it here... I think.
       (mkIf (config.modules.desktop.plasma.sxhkd.enable) sxhkd)
 
-      (mkIf config.services.syncthing.enable syncthingtray)
+      # (mkIf config.services.syncthing.enable syncthingtray)
 
       # I don't really need that, most of those apps comes by default with plasma / kde. But it helps me remember what they are.
       ark                        # archiver
@@ -39,23 +39,27 @@ in {
       kdeplasma-addons           # the f🦖ck if I know
       kid3                       # edit metadata
       kinfocenter                # the f🦖ck if I know
+      krohnkite
       latte-dock                 # a pretty dock
       libnotify                  # just a random dep to send notification
       okular                     # pdf viewer
-      # partition-manager          # gparted, but Qt
+      partition-manager          # gparted, but Qt
       plasma-browser-integration # integration with krunner and other stuff
+      plasma-applet-virtual-desktop-bar
       plasma-integration         # integrate stuff, I guess...
       plasma-pa                  # REVIEW: needed for pipewire ?
       plasma-systemmonitor        # the new ksysguard
       qbittorrent                # 🌊⛵
       sddm-kcm                   # add a useless entry in systemsettings, but it felt empty without it
       yakuake                    # quake style drop down terminal
-      # my.parachute
+      libsForQt5.parachute
     ];
 
     services = {
       xserver = {
         enable = true;
+        layout = "fr";
+        xkbVariant = "bepo";
         displayManager = {
           sddm = {
             enable = true;
@@ -70,6 +74,7 @@ in {
           };
         };
         desktopManager.plasma5.enable = true;
+        # desktopManager.plasma5.runUsingSystemd = true;
       };
     };
 
@@ -115,9 +120,9 @@ in {
       };
       # TODO: install additional widgets
       # TODO: handle secrets
-      "plasma-org.kde.plasma.desktop-appletsrc" = {
-        source = "${configDir}/plasma/plasma-org.kde.plasma.desktop-appletsrc";
-      };
+      # "plasma-org.kde.plasma.desktop-appletsrc" = {
+      #   source = "${configDir}/plasma/plasma-org.kde.plasma.desktop-appletsrc";
+      # };
     };
   };
 }
