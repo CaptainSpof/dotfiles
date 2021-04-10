@@ -158,7 +158,7 @@ module Hey
         sh ["nix", "flake", "update", "--update-input", flake, @@opts[:flake]]
       end.empty? and begin
         puts "Updating all flakes.."
-        sh ["nix", "flake", "update", "--recreate-lock-file", @@opts[:flake]]
+        sh ["nix", "flake", "update", @@opts[:flake]]
       end
     end
   end

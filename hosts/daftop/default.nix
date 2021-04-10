@@ -8,7 +8,6 @@
     desktop = {
       plasma = {
         enable = true;
-        polybar.enable = false;
         sxhkd.enable = true;
       };
       apps = {
@@ -116,4 +115,7 @@
   services.openssh.startWhenNeeded = true;
 
   networking.networkmanager.enable = true;
+
+  # Enable early oom.
+  services.earlyoom.enable = true;
 }

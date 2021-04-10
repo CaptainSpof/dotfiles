@@ -34,6 +34,7 @@
       enable = false;
       prime.enable = false;
     };
+    keyboard.enable = true;
     sensors.enable = true;
     touchpad.enable = true;
     wacom.enable = true;

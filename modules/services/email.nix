@@ -8,7 +8,7 @@ in {
   options.modules.services.email = { enable = mkBoolOpt false; };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs.unstable; [
       isync
       mu
     ];
@@ -16,7 +16,7 @@ in {
     systemd.user.services.mbsync = {
       enable = true;
       description = "Run mbsync";
-      path = with pkgs; [ gawk gnupg pass ];
+      path = with pkgs; [ gawk gnupg pass libsForQt5.kwallet ];
 
       wantedBy = [ "default.target" ];
       after = [ "network.target" ];
@@ -32,13 +32,13 @@ in {
       };
     };
 
-    # systemd.user.services.mu-server = {
-    #   enable = true;
-    #   description = "Run mu server";
-    #   wantedBy = [ "default.target" ];
-    #   after = [ "network.target" ];
-    #   serviceConfig.ExecStart = "${pkgs.mu}/bin/mu server";
-    # };
+    systemd.user.services.mu-server = {
+      enable = true;
+      description = "Run mu server";
+      wantedBy = [ "default.target" ];
+      after = [ "network.target" ];
+      serviceConfig.ExecStart = "${pkgs.mu}/bin/mu server";
+    };
 
     # FIXME: service not worky
     # systemd.user = {

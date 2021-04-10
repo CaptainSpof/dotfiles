@@ -11,55 +11,48 @@ let cfg = config.modules.desktop.plasma;
 in {
   options.modules.desktop.plasma = {
     enable = mkBoolOpt false;
-    polybar.enable = mkBoolOpt false;
     sxhkd.enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
 
-    environment.systemPackages = with pkgs.unstable; [
-
-      (mkIf (config.modules.desktop.plasma.polybar.enable) (polybar.override {
-        pulseSupport = true;
-        nlSupport = true;
-      }))
-
+    environment.systemPackages = with pkgs; [
       # FIXME: Do I really need that? I mean, nix being lazy and such, I don't need to explicitly add it here... I think.
       (mkIf (config.modules.desktop.plasma.sxhkd.enable) sxhkd)
 
       # (mkIf config.services.syncthing.enable syncthingtray)
 
       # I don't really need that, most of those apps comes by default with plasma / kde. But it helps me remember what they are.
-      ark                        # archiver
-      elisa                      # music player
-      filelight                  # disk analysis
-      qview                      # image viewer, but prettier
-      kate                       # text editor, mainly if the pleb need to edit text on my machine
-      kcharselect                # a tool to select weird characters, like: ⁂※🜂🜎❋❀
-      kdeplasma-addons           # the f🦖ck if I know
-      kid3                       # edit metadata
-      kinfocenter                # the f🦖ck if I know
-      krohnkite
-      latte-dock                 # a pretty dock
-      libnotify                  # just a random dep to send notification
-      okular                     # pdf viewer
-      partition-manager          # gparted, but Qt
-      plasma-browser-integration # integration with krunner and other stuff
-      plasma-applet-virtual-desktop-bar
-      plasma-integration         # integrate stuff, I guess...
-      plasma-pa                  # REVIEW: needed for pipewire ?
-      plasma-systemmonitor        # the new ksysguard
-      qbittorrent                # 🌊⛵
-      sddm-kcm                   # add a useless entry in systemsettings, but it felt empty without it
-      yakuake                    # quake style drop down terminal
-      libsForQt5.parachute
-    ];
+      ark                               # archiver
+      elisa                             # music player
+      filelight                         # disk analysis
+      kate                              # text editor, mainly if the pleb need to edit text on my machine
+      kcharselect                       # a tool to select weird characters, like: ⁂※🜂🜎❋❀
+      kcolorchooser                     # color picker
+      kdeplasma-addons                  # the f🦖ck if I know
+      kid3                              # edit metadata
+      kinfocenter                       # the f🦖ck if I know
+      krohnkite                         # a plugin to tile windows
+      latte-dock                        # a pretty dock
+      libnotify                         # just a random dep to send notification
+      libsForQt5.parachute              # a script, pretending it's cool like gnome
+      okular                            # pdf viewer
+      partition-manager                 # gparted, but Qt
+      plasma-applet-virtual-desktop-bar # applet to display virtual desktops in a bar
+      plasma-browser-integration        # integration with krunner and other stuff
+      plasma-integration                # integrate stuff, I guess...
+      plasma-pa                         # REVIEW: needed for pipewire ?
+      plasma-systemmonitor              # the new ksysguard
+      qbittorrent                       # 🌊⛵
+      qview                             # image viewer, but prettier
+      sddm-kcm                          # add a useless entry in systemsettings, but it felt empty without it
+      yakuake                           # quake style drop down terminal
+    ] ++ ( with unstable; [
+    ]);
 
     services = {
       xserver = {
         enable = true;
-        layout = "fr";
-        xkbVariant = "bepo";
         displayManager = {
           sddm = {
             enable = true;

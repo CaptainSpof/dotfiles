@@ -41,8 +41,8 @@ in {
     (mkIf config.services.xserver.enable {
       user.packages = with pkgs; [
         my.lightly-qt5
-        # qogir-theme
-        qogir-icon-theme
+        unstable.qogir-theme
+        unstable.qogir-icon-theme
       ];
       fonts = {
         fonts = with pkgs; [
@@ -91,7 +91,7 @@ in {
         (mkIf desktop.apps.rofi.enable {
           "rofi/theme" = { source = ./config/rofi; recursive = true; };
         })
-        (mkIf (desktop.bspwm.enable || desktop.stumpwm.enable || desktop.plasma.polybar.enable) {
+        (mkIf (desktop.bspwm.enable || desktop.stumpwm.enable) {
           "polybar" = { source = ./config/polybar; recursive = true; };
           "dunst/dunstrc".source = ./config/dunstrc;
         })
