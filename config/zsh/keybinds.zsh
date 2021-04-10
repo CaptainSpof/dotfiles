@@ -48,7 +48,7 @@ bindkey '^ ' edit-command-line
 
 bindkey -M viins '^n' history-substring-search-down
 bindkey -M viins '^p' history-substring-search-up
-bindkey -M viins '^s' history-incremental-pattern-search-backward
+# bindkey -M viins '^s' history-incremental-pattern-search-backward
 bindkey -M viins '^u' backward-kill-line
 bindkey -M viins '^w' backward-kill-word
 bindkey -M viins '^b' backward-word
@@ -67,6 +67,16 @@ bindkey -M viins '^[[Z' reverse-menu-complete
 # bind UP and DOWN arrow keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+# bindkey '^T' history-substring-search-down
+# bindkey '^S' history-substring-search-up
+
+# Bind up/down arrow keys to navigate through your history
+# bindkey '\e[A' directory-history-search-backward
+# bindkey '\e[B' directory-history-search-forward
+
+# Bind CTRL+k and CTRL+j to substring search
+bindkey '^s' history-substring-search-up
+bindkey '^t' history-substring-search-down
 
 # C-z to toggle current process (background/foreground)
 fancy-ctrl-z () {
@@ -82,8 +92,8 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 # Omni-Completion
-bindkey -M viins '^x^f' fasd-complete-f  # C-x C-f to do fasd-complete-f (only files)
-bindkey -M viins '^x^d' fasd-complete-d  # C-x C-d to do fasd-complete-d (only directories)
+# bindkey -M viins '^x^f' fasd-complete-f  # C-x C-f to do fasd-complete-f (only files)
+# bindkey -M viins '^x^d' fasd-complete-d  # C-x C-d to do fasd-complete-d (only directories)
 # Completing words in buffer in tmux
 if [ -n "$TMUX" ]; then
   _tmux_pane_words() {
@@ -123,7 +133,7 @@ bindkey "^[[3~" delete-char
 # Fix vimmish ESC
 bindkey -sM vicmd '^[' '^G'
 bindkey -rM viins '^X'
-bindkey -M viins '^X,' _history-complete-newer \
-  '^X/' _history-complete-older \
-  '^X`' _bash_complete-word
+# bindkey -M viins '^X,' _history-complete-newer \
+#   '^X/' _history-complete-older \
+#   '^X`' _bash_complete-word
 

@@ -1,5 +1,5 @@
 [aws]
-style = "bold blue"
+style = "bold #bb7445"
 # displayed_items = "profile"
 format = "[$symbol$profile]($style) "
 [aws.region_aliases]

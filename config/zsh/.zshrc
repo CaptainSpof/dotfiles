@@ -1,23 +1,78 @@
-[ -d "$ZGEN_DIR" ] || git clone https://github.com/tarjoilija/zgen "$ZGEN_DIR"
-source $ZGEN_SOURCE
-if ! zgen saved; then
-  echo "Initializing zgen"
-  zgen load hlissner/zsh-autopair autopair.zsh
-  # zgen load zdharma/history-search-multi-word
-  zgen load zsh-users/zsh-completions src
-  zgen load junegunn/fzf shell
-  zgen load zdharma/fast-syntax-highlighting
-  zgen load zsh-users/zsh-history-substring-search
-  # zgen load dbz/kube-aliases
-  # [ -z "$SSH_CONNECTION" ] &&
-  zgen save
-fi
+# [ -d "$ZGEN_DIR" ] || git clone https://github.com/tarjoilija/zgen "$ZGEN_DIR"
+# source $ZGEN_SOURCE
+# if ! zgen saved; then
+#   echo "Initializing zgen"
+#   zgen load hlissner/zsh-autopair autopair.zsh
+#   # zgen load zdharma/history-search-multi-word
+#   zgen load zsh-users/zsh-completions src
+#   zgen load junegunn/fzf shell
+#   zgen load zdharma/fast-syntax-highlighting
+#   zgen load zsh-users/zsh-history-substring-search
+#   # [ -z "$SSH_CONNECTION" ] &&
+#   zgen save
+# fi
+#
+# [ -d "$ZGENOM_DIR" ] || git clone https://github.com/jandamm/zgenom.git "$ZGENOM_DIR"
+# source $ZGENOM_SOURCE
+
+# if ! zgenom saved; then
+#   echo "Initializing zgenom"
+#   zgenom load hlissner/zsh-autopair autopair.zsh
+#   # zgenom load zdharma/history-search-multi-word
+#   zgenom load zsh-users/zsh-completions src
+#   zgenom load zsh-users/zsh-autosuggestions
+#   zgenom load junegunn/fzf shell
+#   zgenom load zdharma/fast-syntax-highlighting
+#   zgenom load zsh-users/zsh-history-substring-search
+#   # [ -z "$SSH_CONNECTION" ] &&
+#   zgenom save
+# fi
+
+source "$ZINIT_BIN_DIR/zinit.zsh"
+
+# zinit wait lucid light-mode for \
+#   blockf atpull'zinit creinstall -q .' \
+#       zsh-users/zsh-completions
+
+
+# zinit ice wait lucid atload'_zsh_autosuggest_start'
+# zinit light zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid
+zinit light zsh-users/zsh-history-substring-search
+
+# zinit light zdharma/fast-syntax-highlighting
+
+zinit ice wait lucid
+zinit light hlissner/zsh-autopair
+
+zinit ice wait lucid blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
+# fzf integrations
+zinit ice wait lucid multisrc'shell/{key-bindings,completion}.zsh'
+zinit load junegunn/fzf
+
+# Autosuggestions & fast-syntax-highlighting
+zinit ice wait lucid atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
+zinit light zdharma/fast-syntax-highlighting
+# zsh-autosuggestions
+zinit ice wait lucid atload"!_zsh_autosuggest_start"
+zinit load zsh-users/zsh-autosuggestions
+
+# zinit light marlonrichert/zsh-autocomplete
+# zinit light zsh-users/zaw
+# zinit light tymm/zsh-directory-history
+# zstyle ':autocomplete:*' min-input 1  # number of characters (integer)
 
 source $ZDOTDIR/config.zsh
 if [[ $TERM != dumb ]]; then
   source $ZDOTDIR/keybinds.zsh
   source $ZDOTDIR/completion.zsh
   source $ZDOTDIR/aliases.zsh
+  # TODO: find cleaner way
+  source $ZDOTDIR/navi.zsh
+
 
   ##
   function _cache {
@@ -44,9 +99,9 @@ if [[ $TERM != dumb ]]; then
   source $ZDOTDIR/extra.zshrc
 
   ##
-  autoload -Uz compinit && compinit -u -d $ZSH_CACHE/zcompdump
-  autopair-init
+  # autoload -Uz compinit && compinit -u -d $ZSH_CACHE/zcompdump
+  # autopair-init
 
   # If you have host-local configuration, this is where you'd put it
-  [ -f ~/.zshrc ] && source ~/.zshrc
+  # [ -f ~/.zshrc ] && source ~/.zshrc
 fi
