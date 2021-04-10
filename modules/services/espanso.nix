@@ -3,6 +3,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.services.espanso;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.services.espanso = {
     enable = mkBoolOpt false;
@@ -27,5 +28,13 @@ in {
       after = [ "keyboard-setup.service" ];
       wantedBy = [ "graphical-session.target" ];
     };
+
+    # Config
+
+    home.configFile = {
+      "espanso/default.yml".source = "${configDir}/espanso/default.yml";
+      # "espanso/user/emails.yml".source = "${configDir}/espanso/user/emails.yml";
+    };
+
   };
 }

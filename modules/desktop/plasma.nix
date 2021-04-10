@@ -87,6 +87,9 @@ in {
       "autostart/yakuake.desktop" = {
         source = "${configDir}/plasma/autostart/yakuake.desktop";
       };
+      "autostart-scripts/hack-espanso.sh" = {
+        source = "${configDir}/plasma/autostart-scripts/hack-espanso.sh";
+      };
       "autostart-scripts/ssh-add.sh" = {
         source = "${configDir}/plasma/autostart-scripts/ssh-add.sh";
       };
