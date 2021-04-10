@@ -46,7 +46,7 @@ in {
     modules.desktop.browsers.firefox.settings = {
       "devtools.theme" = "light";
       # Enable userContent.css and userChrome.css for our theme modules
-      # "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       # Stop creating ~/Downloads!
       # "browser.download.dir" = "${config.user.home}/dl";
       # Don't use the built-in password manager; a nixos user is more likely
@@ -123,6 +123,10 @@ in {
       "datareporting.policy.dataSubmissionEnabled" = false;
       # Enable webrender
       "gfx.webrender.all" = true;
+      "gfx.webrender.enabled" = true;
+      "layers.acceleration.force-enabled" = true;
+      "layout.css.backdrop-filter.enabled" = true;
+      "svg.context-properties.content.enabled" = true;
     }
       # Allow to use Qt file picker
       // (mkIf (config.modules.desktop.plasma.enable) {
