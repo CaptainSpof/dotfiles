@@ -10,8 +10,8 @@ in {
 
   config = mkIf cfg.enable {
     services.xserver = {
-      layout = "us";
-      xkbVariant = "alt-intl";
+      layout = "fr";
+      xkbVariant = "bepo";
       # TODO: find a way to replace caps lock with ctrl (not swapping). Also, single press should be esc.
       xkbOptions = "caps:escape";
     };
