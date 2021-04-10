@@ -8,7 +8,6 @@
     desktop = {
       plasma = {
         enable = true;
-        polybar.enable = false;
         sxhkd.enable = true;
       };
       apps = {

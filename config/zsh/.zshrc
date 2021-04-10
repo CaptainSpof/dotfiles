@@ -54,7 +54,7 @@ zinit ice wait lucid multisrc'shell/{key-bindings,completion}.zsh'
 zinit load junegunn/fzf
 
 # Autosuggestions & fast-syntax-highlighting
-zinit ice wait lucid atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
+zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
 zinit light zdharma/fast-syntax-highlighting
 # zsh-autosuggestions
 zinit ice wait lucid atload"!_zsh_autosuggest_start"
