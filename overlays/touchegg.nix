@@ -8,8 +8,6 @@ self: super:
       sha256 = "sha256-dIUAN65grsFiCF1iDI2hDJQUtLmXxJ/1qAl/55NzRc0=";
     };
 
-    # buildInputs = with super; [ cmake pkg-config libudev libinput pugixml cairo xorg.libXtst xorg.xrandr xorg.libXrandr xorg.libXi gtk3 ];
-
     PKG_CONFIG_SYSTEMD_SYSTEMDSYSTEMUNITDIR = "${placeholder "out"}/lib/systemd/system";
 
     buildInputs = with super; [

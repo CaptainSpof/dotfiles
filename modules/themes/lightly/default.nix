@@ -17,7 +17,6 @@ in {
       '';
       modules = {
         theme = {
-          # wallpaper = mkDefault ./config/wallpaper.png;
           gtk = {
             theme = "Breeze";
             iconTheme = "Qogir";
@@ -49,7 +48,7 @@ in {
       user.packages = with pkgs; [
         my.lightly-qt5
         unstable.qogir-theme
-        unstable.qogir-icon-theme
+        my.qogir-icon-theme
       ];
       fonts = {
         fonts = with pkgs; [

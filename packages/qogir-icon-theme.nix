@@ -8,6 +8,7 @@ stdenv.mkDerivation rec {
     owner = "vinceliuice";
     repo = pname;
     rev = "0084e4391a756881cf6a12da5e0923738ce0020c";
+    sha256 = "sha256-2fUQ2z3uO9hYxowvRGCnwtTyB22nD6kKQNidzgCNMyA=";
   };
 
   nativeBuildInputs = [ ];
@@ -18,6 +19,8 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     patchShebangs install.sh
+    sed '/gtk-update-icon-cache.*/d' -i install.sh
+    sed '/THEME_VARIANTS=.*/d' -i install.sh
     mkdir -p $out/share/icons
     name= ./install.sh -d $out/share/icons
   '';

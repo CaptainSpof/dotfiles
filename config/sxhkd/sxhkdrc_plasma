@@ -1,6 +1,10 @@
 # Attach to a detached session. If none is available create a new one, rather
 # than attach to one that is already attached to elsewhere.
+
 super + Return
+	$TERMINAL -e bash -c "(tmux ls | grep -qEv 'attached|scratch' && tmux at) || tmux"
+
+super + shift + Return
 	$TERMINAL
 
 super + shift + p
@@ -9,11 +13,8 @@ super + shift + p
 super + p
 	doom everywhere
 
-super + shift + é
-	$BROWSER
-
-# ctrl + super + Return
-# 	alacritty
+# super + shift + é
+# 	$BROWSER
 
 super + grave
 	scratch
@@ -21,20 +22,11 @@ super + grave
 super + shift + grave
 	emacsclient -e '(open-scratch-frame)'
 
-# super + space
-# 	$DOTFILES/bin/rofi/appmenu
-
-# super + Tab
-# 	$DOTFILES/bin/rofi/windowmenu
-
 super + k
 	$DOTFILES/bin/rofi/rofi-bluetooth
 
 super + j
 	$DOTFILES/bin/rofi/rofi-pass --last-used
-
-# super + slash
-# 	$DOTFILES/bin/rofi/filemenu -x
 
 super + Escape
 	pkill -USR1 -x sxhkd

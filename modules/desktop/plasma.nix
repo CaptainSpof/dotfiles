@@ -30,6 +30,7 @@ in {
       kcharselect                       # a tool to select weird characters, like: ⁂※🜂🜎❋❀
       kcolorchooser                     # color picker
       kdeplasma-addons                  # the f🦖ck if I know
+      kdialog
       kid3                              # edit metadata
       kinfocenter                       # the f🦖ck if I know
       krohnkite                         # a plugin to tile windows
