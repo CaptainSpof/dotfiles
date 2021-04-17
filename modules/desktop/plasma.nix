@@ -30,13 +30,12 @@ in {
       kcharselect                       # a tool to select weird characters, like: ⁂※🜂🜎❋❀
       kcolorchooser                     # color picker
       kdeplasma-addons                  # the f🦖ck if I know
-      kdialog
+      kdialog                           # alert('ALERT');
       kid3                              # edit metadata
       kinfocenter                       # the f🦖ck if I know
       krohnkite                         # a plugin to tile windows
       latte-dock                        # a pretty dock
       libnotify                         # just a random dep to send notification
-      libsForQt5.parachute              # a script, pretending it's cool like gnome
       okular                            # pdf viewer
       partition-manager                 # gparted, but Qt
       plasma-applet-virtual-desktop-bar # applet to display virtual desktops in a bar
@@ -48,7 +47,9 @@ in {
       qview                             # image viewer, but prettier
       sddm-kcm                          # add a useless entry in systemsettings, but it felt empty without it
       yakuake                           # quake style drop down terminal
-    ] ++ ( with unstable; [
+    ] ++ ( with libsForQt5; [
+      parachute                         # a script, pretending it's cool like gnome
+      kamoso                            # a tool to check if you have letuce in your teeth before jumping in a visio call
     ]);
 
     services = {

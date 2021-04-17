@@ -56,13 +56,13 @@ in {
       procs                  # ps, but pretty
       ripgrep                # grep, but fast
       skim                   # fzf, but rusty
-      starship               # a prompt theme, but I can explain why it's a mess
+      starship               # a prompt theme, but I can explain why it's a mess (not really)
       tealdeer               # yeah, I need all the help; tldr but rusty
       tokei                  # need to know how many lines of poorly written code you typed ?
       watchexec              # watch, then exec; run commands when a file changes
-      wmctrl
-      zinit
-      zoxide
+      wmctrl                 # even X need some CLIs
+      zinit                  # how to configure zsh black magic with even more black magic
+      zoxide                 # go directly to dir, do not pass GO, do not collect 200$
     ];
 
     env = {
