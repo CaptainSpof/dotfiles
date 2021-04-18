@@ -42,6 +42,9 @@
           enable = true;
           sprites.enable = false;
         };
+        recording = {
+          enable = true;
+        };
         videos = {
           mpv.enable = false;
           vlc.enable = true;

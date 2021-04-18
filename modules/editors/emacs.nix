@@ -90,7 +90,7 @@ in {
       texlive.combined.scheme-medium
       # :lang rust
       rustfmt
-      # unstable.rust-analyzer
+      rust-analyzer
       xorg.xwininfo
 
       (makeDesktopItem {
