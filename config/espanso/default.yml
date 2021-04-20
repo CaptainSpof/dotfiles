@@ -45,3 +45,4 @@ matches:
         params:
           cmd: "echo Hello from your shell"
 
+toggle_key: LEFT_ALT

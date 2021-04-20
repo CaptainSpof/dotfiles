@@ -7,8 +7,8 @@ self: super:
     src = super.fetchFromGitHub {
       owner = "KDE";
       repo = "latte-dock";
-      rev = "b29a8fa9b306d7468bd0e20ad68ee0ab75ce647e";
-      sha256 = "sha256-8hdj2LRpXXwnTZ4zXFBnPDNjS4b5T2J7qSe0pVZz1bQ=";
+      rev = "1afe12ad71ab8018e635e41cdc45c6602817677d";
+      sha256 = "sha256-P2VHS6d7xoPFfbGBl85NzdD07arg2D47oXNMLzCad1k=";
     };
 
     # buildInputs = [ plasma-framework xorg.libpthreadstubs xorg.libXdmcp xorg.libSM ];

@@ -51,12 +51,6 @@ in {
         epkgs.vterm
       ]))
 
-      # (emacsWithPackagesFromUsePackage {
-      #   extraEmacsPackages = epkgs: [
-      #     epkgs.emacs-libvterm
-      #   ];
-      # })
-
       ## Doom dependencies
       git
       (ripgrep.override {withPCRE2 = true;})
@@ -90,7 +84,7 @@ in {
       texlive.combined.scheme-medium
       # :lang rust
       rustfmt
-      rust-analyzer
+      # rust-analyzer
       xorg.xwininfo
 
       (makeDesktopItem {
@@ -99,6 +93,16 @@ in {
         icon = "emacs";
         exec = "${pkgs.emacsPgtkGcc}/bin/emacsclient -create-frame --alternate-editor=\"\" --no-wait %F";
         categories = "Development";
+      })
+
+      (makeDesktopItem {
+        name = "org-protocol";
+        desktopName = "org-protocol";
+        exec = "emacsclient -n %u";
+        type = "Application";
+        terminal = "false";
+        categories = "System";
+        mimeType = "x-scheme-handler/org-protocol";
       })
     ];
 
