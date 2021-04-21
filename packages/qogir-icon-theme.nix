@@ -30,6 +30,5 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/vinceliuice/Qogir-icon-theme";
     license = with licenses; [ gpl3 ];
     platforms = platforms.linux;
-    maintainers = with maintainers; [ romildo ];
   };
 }

@@ -19,7 +19,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    user.packages = with pkgs; [
+    user.packages = with pkgs.unstable; [
+      gcc             # linker cc not found 😢
       rustup
       rust-analyzer
     ];
@@ -31,7 +32,7 @@ in {
     environment.shellAliases = {
       rs  = "rustc";
       rsp = "rustup";
-      car  = "cargo";
+      car = "cargo";
     };
 
     home.dataFile = {

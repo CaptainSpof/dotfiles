@@ -40,7 +40,7 @@ pure_msg = "[❄](bold blue)"
 format = 'with [$state]($style) '
 
 [kubernetes]
-# format = "on [⛵ $context \\($namespace\\)](dimmed green) "
+format = "[⛵ $context \\($namespace\\)](dimmed #305ebc) "
 disabled = false
 [kubernetes.context_aliases]
 "dev.local.cluster.k8s" = "dev"
@@ -50,11 +50,8 @@ disabled = true
 
 [memory_usage]
 disabled = false
-show_percentage = true
-show_swap = false
 threshold = 65
 symbol = "🐏"
-separator = "/"
 style = "bold dimmed red"
 format = "$symbol [${ram_pct}( | ${swap})]($style) "
 
@@ -64,10 +61,15 @@ format = "$symbol [${ram_pct}( | ${swap})]($style) "
 command = "tab --starship"
 when = "tab --starship"
 style = "bold blue"
-variable = "TAB"
 format = " ⇥ [$symbol$output]($style) "
 
 [custom.env]
 command = "echo $env"  # shows output of command
 files = [".envrc"]
+when = """ [[ -n "$env" ]] """
 format = " working in [$output]($style) "
+
+[custom.nixshell]
+command = """ if [ -n "$NIX_SHELL_PKG" ] ; then echo "trying: $NIX_SHELL_PKG" ; fi """
+when = """ [[ "$name" == "nix-shell" || "$name" == "nix shell" ]] """
+format = " ❄🐚 [$output]($style) "

@@ -34,6 +34,7 @@ in {
       kid3                              # edit metadata
       kinfocenter                       # the f🦖ck if I know
       krohnkite                         # a plugin to tile windows
+      krfb                              # sometimes standing up from the couch to the desk is too much…
       latte-dock                        # a pretty dock
       libnotify                         # just a random dep to send notification
       okular                            # pdf viewer
@@ -50,6 +51,8 @@ in {
     ] ++ ( with libsForQt5; [
       parachute                         # a script, pretending it's cool like gnome
       kamoso                            # a tool to check if you have letuce in your teeth before jumping in a visio call
+    ]) ++ ( with unstable; [
+      plasma-pass
     ]);
 
     services = {
@@ -73,6 +76,9 @@ in {
       };
     };
 
+    system.userActivationScripts.autostart-latte.text = ''
+      ln -sf "${pkgs.latte-dock}/share/applications/org.kde.latte-dock.desktop" $HOME/.config/autostart/org.kde.latte-dock.desktop
+    '';
 
     systemd.user.services.sxhkd = mkIf (config.modules.desktop.plasma.sxhkd.enable) {
       wantedBy = [ "graphical-session.target" ];

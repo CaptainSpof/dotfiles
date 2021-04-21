@@ -12,7 +12,7 @@ in {
   config = mkIf cfg.enable {
 
     environment.systemPackages = with pkgs; [
-      touchegg # I'm too anxious to actually be useful to society and PR this package update, so this is an overlay... for now.
+      touchegg  # one day, we'll have touchpad gestures with smooth animations and easy configuration… But for now I have touchégg
     ];
 
     # FIXME: the derivation already provide this service file. I need to figure out how to enable it.

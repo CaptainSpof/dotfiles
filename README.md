@@ -3,21 +3,22 @@
 
 **Hey,** you. You're finally awake. You were trying to configure your OS declaratively, right? Walked right into that NixOS ambush, same as us, and those dotfiles over there.
 
-**Hey,** you. Did you get lost in your fork journey? It's alright, I've been there. Just note that I'm gently going with the nix waves, learning along (it's a pretty boring metaphore to say: I don't really know what I am doing. So beware.)
+**Hey,** you. Did you get lost in your fork journey? It's alright, I've been there. Just note that I'm gently going with the nix waves, learning along (it's a pretty boring metaphore to say: I don't really know what I am doing. So beware !)
 
 
 For now, I've tried to replicate my previous Arch installation. It's based on plasma. 
 
-I've added an [overlay](overlays/touchegg.nix) for [touchégg](https://github.com/JoseExposito/touchegg) (touchpad gestures). Hopefully I haven't messed it up too much.
-
 I've added a [derivation](packages/lightly-qt5.nix) for the qt theme "[Lightly](https://github.com/Luwx/Lightly)".
 
-I've added a bunch of apps and modules that I used and some that I wish I didn't. Configuration for said apps is really scarce (damn you plasma, you're qt and all, but your configuration setup is a mess...) 
+I've added a bunch of apps and modules that I used and some that I wish I didn't. Configuration for said apps is really scarce (damn you plasma, you're Qt and all, but your configuration setup is a mess…) 
 
-I've failed to add an overlay for [krohnkite](https://github.com/esjeon/krohnkite) (a tilling window manager plugins for plasma), I had to install it manually. (it works on my machine, I know, insult and injury yadiyada for a nixos config)
+I've failed to add an overlay for [krohnkite](https://github.com/esjeon/krohnkite) (a tilling window manager plugins for plasma), I had to install it manually. (it works on my machine, I know, insult and injury yadiyada for a nixos config).
 
-Next in line is to continue to make sense out of nix, learn some nixops stuff (didn't quite figure out how to remotely build a configuration, maybe nixops will help).
+Next in line is to continue to make sense out of nix, learn some nixops stuff (didn't quite figure out how to remotely build a configuration, maybe nixops will help, or maybe deploy-rs?).
+
 I'd like to setup a few raspberry pi with nix and maybe nix containers.
+
+I'll need to take a look on how to setup secrets. Agenix or something based on git crypt ?
 
 <img src="/../screenshots/alucard/fakebusy.png" width="100%" />
 <p align="center">
@@ -25,7 +26,7 @@ I'd like to setup a few raspberry pi with nix and maybe nix containers.
 <span><img src="/../screenshots/alucard/rofi.png" height="178" /></span>
 <span><img src="/../screenshots/alucard/tiling.png" height="178" /></span>
 </p>
-⬆ not mine, I use a white theme, as such I fear the Internet brigade will hunt me down if I post my own.
+⬆ not mine, I use a white theme, as such I fear the Internet brigade will hunt me down if I post my own. ⬆
 
 ------
 

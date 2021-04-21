@@ -27,22 +27,9 @@ self: super:
       libxcb
     ]);
 
-    # nativeBuildInputs = [ ];
     nativeBuildInputs = with super; [ pkg-config cmake ];
 
     preConfigure = "";
-
-    # TODO: touchegg client still needs /usr/share/touchegg to run
-    # preConfigure = ''
-    #         sed -e "s@/usr@$out/@g" -i $(find . -name CMakeLists.txt) $(find . -name touchegg.service)
-    #         sed -e "s@/lib/systemd/system@$out/&/@g" -i $(find . -name CMakeLists.txt)
-    #         # FIXME: Not using xdg autostart. Instead I use a custom user systemd service.
-    #         sed -e "s@/etc/xdg/autostart@$out/trash&/@g" -i $(find . -name CMakeLists.txt)
-
-    #         export CMAKE_INSTALL_PREFIX=$out
-    #         export CMAKE_INSTALL_BINDIR=$out/bin
-    #         export CMAKE_INSTALL_DATAROOTDIR=$out/share
-    #       '';
 
   });
 }

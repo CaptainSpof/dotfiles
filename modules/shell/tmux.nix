@@ -11,6 +11,26 @@ let cfg = config.modules.shell.tmux;
       exec ${pkgs.tmux}/bin/tmux -f "$TMUX_HOME/config" "$@"
     '');
     configDir = config.dotfiles.configDir;
+    # FIXME: how to build rust for a tmux plugin ?
+    # Maybe I can have a first derivation for thumbs, then use it in tmux-thumbs ?
+    tmux-thumbs = (pkgs.tmuxPlugins.mkTmuxPlugin {
+      pluginName = "tmux-thumbs";
+      version = "0.5.1";
+      src = pkgs.fetchFromGitHub {
+        owner = "fcsonline";
+        repo = "tmux-thumbs";
+        rev = "14b6cd4ec574636b38ce18e75a85eca3fee8e9ee";
+        sha256 = "sha256-mgGUZ2B9/ukMC4ptkcoZiXO3liYZOzJuXVx5riS9kfY=";
+      };
+
+      preInstall = ''
+        sed -i 's#BINARY=.*"#BINARY="${pkgs.my.thumbs}/bin/thumbs"#' tmux-thumbs.tmux
+        sed -i "s#CURRENT_DIR=.*#CURRENT_DIR=\"$out/share/tmux-plugins/tmux-thumbs\"#" tmux-thumbs.tmux
+        sed -i "s#CURRENT_DIR=.*#CURRENT_DIR=\"$out/share/tmux-plugins/tmux-thumbs\"#" tmux-thumbs.sh
+        sed -i 's#"$.CURRENT_DIR./target/release/tmux-thumbs"#${pkgs.my.thumbs}/bin/tmux-thumbs#' tmux-thumbs.sh
+      '';
+
+    });
 in {
   options.modules.shell.tmux = with types; {
     enable = mkBoolOpt false;
@@ -34,6 +54,7 @@ in {
         run-shell ${pkgs.tmuxPlugins.copycat}/share/tmux-plugins/copycat/copycat.tmux
         run-shell ${pkgs.tmuxPlugins.prefix-highlight}/share/tmux-plugins/prefix-highlight/prefix_highlight.tmux
         run-shell ${pkgs.tmuxPlugins.yank}/share/tmux-plugins/yank/yank.tmux
+        run-shell ${tmux-thumbs}/share/tmux-plugins/tmux-thumbs/tmux-thumbs.tmux
 
         ${concatMapStrings (path: "source '${path}'\n") cfg.rcFiles}
       '';

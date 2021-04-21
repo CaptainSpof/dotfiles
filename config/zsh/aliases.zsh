@@ -83,6 +83,22 @@ zman() {
   PAGER="less -g -I -s '+/^       "$1"'" man zshall;
 }
 
+# TODO: better implementation
+,() {
+  case "$@" in
+    *\#*) pkg="$@"  ;;
+    *) pkg="nixpkgs#$@"  ;;
+  esac
+
+  echo "Eww, I don't want $(tput setaf 4)$@$(tput sgr 0) in my PATH. Here, have a disposable shell…" && \
+    name='nix-shell' NIX_SHELL_PKG="$pkg" nix shell "$pkg" ; \
+    echo "…Mischief managed!"
+}
+
+nr() {
+  nix run nixpkgs#"$@"
+}
+
 # Create a reminder with human-readable durations, e.g. 15m, 1h, 40s, etc
 # r() {
 #   local time=$1; shift

@@ -16,7 +16,6 @@ in {
       hardware.bluetooth.enable = true;
     }
 
-
     (mkIf cfg.audio.enable {
       hardware.pulseaudio = {
         # NixOS allows either a lightweight build (default) or full build of

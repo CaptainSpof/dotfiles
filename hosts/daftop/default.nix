@@ -83,7 +83,7 @@
       python.enable = true;
     };
     shell = {
-      aws.enable = true;
+      aws.enable = false;
       direnv.enable = true;
       git.enable = true;
       gnupg.enable = true;
@@ -110,15 +110,13 @@
     };
   };
 
-  # Caps lock is now Ctrl
-  # services.xserver.xkbOptions = "ctrl:swapcaps,ctrl:ctrl";
-
   ## Local config
   programs.ssh.startAgent = true;
   services.openssh.startWhenNeeded = true;
 
   networking.networkmanager.enable = true;
 
-  # Enable early oom.
+  # Enable early oom
   services.earlyoom.enable = true;
+
 }

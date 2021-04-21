@@ -11,7 +11,7 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs;
       (if config.modules.desktop.plasma.enable then [
-        unstable.libreoffice-qt
+        libreoffice-qt
       ] else [
         libreoffice-fresh
       ]);
