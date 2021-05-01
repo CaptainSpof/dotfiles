@@ -34,7 +34,6 @@ in {
       kid3                              # edit metadata
       kinfocenter                       # the f🦖ck if I know
       krohnkite                         # a plugin to tile windows
-      krfb                              # sometimes standing up from the couch to the desk is too much…
       latte-dock                        # a pretty dock
       libnotify                         # just a random dep to send notification
       okular                            # pdf viewer
