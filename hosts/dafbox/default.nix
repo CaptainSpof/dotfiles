@@ -9,6 +9,7 @@
       plasma = {
         enable = true;
         sxhkd.enable = true;
+        krohnkite.enable = false;
       };
       apps = {
         chats = {
