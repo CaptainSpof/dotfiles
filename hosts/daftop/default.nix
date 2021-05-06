@@ -1,6 +1,6 @@
 # daftop -- my laptop
 
-{ inputs, ... }: {
+{ inputs, config, ... }: {
   imports = [ ../home.nix ./hardware-configuration.nix ];
 
   ## Modules
@@ -80,7 +80,7 @@
       shell.enable = true;
       nix.enable = true;
       node.enable = true;
-      python.enable = true;
+      python.enable = false;
     };
     shell = {
       aws.enable = false;
@@ -90,6 +90,7 @@
       pass.enable = true;
       tmux.enable = true;
       zsh.enable = true;
+      cli.enable = true;
     };
     services = {
       chromecast.enable = true;

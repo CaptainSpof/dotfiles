@@ -24,6 +24,7 @@ in {
       options.age.sshKeyPaths.default ++ (filter pathExists [
         "${config.user.home}/.ssh/id_ed25519"
         "${config.user.home}/.ssh/id_rsa"
+        "${config.user.home}/.ssh/daf@daftop.pem"
       ]);
   };
 }

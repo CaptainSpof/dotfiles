@@ -18,9 +18,10 @@ in {
   config = mkIf cfg.enable {
 
     environment.systemPackages = with pkgs; [
-      # FIXME: Do I really need that? I mean, nix being lazy and such, I don't need to explicitly add it here... I think.
-      (mkIf (config.modules.desktop.plasma.sxhkd.enable) sxhkd)
+      # REVIEW: Do I really need that? I mean, nix being lazy and such, I don't need to explicitly add it here... I think.
+      (mkIf (cfg.sxhkd.enable) sxhkd)
 
+      # No icon. :(
       # (mkIf config.services.syncthing.enable syncthingtray)
 
       # I don't really need that, most of those apps comes by default with plasma / kde. But it helps me remember what they are.
@@ -34,7 +35,7 @@ in {
       kdialog                           # alert('ALERT');
       kid3                              # edit metadata
       kinfocenter                       # the f🦖ck if I know
-      (mkIf (config.modules.desktop.plasma.krohnkite.enable)
+      (mkIf (cfg.krohnkite.enable)
         krohnkite)                      # a plugin to tile windows
       krfb                              # sometimes standing up from the couch to the desk is too much…
       latte-dock                        # a pretty dock
@@ -54,7 +55,7 @@ in {
       parachute                         # a script, pretending it's cool like gnome
       kamoso                            # a tool to check if you have letuce in your teeth before jumping in a visio call
     ]) ++ ( with unstable; [
-      plasma-pass
+      # …
     ]);
 
     services = {
@@ -82,7 +83,11 @@ in {
       ln -sf "${pkgs.latte-dock}/share/applications/org.kde.latte-dock.desktop" $HOME/.config/autostart/org.kde.latte-dock.desktop
     '';
 
-    systemd.user.services.sxhkd = mkIf (config.modules.desktop.plasma.sxhkd.enable) {
+    system.userActivationScripts.secret-toast.text = ''
+      echo 'hihihihihihihi' > $HOME/hihi.txt
+    '';
+
+    systemd.user.services.sxhkd = mkIf (cfg.sxhkd.enable) {
       wantedBy = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
 
@@ -103,10 +108,10 @@ in {
       "autostart-scripts/ssh-add.sh" = {
         source = "${configDir}/plasma/autostart-scripts/ssh-add.sh";
       };
-      "kglobalshortcutsrc" = {
-        source = "${configDir}/plasma/kglobalshortcutsrc";
-        recursive = true;
-      };
+      # "kglobalshortcutsrc" = {
+      #   source = "${configDir}/plasma/kglobalshortcutsrc";
+      #   recursive = true;
+      # };
       "touchpadxlibinputrc" = {
         source = "${configDir}/plasma/touchpadxlibinputrc";
         recursive = true;

@@ -21,6 +21,7 @@ in {
       manix
       nix-tree
       nixfmt
+      nixpkgs-review
       rnix-lsp
     ];
   };

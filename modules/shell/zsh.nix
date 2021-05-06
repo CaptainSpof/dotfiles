@@ -40,34 +40,12 @@ in {
     };
 
     user.packages = with pkgs; [
-      bottom              # htop, but pretty
+      # …
     ] ++ ( with my; [
-      lfs                 # df, but pretty
-      thumbs
+      # …
     ]) ++ ( with unstable; [
-      bandwhich           # htop, but for network
-      bat                 # cat, but pretty
-      dua                 # du, but pretty
-      exa                 # ls, but pretty
-      fd                  # find, but fast, also I know how to use it
-      fzf                 # fuzzy finder, the original (probably not, who care)
-      ht-rust             # httpie, but rusty
-      jq                  # make JSON readable, well more readable
-      killall             # every last one of them (the processes, of course)
-      navi                # retired from helping Link to help you suck less at bash
       nix-zsh-completions # nix zsh completions, literally
-      macchina            # neofetch, but fast
-      pastel              # a color picker in a terminal ? Genius.
-      procs               # ps, but pretty
-      ripgrep             # grep, but fast
-      skim                # fzf, but rusty
-      starship            # a prompt theme, but I can explain why it's a mess (not really)
-      tealdeer            # yeah, I need all the help; tldr but rusty
-      tokei               # need to know how many lines of poorly written code you typed ?
-      watchexec           # watch, then exec; run commands when a file changes
-      wmctrl              # even X need some CLIs
       zinit               # how to configure zsh black magic with even more black magic
-      zoxide              # go directly to dir, do not pass GO, do not collect 200$
     ]);
 
     env = {
@@ -109,17 +87,6 @@ in {
 
     };
 
-    home.file = {
-      ".lesskey".source = "${configDir}/less/lesskey";
-    };
-
-    # FIXME: not running
-    system.userActivationScripts.lesskey-init.text = ''
-      if [ ! -f $HOME/.less ]; then
-        lesskey
-      fi
-    '';
-
-      system.userActivationScripts.cleanupZgen = "rm -fv $XDG_CACHE_HOME/zsh/*";
+    system.userActivationScripts.cleanupZgen = "rm -fv $XDG_CACHE_HOME/zsh/*";
   };
 }

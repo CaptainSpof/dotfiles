@@ -25,7 +25,7 @@ wait=0.2
 xdotool_delay=12
 default_do='menu' # menu, copyPass, typeUser, typePass, copyUser, copyUrl, viewEntry, typeMenu, actionMenu, copyMenu, openUrl
 auto_enter='false'
-notify='false'
+notify='true'
 help_color=""
 clip=clipboard
 clip_clear=45
@@ -316,7 +316,7 @@ mainMenu () {
 		-dmenu \
 		-kb-custom-10 "${switch}" \
 		-select "$entry" \
-		-p "rofi-pass > ")"
+		-p "rofi-pass > (M-p to copy) ")"
 
 		rofi_exit=$?
 
@@ -351,7 +351,7 @@ mainMenu () {
 		args+=(-kb-mode-previous ""    # These keyboard shortcut options are needed, because
 			-kb-mode-next ""            # Shift+<Left|Right> are otherwise taken by rofi.
 			-select "$entry"
-			-p "> ")
+			-p "> (M-p to copy)")
 
 		if [[ ${#roots[@]} -gt "1" || $custom_root == "true" ]]; then
 			args+=(-mesg "PW Store: ${root}")

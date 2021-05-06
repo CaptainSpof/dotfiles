@@ -15,7 +15,7 @@ in {
       passwordAuthentication = false;
     };
 
-    # TODO: add own keys
+    # TODO: Maybe add keys to users.users.root.openssh.authorizedKeys.keys
     user.openssh.authorizedKeys.keys =
       if config.user.name == "daf"
       then [
