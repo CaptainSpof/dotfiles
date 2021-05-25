@@ -79,13 +79,11 @@ in {
       };
     };
 
-    system.userActivationScripts.autostart-latte.text = ''
-      ln -sf "${pkgs.latte-dock}/share/applications/org.kde.latte-dock.desktop" $HOME/.config/autostart/org.kde.latte-dock.desktop
-    '';
-
-    system.userActivationScripts.secret-toast.text = ''
-      echo 'hihihihihihihi' > $HOME/hihi.txt
-    '';
+    system.userActivationScripts = {
+      autostart-latte.text = ''
+        ln -sf "${pkgs.latte-dock}/share/applications/org.kde.latte-dock.desktop" $HOME/.config/autostart/org.kde.latte-dock.desktop
+      '';
+    };
 
     systemd.user.services.sxhkd = mkIf (cfg.sxhkd.enable) {
       wantedBy = [ "graphical-session.target" ];
@@ -96,9 +94,11 @@ in {
       };
     };
 
+
     # I hate this. Plasma configuration's files are all over the place. And they act weird.
     # touchpadxlibinputrc is a wild beast. I manage it mostly with xserver.libinput attributes.
     home.configFile = {
+
       "autostart/yakuake.desktop" = {
         source = "${configDir}/plasma/autostart/yakuake.desktop";
       };

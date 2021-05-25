@@ -47,8 +47,9 @@ in {
       # emacsPgtkGcc   # 28 + pgtk + native-comp
       # emacs
 
-      ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages (epkgs: [
-        epkgs.vterm
+      ((emacsPackagesNgGen emacsGcc).emacsWithPackages (epkgs: with epkgs;[
+        vterm
+        pdf-tools
       ]))
 
       ## Doom dependencies
@@ -68,7 +69,7 @@ in {
       ## Module dependencies
       # :checkers spell
       (aspellWithDicts (ds: with ds; [
-        en en-computers en-science
+        en en-computers en-science fr
       ]))
       # :checkers grammar
       languagetool
@@ -91,7 +92,7 @@ in {
         name = "emacs client";
         desktopName = "Emacs Client";
         icon = "emacs";
-        exec = "${pkgs.emacsPgtkGcc}/bin/emacsclient -create-frame --alternate-editor=\"\" --no-wait %F";
+        exec = "${pkgs.emacsGcc}/bin/emacsclient -create-frame --alternate-editor=\"\" --no-wait %F";
         categories = "Development";
       })
 
