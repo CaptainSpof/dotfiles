@@ -35,7 +35,7 @@ in {
 
       # Replaces photoshop
       (if cfg.raster.enable then [
-        unstable.krita
+        krita
         (makeDesktopItem {
           name = "krita-doodle";
           desktopName = "Krita Doodle";

@@ -56,7 +56,7 @@ in {
           fira-code-symbols
           siji
           font-awesome-ttf
-          (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+          (nerdfonts.override { fonts = [ "JetBrainsMono" "RobotoMono" ]; })
         ];
         fontconfig.defaultFonts = {
           sansSerif = ["Fira Sans"];

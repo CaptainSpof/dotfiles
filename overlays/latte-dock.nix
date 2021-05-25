@@ -6,8 +6,8 @@ self: super:
     src = super.fetchFromGitHub {
       owner = "KDE";
       repo = "latte-dock";
-      rev = "4f0830eb8aebfde6ccdff9c5499f32c9adece36c";
-      sha256 = "sha256-50VT32/sMJrRGQrVqmpHpcG14Lw1RYgk+jF6oA8MQfg=";
+      rev =  "11c3f2a664c3f94dad1cf0a44fce1fd5fbc9f40f";
+      sha256 = "sha256-xqxJuAlMozfSzreEeVffg2TMhkwKNhA8zKhfc1iBX+w=";
     };
 
   });

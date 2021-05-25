@@ -16,7 +16,7 @@
           teams.enable = true; # can't wait to disable that memory hogging app
           teamspeak.enable = false;
           telegram.enable = true;
-          slack.enable = true; # you too slack, you too...
+          slack.enable = true;
         };
         office.libreoffice.enable = true;
         rofi.enable = true;

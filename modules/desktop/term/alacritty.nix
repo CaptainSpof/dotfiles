@@ -16,7 +16,7 @@ in {
       [ "$TERM" = xst-256color ] && export TERM=xterm-256color
     '';
 
-    user.packages = with pkgs;
+    user.packages = with pkgs.unstable;
       [
         alacritty
       ];

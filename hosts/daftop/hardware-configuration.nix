@@ -40,6 +40,7 @@
     sensors.enable = true;
     touchpad.enable = true;
     wacom.enable = true;
+    # yubikey.enable = true;
   };
 
   # CPU
