@@ -60,7 +60,7 @@ bind M run '$TMUX_HOME/swap-pane.sh master'
 bind o resize-pane -Z
 bind C-s choose-session
 bind W choose-window
-bind / choose-session
+bind , choose-session
 bind . choose-window
 
 # bind = select-layout tiled

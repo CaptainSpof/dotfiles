@@ -28,6 +28,14 @@ matches:
         params:
           format: "%d-%m-%Y"
 
+  - trigger: ":datey"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%d-%m"
+
   - trigger: ":date:"
     replace: "{{mydate}}"
     vars:
