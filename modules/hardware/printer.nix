@@ -1,4 +1,4 @@
-# Cured is the poor soul who ventures here, this module won't work.
+# Cursed is the poor soul who ventures here, this module won't work.
 # Printers are cursed!
 # Note to self: Do not fight it, use your phone.
 # Heck, you're better off drawing whatever you want to print.
